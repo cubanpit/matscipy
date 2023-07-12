@@ -27,6 +27,7 @@
       BondData
       CutoffList
       DihedralsData
+      LJQData
       OPLSStructure
    
    

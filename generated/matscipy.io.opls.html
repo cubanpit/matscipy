@@ -106,90 +106,307 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.read_block" title="matscipy.io.opls.read_block"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_block</span></code></a>(filename, name)</p></td>
-<td><p></p></td>
+<td><p>Read a named data block from a parameter file for a non-reactive potential.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.read_cutoffs" title="matscipy.io.opls.read_cutoffs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_cutoffs</span></code></a>(filename)</p></td>
-<td><p></p></td>
+<td><p>Read the cutoffs for construction of a non-reactive system from a file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.read_extended_xyz" title="matscipy.io.opls.read_extended_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_extended_xyz</span></code></a>(fileobj)</p></td>
 <td><p>Read extended xyz file with labeled atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.read_lammps_data" title="matscipy.io.opls.read_lammps_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_lammps_data</span></code></a>(filename)</p></td>
-<td><p>Read positions, connectivities, etc.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.read_lammps_data" title="matscipy.io.opls.read_lammps_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_lammps_data</span></code></a>(filename[, ...])</p></td>
+<td><p>Read positions, bonds, angles and dihedrals from a LAMMPS file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.read_parameter_file" title="matscipy.io.opls.read_parameter_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_parameter_file</span></code></a>(filename)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.read_lammps_definitions" title="matscipy.io.opls.read_lammps_definitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_lammps_definitions</span></code></a>(filename)</p></td>
+<td><p>Reads force field definitions from a LAMMPS parameter file and stores the parameters in the LJQData, BondData, AnglesData and DihedralsData objects.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.update_from_lammps_dump" title="matscipy.io.opls.update_from_lammps_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_from_lammps_dump</span></code></a>(atoms, filename[, check])</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.read_parameter_file" title="matscipy.io.opls.read_parameter_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_parameter_file</span></code></a>(filename)</p></td>
+<td><p>Read the parameters of a non-reactive potential from a file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps" title="matscipy.io.opls.write_lammps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps</span></code></a>(prefix, atoms)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.update_from_lammps_dump" title="matscipy.io.opls.update_from_lammps_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_from_lammps_dump</span></code></a>(atoms, filename[, check])</p></td>
+<td><p>Read simulation cell, positions and velocities from a LAMMPS dump file and use them to update an existing configuration.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_atoms" title="matscipy.io.opls.write_lammps_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_atoms</span></code></a>(prefix, atoms)</p></td>
-<td><p>Write atoms input for LAMMPS</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps" title="matscipy.io.opls.write_lammps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps</span></code></a>(prefix, atoms)</p></td>
+<td><p>Convenience function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_definitions" title="matscipy.io.opls.write_lammps_definitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_definitions</span></code></a>(prefix, atoms)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_atoms" title="matscipy.io.opls.write_lammps_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_atoms</span></code></a>(prefix, atoms[, units])</p></td>
+<td><p>Write atoms input for LAMMPS.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_definitions" title="matscipy.io.opls.write_lammps_definitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_definitions</span></code></a>(prefix, atoms)</p></td>
 <td><p>Write force field definitions for LAMMPS.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_in" title="matscipy.io.opls.write_lammps_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_in</span></code></a>(prefix)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.io.opls.write_lammps_in" title="matscipy.io.opls.write_lammps_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_lammps_in</span></code></a>(prefix)</p></td>
+<td><p>Writes a simple LAMMPS input script for a structure optimization using a non-reactive potential.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_extended_xyz">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_extended_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_extended_xyz" title="Permalink to this definition"></a></dt>
-<dd><p>Read extended xyz file with labeled atoms.</p>
+<dd><p>Read extended xyz file with labeled atoms. The number of atoms should
+be given in the first line, the second line contains the cell
+dimensions and the definition of the columns. The file should contain
+the following columns: element (1 or 2 characters), x(float), y(float),
+z (float), molecule id (int), name (1 or 2 characters). A full
+description of the extended xyz format can be found for example in the
+ASE documentation. An example for a file defining an H2 molecule is
+given below.</p>
+<p>====== Example ======
+2
+Lattice=”10.0 0.0 0.0 0.0 10.0 0.0 0.0 0.0 10.0” Properties=species:S:1:pos:R:3:molid:I:1:type:S:1
+H 4.5 5.0 5.0 1 H1
+H 5.5 5.0 5.0 1 H1
+====== End of example ======</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>opls_struct</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure">matscipy.opls.OPLSStructure</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_block">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_block" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Read a named data block from a parameter file for a non-reactive
+potential. Blocks begin with ‘# name’ and are terminated by empty
+lines. More information and an example can be found in the
+documentation of the ‘read_parameter_file’ function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> – Name-Value pairs. Each value is a list of arbitrary length.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If data block ‘name’ is not found in the file.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_cutoffs">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_cutoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_cutoffs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Read the cutoffs for construction of a non-reactive system from a
+file. Comments in the file begin with ‘#’, the file should be
+structured like this:</p>
+<p>====== Example ======
+# Cutoffs
+C1-C1 1.23  # name, cutoff (A)
+H1-H1 4.56  # name, cutoff (A)
+C1-H1 7.89  # name, cutoff (A)
+====== End of example ======</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>cutoffs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="matscipy.opls.html#matscipy.opls.CutoffList" title="matscipy.opls.CutoffList">matscipy.opls.CutoffList</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_parameter_file">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_parameter_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_parameter_file" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Read the parameters of a non-reactive potential from a file. An example
+for the file structure is given below. The blocks are separated by empty
+lines, comments begin with ‘#’. For more information about the
+potentials, refer to the documentation of the LAMMPS commands
+bond_style harmonic, angle_style harmonic, dihedral_style harmonic.
+The default global cutoffs for Lennard-Jones and Coulomb interactions
+are 10.0 and 7.4 A. They can be overridden with the optional
+‘Cutoffs-LJ-Coulomb’ block. By default, geometric mixing is applied
+between Lennard-Jones parameters of different particle types and the
+global cutoff is used for all pairs. This behavior can be overridden
+using the optional ‘LJ-pairs’ block.</p>
+<p>====== Example ======
+# Element
+C1 0.001 3.5 -0.01  # name, LJ-epsilon (eV), LJ-sigma (A), charge (e)
+H1 0.001 2.5  0.01  # name, LJ-epsilon (eV), LJ-sigma (A), charge (e)</p>
+<p># Cutoffs-LJ-Coulomb (this block is optional)
+LJ 10.0  # distance (A)
+C  10.0  # distance (A)</p>
+<p># LJ-pairs (this block is optional)
+C1-H1 0.002 2.1 12.0  # name, epsilon (eV), sigma (A), cutoff (A)</p>
+<p># Bonds
+C1-C1 10.0 1.0  # name, spring constant*2 (eV/A**2), distance (A)</p>
+<p># Angles
+H1-C1-C1 1.0 100.0  # name, spring constant*2 (eV), equilibrium angle</p>
+<p># Dihedrals
+H1-C1-C1-H1 0.0 0.0 0.01 0.0  # name, energy (eV), energy (eV), …</p>
+<p># Cutoffs
+C1-C1 1.85  # name, cutoff (A)
+C1-H1 1.15  # name, cutoff (A)
+====== End of example ======</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>cutoffs</strong> (<em>matscipy.opls.CutoffList</em>)</p></li>
+<li><p><strong>ljq</strong> (<em>matscipy.opls.LJQData</em>)</p></li>
+<li><p><strong>bonds</strong> (<em>matscipy.opls.BondData</em>)</p></li>
+<li><p><strong>angles</strong> (<em>matscipy.opls.AnglesData</em>)</p></li>
+<li><p><strong>dihedrals</strong> (<em>matscipy.opls.DihedralsData</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Convenience function. The functions ‘write_lammps_in’,
+‘write_lammps_atoms’ and ‘write_lammps_definitions’ are usually
+called at the same time. This function combines them, filenames
+will be ‘prefix.in’, ‘prefix.atoms’ and ‘prefix.opls’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> (<em>str</em>) – </p></li>
+<li><p><strong>atoms</strong> (<a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><em>matscipy.opls.OPLSStructure</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_in">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_in" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Writes a simple LAMMPS input script for a structure optimization using
+a non-reactive potential. The name of the resulting script is
+‘prefix.in’, while the atomic structure is defined in ‘prefix.atoms’
+and the definition of the atomic interaction in ‘prefix.opls’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prefix</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_atoms">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_atoms" title="Permalink to this definition"></a></dt>
-<dd><p>Write atoms input for LAMMPS</p>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metal'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_atoms" title="Permalink to this definition"></a></dt>
+<dd><p>Write atoms input for LAMMPS. Filename will be ‘prefix.atoms’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> (<em>str</em>) – </p></li>
+<li><p><strong>atoms</strong> (<a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><em>matscipy.opls.OPLSStructure</em></a>) – </p></li>
+<li><p><strong>units</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_definitions">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_definitions" title="Permalink to this definition"></a></dt>
-<dd><p>Write force field definitions for LAMMPS.</p>
+<dd><p>Write force field definitions for LAMMPS.
+Filename will be ‘prefix.opls’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> (<em>str</em>) – </p></li>
+<li><p><strong>atoms</strong> (<a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><em>matscipy.opls.OPLSStructure</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.io.opls.read_lammps_definitions">
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_definitions" title="Permalink to this definition"></a></dt>
+<dd><p>Reads force field definitions from a LAMMPS parameter file and
+stores the parameters in the LJQData, BondData, AnglesData and
+DihedralsData objects. The ‘number’ of the particles, pairs, …
+for the corresponding interaction parameters is not included in
+these objects and is output in dicts. Note that there is an
+offset of one between LAMMPS and python numbering.</p>
+<p>====== Example ======
+Parameter file:</p>
+<p>bond_style      harmonic
+bond_coeff      1 1.2 3.4 # AA-AA
+bond_coeff      2 5.6 7.8 # AA-BB</p>
+<p>Returned dictionary:
+bond_type_index[0] = ‘AA-AA’
+bond_type_index[1] = ‘AA-BB’
+====== End of example ======</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ljq_data</strong> (<em>matscipy.opls.LJQData</em>)</p></li>
+<li><p><strong>bond_data</strong> (<em>matscipy.opls.BondData</em>)</p></li>
+<li><p><strong>ang_data</strong> (<em>matscipy.opls.AnglesData</em>)</p></li>
+<li><p><strong>dih_data</strong> (<em>matscipy.opls.DihedralsData</em>)</p></li>
+<li><p><strong>particle_type_index</strong> (<em>dict</em>)</p></li>
+<li><p><strong>bond_type_index</strong> (<em>dict</em>)</p></li>
+<li><p><strong>ang_type_index</strong> (<em>dict</em>)</p></li>
+<li><p><strong>dih_type_index</strong> (<em>dict</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_lammps_data">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_data" title="Permalink to this definition"></a></dt>
-<dd><p>Read positions, connectivities, etc.</p>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_lammps_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_data" title="Permalink to this definition"></a></dt>
+<dd><p>Read positions, bonds, angles and dihedrals from a LAMMPS file.
+Optionally, a LAMMPS parameter file can be specified to restore
+all interactions from a preceding simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+<li><p><strong>filename_lammps_params</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure">matscipy.opls.OPLSStructure</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.update_from_lammps_dump">
 <span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">update_from_lammps_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.update_from_lammps_dump" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Read simulation cell, positions and velocities from a LAMMPS
+dump file and use them to update an existing configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><em>matscipy.opls.OPLSStructure</em></a>) – </p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+<li><p><strong>check</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="matscipy.opls.html#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure">matscipy.opls.OPLSStructure</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

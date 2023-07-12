@@ -59,6 +59,7 @@
 <li class="toctree-l3"><a class="reference internal" href="matscipy.hydrogenate.html">matscipy.hydrogenate</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">matscipy.opls</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.opls.twochar"><code class="docutils literal notranslate"><span class="pre">twochar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.opls.LJQData"><code class="docutils literal notranslate"><span class="pre">LJQData</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.opls.BondData"><code class="docutils literal notranslate"><span class="pre">BondData</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.opls.CutoffList"><code class="docutils literal notranslate"><span class="pre">CutoffList</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.opls.AnglesData"><code class="docutils literal notranslate"><span class="pre">AnglesData</span></code></a></li>
@@ -106,7 +107,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.twochar" title="matscipy.opls.twochar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twochar</span></code></a>(name)</p></td>
-<td><p></p></td>
+<td><p>Forces the length of the particle names to be two characters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -114,39 +115,182 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.AnglesData" title="matscipy.opls.AnglesData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnglesData</span></code></a>([name_value_hash])</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
+<td><p>Store spring constants and equilibrium angles for harmonic potentials and ensure correct handling of permutations.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BondData</span></code></a>([name_value_hash])</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
+<td><p>Store spring constants and equilibrium distances for harmonic potentials and ensure correct handling of permutations.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.CutoffList" title="matscipy.opls.CutoffList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CutoffList</span></code></a>([name_value_hash])</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
+<td><p>Store cutoffs for pair interactions and ensure correct handling of permutations.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.DihedralsData" title="matscipy.opls.DihedralsData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DihedralsData</span></code></a>([name_value_hash])</p></td>
-<td><p><p class="rubric">Methods</p>
-</p></td>
+<td><p>Store energy constants for dihedral potentials and ensure correct handling of permutations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPLSStructure</span></code></a>(*args, **kwargs)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData" title="matscipy.opls.LJQData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LJQData</span></code></a>(args)</p></td>
+<td><p>Store Lennard-Jones parameters and charges for each particle type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPLSStructure</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Extension of the ASE Atoms class for non-reactive simulations.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.opls.twochar">
 <span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">twochar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.twochar" title="Permalink to this definition"></a></dt>
+<dd><p>Forces the length of the particle names to be two characters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Particle name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Particle name with exactly 2 characters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">LJQData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Store Lennard-Jones parameters and charges for each particle type. In
+the simplest version, each particle type has one set of Lennard-Jones
+parameters, with geometric mixing applied between parameters of
+different types. Parameters for individual pairs of particle types can
+be specified in the ‘lj_pairs’ dictionary.</p>
+<p>====== Example ======
+Set the Lennard-Jones and Coulomb cutoffs to 12 and 8 Angstroms, geometric
+mixing of the Lennard-Jones parameters for particles ‘C1’ and ‘C2’ and
+between ‘C2’ and ‘C3’, custom parameters and cutoff for the interaction
+between ‘C1’ and ‘C3’:</p>
+<p>LJQData.lj_cutoff = 12.0
+LJQData.c_cutoff  =  8.0</p>
+<p>LJQData[‘C1’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]
+LJQData[‘C2’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]
+LJQData[‘C3’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]</p>
+<p>LJQData.lj_pairs[‘C1-C3’] = [epsilon (eV), sigma (A), cutoff (A)]
+====== End of example ======</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.clear" title="matscipy.opls.LJQData.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.copy" title="matscipy.opls.LJQData.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.fromkeys" title="matscipy.opls.LJQData.fromkeys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromkeys</span></code></a>(iterable[, value])</p></td>
+<td><p>Create a new dictionary with keys from iterable and values set to value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.get" title="matscipy.opls.LJQData.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key[, default])</p></td>
+<td><p>Return the value for key if key is in the dictionary, else default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.items" title="matscipy.opls.LJQData.items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.keys" title="matscipy.opls.LJQData.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.pop" title="matscipy.opls.LJQData.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>(key[, default])</p></td>
+<td><p>If the key is not found, return the default if given; otherwise, raise a KeyError.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.popitem" title="matscipy.opls.LJQData.popitem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">popitem</span></code></a>(/)</p></td>
+<td><p>Remove and return a (key, value) pair as a 2-tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.setdefault" title="matscipy.opls.LJQData.setdefault"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setdefault</span></code></a>(key[, default])</p></td>
+<td><p>Insert key with a value of default if key is not in the dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.update" title="matscipy.opls.LJQData.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>([E, ]**F)</p></td>
+<td><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.LJQData.values" title="matscipy.opls.LJQData.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">D.</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">shallow</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">D</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.fromkeys">
+<span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.fromkeys" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.get" title="Permalink to this definition"></a></dt>
+<dd><p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.items" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;unrepresentable&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.pop" title="Permalink to this definition"></a></dt>
+<dd><p>If the key is not found, return the default if given; otherwise,
+raise a KeyError.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.popitem">
+<span class="sig-name descname"><span class="pre">popitem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.popitem" title="Permalink to this definition"></a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.setdefault">
+<span class="sig-name descname"><span class="pre">setdefault</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.LJQData.setdefault" title="Permalink to this definition"></a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">**F</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Update</span> <span class="pre">D</span> <span class="pre">from</span> <span class="pre">dict/iterable</span> <span class="pre">E</span> <span class="pre">and</span> <span class="pre">F.</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.update" title="Permalink to this definition"></a></dt>
+<dd><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.opls.LJQData.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#matscipy.opls.LJQData.values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.opls.BondData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">BondData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Store spring constants and equilibrium distances for harmonic potentials
+and ensure correct handling of permutations. See documentation of the
+LAMMPS ‘bond_style harmonic’ command for details.</p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
 <tbody>
@@ -195,6 +339,9 @@
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">CutoffList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><code class="xref py py-class docutils literal notranslate"><span class="pre">BondData</span></code></a></p>
+<p>Store cutoffs for pair interactions and ensure correct handling of
+permutations. Cutoffs can be used to automatically find all interacting
+atoms of an OPLSStructure object based on a simple distance criterion.</p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
 <tbody>
@@ -251,6 +398,9 @@
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">AnglesData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Store spring constants and equilibrium angles for harmonic potentials
+and ensure correct handling of permutations. See documentation of the
+LAMMPS ‘angle_style harmonic’ command for details.</p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
 <tbody>
@@ -299,6 +449,9 @@
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">DihedralsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Store energy constants for dihedral potentials and ensure correct handling
+of permutations. See documentation of the LAMMPS ‘dihedral_style opls’
+command for details.</p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
 <tbody>
@@ -347,6 +500,7 @@
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">OPLSStructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></p>
+<p>Extension of the ASE Atoms class for non-reactive simulations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -400,7 +554,7 @@
 <td><p>Get angle formed by three atoms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_angles" title="matscipy.opls.OPLSStructure.get_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_angles</span></code></a>([angles])</p></td>
-<td><p>Get angle formed by three atoms for multiple groupings.</p></td>
+<td><p>Returns an array of all angle types and an array of all angles in the system.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_angular_momentum" title="matscipy.opls.OPLSStructure.get_angular_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_angular_momentum</span></code></a>()</p></td>
 <td><p>Get total angular momentum with respect to the center of mass.</p></td>
@@ -411,74 +565,80 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_atomic_numbers" title="matscipy.opls.OPLSStructure.get_atomic_numbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atomic_numbers</span></code></a>()</p></td>
 <td><p>Get integer array of atomic numbers.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_calculator" title="matscipy.opls.OPLSStructure.get_calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_calculator</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_bonds" title="matscipy.opls.OPLSStructure.get_bonds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonds</span></code></a>([bonds])</p></td>
+<td><p>Returns an array of all bond types and an array of all bonds in the system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_calculator" title="matscipy.opls.OPLSStructure.get_calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_calculator</span></code></a>()</p></td>
 <td><p>Get currently attached calculator object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_cell" title="matscipy.opls.OPLSStructure.get_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cell</span></code></a>([complete])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_cell" title="matscipy.opls.OPLSStructure.get_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cell</span></code></a>([complete])</p></td>
 <td><p>Get the three unit cell vectors as a <cite>class</cite>:ase.cell.Cell` object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_cell_lengths_and_angles" title="matscipy.opls.OPLSStructure.get_cell_lengths_and_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cell_lengths_and_angles</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_cell_lengths_and_angles" title="matscipy.opls.OPLSStructure.get_cell_lengths_and_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cell_lengths_and_angles</span></code></a>()</p></td>
 <td><p>Get unit cell parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_celldisp" title="matscipy.opls.OPLSStructure.get_celldisp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_celldisp</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_celldisp" title="matscipy.opls.OPLSStructure.get_celldisp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_celldisp</span></code></a>()</p></td>
 <td><p>Get the unit cell displacement vectors.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_center_of_mass" title="matscipy.opls.OPLSStructure.get_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a>([scaled])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_center_of_mass" title="matscipy.opls.OPLSStructure.get_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a>([scaled])</p></td>
 <td><p>Get the center of mass.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_charges" title="matscipy.opls.OPLSStructure.get_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_charges</span></code></a>()</p></td>
-<td><p>Get calculated charges.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_charges" title="matscipy.opls.OPLSStructure.get_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_charges</span></code></a>()</p></td>
+<td><p>Return an array of atomic charges.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_chemical_formula" title="matscipy.opls.OPLSStructure.get_chemical_formula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_chemical_formula</span></code></a>([mode, empirical])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_chemical_formula" title="matscipy.opls.OPLSStructure.get_chemical_formula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_chemical_formula</span></code></a>([mode, empirical])</p></td>
 <td><p>Get the chemical formula as a string based on the chemical symbols.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_chemical_symbols" title="matscipy.opls.OPLSStructure.get_chemical_symbols"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_chemical_symbols</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_chemical_symbols" title="matscipy.opls.OPLSStructure.get_chemical_symbols"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_chemical_symbols</span></code></a>()</p></td>
 <td><p>Get list of chemical symbol strings.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dihedral" title="matscipy.opls.OPLSStructure.get_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dihedral</span></code></a>(a0, a1, a2, a3[, mic])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dihedral" title="matscipy.opls.OPLSStructure.get_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dihedral</span></code></a>(a0, a1, a2, a3[, mic])</p></td>
 <td><p>Calculate dihedral angle.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dihedrals" title="matscipy.opls.OPLSStructure.get_dihedrals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dihedrals</span></code></a>([dihedrals, full_output])</p></td>
-<td><p>Calculate dihedral angles.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dihedrals" title="matscipy.opls.OPLSStructure.get_dihedrals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dihedrals</span></code></a>([dihedrals, full_output])</p></td>
+<td><p>Returns an array of all dihedral types and an array of all dihedrals in the system.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dipole_moment" title="matscipy.opls.OPLSStructure.get_dipole_moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dipole_moment</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_dipole_moment" title="matscipy.opls.OPLSStructure.get_dipole_moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dipole_moment</span></code></a>()</p></td>
 <td><p>Calculate the electric dipole moment for the atoms object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_distance" title="matscipy.opls.OPLSStructure.get_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_distance</span></code></a>(a0, a1[, mic, vector])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_distance" title="matscipy.opls.OPLSStructure.get_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_distance</span></code></a>(a0, a1[, mic, vector])</p></td>
 <td><p>Return distance between two atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_distances" title="matscipy.opls.OPLSStructure.get_distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_distances</span></code></a>(a, indices[, mic, vector])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_distances" title="matscipy.opls.OPLSStructure.get_distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_distances</span></code></a>(a, indices[, mic, vector])</p></td>
 <td><p>Return distances of atom No.i with a list of atoms.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_forces" title="matscipy.opls.OPLSStructure.get_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_forces</span></code></a>([apply_constraint, md])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_forces" title="matscipy.opls.OPLSStructure.get_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_forces</span></code></a>([apply_constraint, md])</p></td>
 <td><p>Calculate atomic forces.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_global_number_of_atoms" title="matscipy.opls.OPLSStructure.get_global_number_of_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_global_number_of_atoms</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_global_number_of_atoms" title="matscipy.opls.OPLSStructure.get_global_number_of_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_global_number_of_atoms</span></code></a>()</p></td>
 <td><p>Returns the global number of atoms in a distributed-atoms parallel simulation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_initial_charges" title="matscipy.opls.OPLSStructure.get_initial_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_initial_charges</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_initial_charges" title="matscipy.opls.OPLSStructure.get_initial_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_initial_charges</span></code></a>()</p></td>
 <td><p>Get array of initial charges.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_initial_magnetic_moments" title="matscipy.opls.OPLSStructure.get_initial_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_initial_magnetic_moments</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_initial_magnetic_moments" title="matscipy.opls.OPLSStructure.get_initial_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_initial_magnetic_moments</span></code></a>()</p></td>
 <td><p>Get array of initial magnetic moments.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_kinetic_energy" title="matscipy.opls.OPLSStructure.get_kinetic_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kinetic_energy</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_kinetic_energy" title="matscipy.opls.OPLSStructure.get_kinetic_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kinetic_energy</span></code></a>()</p></td>
 <td><p>Get the kinetic energy.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_magnetic_moment" title="matscipy.opls.OPLSStructure.get_magnetic_moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_magnetic_moment</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_magnetic_moment" title="matscipy.opls.OPLSStructure.get_magnetic_moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_magnetic_moment</span></code></a>()</p></td>
 <td><p>Get calculated total magnetic moment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_magnetic_moments" title="matscipy.opls.OPLSStructure.get_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_magnetic_moments</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_magnetic_moments" title="matscipy.opls.OPLSStructure.get_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_magnetic_moments</span></code></a>()</p></td>
 <td><p>Get calculated local magnetic moments.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_masses" title="matscipy.opls.OPLSStructure.get_masses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_masses</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_masses" title="matscipy.opls.OPLSStructure.get_masses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_masses</span></code></a>()</p></td>
 <td><p>Get array of masses in atomic mass units.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_momenta" title="matscipy.opls.OPLSStructure.get_momenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_momenta</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_momenta" title="matscipy.opls.OPLSStructure.get_momenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_momenta</span></code></a>()</p></td>
 <td><p>Get array of momenta.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_moments_of_inertia" title="matscipy.opls.OPLSStructure.get_moments_of_inertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_moments_of_inertia</span></code></a>([vectors])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_moments_of_inertia" title="matscipy.opls.OPLSStructure.get_moments_of_inertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_moments_of_inertia</span></code></a>([vectors])</p></td>
 <td><p>Get the moments of inertia along the principal axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_neighbors" title="matscipy.opls.OPLSStructure.get_neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_neighbors</span></code></a>()</p></td>
+<td><p>Find all atoms which might interact with each other based on a simple distance criterion.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_number_of_atoms" title="matscipy.opls.OPLSStructure.get_number_of_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_of_atoms</span></code></a>()</p></td>
 <td><p>Deprecated, please do not use.</p></td>
@@ -519,38 +679,44 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_total_energy" title="matscipy.opls.OPLSStructure.get_total_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_total_energy</span></code></a>()</p></td>
 <td><p>Get the total energy - potential plus kinetic energy.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_velocities" title="matscipy.opls.OPLSStructure.get_velocities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_velocities</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_types" title="matscipy.opls.OPLSStructure.get_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_types</span></code></a>()</p></td>
+<td><p>Returns a unique list of atom types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_velocities" title="matscipy.opls.OPLSStructure.get_velocities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_velocities</span></code></a>()</p></td>
 <td><p>Get array of velocities.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_volume" title="matscipy.opls.OPLSStructure.get_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_volume</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.get_volume" title="matscipy.opls.OPLSStructure.get_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_volume</span></code></a>()</p></td>
 <td><p>Get volume of unit cell.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.has" title="matscipy.opls.OPLSStructure.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.has" title="matscipy.opls.OPLSStructure.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(name)</p></td>
 <td><p>Check for existence of array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.new_array" title="matscipy.opls.OPLSStructure.new_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_array</span></code></a>(name, a[, dtype, shape])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.new_array" title="matscipy.opls.OPLSStructure.new_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_array</span></code></a>(name, a[, dtype, shape])</p></td>
 <td><p>Add new array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.pop" title="matscipy.opls.OPLSStructure.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>([i])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.pop" title="matscipy.opls.OPLSStructure.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>([i])</p></td>
 <td><p>Remove and return atom at index <em>i</em> (default last).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rattle" title="matscipy.opls.OPLSStructure.rattle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rattle</span></code></a>([stdev, seed, rng])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rattle" title="matscipy.opls.OPLSStructure.rattle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rattle</span></code></a>([stdev, seed, rng])</p></td>
 <td><p>Randomly displace atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.repeat" title="matscipy.opls.OPLSStructure.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code></a>(rep)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.repeat" title="matscipy.opls.OPLSStructure.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">repeat</span></code></a>(rep)</p></td>
 <td><p>Create new repeated atoms object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rotate" title="matscipy.opls.OPLSStructure.rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate</span></code></a>(a, v[, center, rotate_cell])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rotate" title="matscipy.opls.OPLSStructure.rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate</span></code></a>(a, v[, center, rotate_cell])</p></td>
 <td><p>Rotate atoms based on a vector and an angle, or two vectors.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rotate_dihedral" title="matscipy.opls.OPLSStructure.rotate_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_dihedral</span></code></a>(a1, a2, a3, a4[, angle, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.rotate_dihedral" title="matscipy.opls.OPLSStructure.rotate_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_dihedral</span></code></a>(a1, a2, a3, a4[, angle, ...])</p></td>
 <td><p>Rotate dihedral angle.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_angle" title="matscipy.opls.OPLSStructure.set_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_angle</span></code></a>(a1[, a2, a3, angle, mask, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_angle" title="matscipy.opls.OPLSStructure.set_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_angle</span></code></a>(a1[, a2, a3, angle, mask, ...])</p></td>
 <td><p>Set angle (in degrees) formed by three atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_array" title="matscipy.opls.OPLSStructure.set_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_array</span></code></a>(name, a[, dtype, shape])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_array" title="matscipy.opls.OPLSStructure.set_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_array</span></code></a>(name, a[, dtype, shape])</p></td>
 <td><p>Update array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_atom_data" title="matscipy.opls.OPLSStructure.set_atom_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_atom_data</span></code></a>(atom_data)</p></td>
+<td><p>Set Lennard-Jones parameters and atomic charges.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_atomic_numbers" title="matscipy.opls.OPLSStructure.set_atomic_numbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_atomic_numbers</span></code></a>(numbers)</p></td>
 <td><p>Set atomic numbers.</p></td>
@@ -573,35 +739,41 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_constraint" title="matscipy.opls.OPLSStructure.set_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_constraint</span></code></a>([constraint])</p></td>
 <td><p>Apply one or more constrains.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_dihedral" title="matscipy.opls.OPLSStructure.set_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dihedral</span></code></a>(a1, a2, a3, a4, angle[, mask, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_cutoffs" title="matscipy.opls.OPLSStructure.set_cutoffs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cutoffs</span></code></a>(cutoffs)</p></td>
+<td><p>Add a CutoffList object to the structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_dihedral" title="matscipy.opls.OPLSStructure.set_dihedral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dihedral</span></code></a>(a1, a2, a3, a4, angle[, mask, ...])</p></td>
 <td><p>Set the dihedral angle (degrees) between vectors a1-&gt;a2 and a3-&gt;a4 by changing the atom indexed by a4.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_distance" title="matscipy.opls.OPLSStructure.set_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_distance</span></code></a>(a0, a1, distance[, fix, mic, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_distance" title="matscipy.opls.OPLSStructure.set_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_distance</span></code></a>(a0, a1, distance[, fix, mic, ...])</p></td>
 <td><p>Set the distance between two atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_initial_charges" title="matscipy.opls.OPLSStructure.set_initial_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_charges</span></code></a>([charges])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_initial_charges" title="matscipy.opls.OPLSStructure.set_initial_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_charges</span></code></a>([charges])</p></td>
 <td><p>Set the initial charges.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_initial_magnetic_moments" title="matscipy.opls.OPLSStructure.set_initial_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_magnetic_moments</span></code></a>([magmoms])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_initial_magnetic_moments" title="matscipy.opls.OPLSStructure.set_initial_magnetic_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_magnetic_moments</span></code></a>([magmoms])</p></td>
 <td><p>Set the initial magnetic moments.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_masses" title="matscipy.opls.OPLSStructure.set_masses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_masses</span></code></a>([masses])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_masses" title="matscipy.opls.OPLSStructure.set_masses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_masses</span></code></a>([masses])</p></td>
 <td><p>Set atomic masses in atomic mass units.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_momenta" title="matscipy.opls.OPLSStructure.set_momenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_momenta</span></code></a>(momenta[, apply_constraint])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_momenta" title="matscipy.opls.OPLSStructure.set_momenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_momenta</span></code></a>(momenta[, apply_constraint])</p></td>
 <td><p>Set momenta.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_pbc" title="matscipy.opls.OPLSStructure.set_pbc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pbc</span></code></a>(pbc)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_pbc" title="matscipy.opls.OPLSStructure.set_pbc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pbc</span></code></a>(pbc)</p></td>
 <td><p>Set periodic boundary condition flags.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_positions" title="matscipy.opls.OPLSStructure.set_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_positions</span></code></a>(newpositions[, apply_constraint])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_positions" title="matscipy.opls.OPLSStructure.set_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_positions</span></code></a>(newpositions[, apply_constraint])</p></td>
 <td><p>Set positions, honoring any constraints.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_scaled_positions" title="matscipy.opls.OPLSStructure.set_scaled_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_scaled_positions</span></code></a>(scaled)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_scaled_positions" title="matscipy.opls.OPLSStructure.set_scaled_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_scaled_positions</span></code></a>(scaled)</p></td>
 <td><p>Set positions relative to unit cell.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_tags" title="matscipy.opls.OPLSStructure.set_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_tags</span></code></a>(tags)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_tags" title="matscipy.opls.OPLSStructure.set_tags"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_tags</span></code></a>(tags)</p></td>
 <td><p>Set tags for all atoms.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_types" title="matscipy.opls.OPLSStructure.set_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_types</span></code></a>(types)</p></td>
+<td><p>Set a type for each atom to specify the interaction with its neighbors.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.set_velocities" title="matscipy.opls.OPLSStructure.set_velocities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocities</span></code></a>(velocities)</p></td>
 <td><p>Set the momenta by specifying the velocities.</p></td>
@@ -622,25 +794,7 @@
 </table>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>get_bonds</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>get_neighbors</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>get_types</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>iterimages</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_atom_data</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_cutoffs</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_types</strong></p></td>
+<tr class="row-odd"><td><p><strong>iterimages</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -653,58 +807,178 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.__init__" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set a type for each atom to specify the interaction with its neighbors.
+This enables atoms of the same element to have different interaction
+potentials. During initialization, the types are initially derived from
+the chemical symbols of the atoms.</p>
+<p class="rubric">Notes</p>
+<p>self._combinations
+Angle lists are generated from neighbor lists. Assume an atom with the
+number 2 has the three neighbors [4, 6, 9]. Then the following angles
+with 2 in the middle are possible: (4-2-6), (4-2-9), (6-2-9) and the
+equivalent angles (6-2-4), (9-2-4) and (9-2-6). self._combinations
+contains predefined combinations of indices of the neighbor lists for
+the most frequently occurring numbers of nearest neighbors. With these,
+the list of occurring angles can be determined much faster than if the
+combinations had to be calculated in each step.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.append" title="Permalink to this definition"></a></dt>
 <dd><p>Append atom to end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>atom</strong> (<em>ase.Atoms</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.set_types">
 <span class="sig-name descname"><span class="pre">set_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.set_types" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set a type for each atom to specify the interaction with its
+neighbors. This enables atoms of the same element to have different
+interaction potentials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>types</strong> (<em>list</em>) – A list of strings that specify the type of each atom.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_types">
 <span class="sig-name descname"><span class="pre">get_types</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_types" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns a unique list of atom types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Each element is a str with two characters.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.set_cutoffs">
 <span class="sig-name descname"><span class="pre">set_cutoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cutoffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.set_cutoffs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Add a CutoffList object to the structure. This allows the
+‘get_neighbors’ method to find all interacting atoms of the structure
+based on a simple distance criterion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cutoffs</strong> (<a class="reference internal" href="#matscipy.opls.CutoffList" title="matscipy.opls.CutoffList"><em>opls.CutoffList</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_neighbors">
 <span class="sig-name descname"><span class="pre">get_neighbors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_neighbors" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Find all atoms which might interact with each
+other based on a simple distance criterion.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.set_atom_data">
 <span class="sig-name descname"><span class="pre">set_atom_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.set_atom_data" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set Lennard-Jones parameters and atomic charges. Notice that each
+atom has exactly one set of Lennard-Jones parameters. Parameters
+for interactions between different types of atoms are calculated
+by geometric mixing. See documentation of the LAMMPS ‘pair_modify’
+command for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>atom_data</strong> (<em>dict</em>) – Dictionary containing Lennard-Jones parameters and charges for
+each particle type. key: Particle type, one or two characters,
+value: [LJ-epsilon, LJ-sigma, charge].</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_charges">
 <span class="sig-name descname"><span class="pre">get_charges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_charges" title="Permalink to this definition"></a></dt>
-<dd><p>Get calculated charges.</p>
+<dd><p>Return an array of atomic charges. Same functionality as the
+‘get_charges’ method of the ‘ase.Atoms’ class, but atomic charges
+are taken from a user definition instead of the result of a
+calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_bonds">
 <span class="sig-name descname"><span class="pre">get_bonds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_bonds" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns an array of all bond types and
+an array of all bonds in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bonds</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>bond_types</strong> (<em>numpy.ndarray</em>) – Array of strings characterizing all present bond types.
+Example: A system consists of particles with the types ‘A1’ and
+‘A2’. If all particles interact with each other, bond_types
+will be [‘A1-A1’, ‘A1-A2’, ‘A2-A2’]. If there were no
+interactions between the types ‘A1’ and ‘A2’, bond_types would
+be [‘A1-A1’, ‘A2-A2’].</p></li>
+<li><p><strong>bond_list</strong> (<em>numpy.ndarray</em>) – bond_list.shape = (n, 3) where n is the number of particles in
+the system. Contains arrays of 3 integers for each bond in the
+system. First number: interaction type, index of bond_types,
+second and third numbers: indicees of participating particles.
+Example: A system consists of 3 particles of type ‘AA’, all
+particles are interacting. bond_types would be [‘AA-AA’] and
+bond_list would be [[0, 0, 1], [0, 0, 2], [0, 1, 2]].</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If ‘bonds’ is present and bonds are found for which no
+parameters are defined. In this case a warning a full list of
+all affected bonds will be printed on STDOUT.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_angles">
 <span class="sig-name descname"><span class="pre">get_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_angles" title="Permalink to this definition"></a></dt>
-<dd><p>Get angle formed by three atoms for multiple groupings.</p>
-<p>Calculate angle in degrees between vectors between atoms a2-&gt;a1
-and a2-&gt;a3, where a1, a2, and a3 are in each row of indices.</p>
-<p>Use mic=True to use the Minimum Image Convention and calculate
-the angle across periodic boundaries.</p>
+<dd><p>Returns an array of all angle types and
+an array of all angles in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angles</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ang_types</strong> (<em>list</em>) – Array of strings characterizing all present angle types.
+Example: A system consists of atoms of types ‘A1’ and ‘A2’,
+all conceivable angle types are present in the system.
+ang_types would be [‘A1-A1-A1’, ‘A1-A1-A2’, ‘A1-A2-A1’,
+‘A1-A2-A2’, ‘A2-A1-A2’, ‘A2-A2-A2’].</p></li>
+<li><p><strong>ang_list</strong> (<em>list</em>) – len(ang_list) = n where n is the number of particles in the
+system. Each list entry is a list of 4 integers, characterizing
+the angles present in the system. Example: A system contains 7
+atoms, (0,1,2) of type ‘A1’ and (3,4,5,6) of type ‘A2’. If
+there are angles between (0,1,2), (0,3,4) and (0,5,6), ang_list
+would be [‘A1-A1-A1’, ‘A2-A1-A2’] and ang list would be
+[[0, 0, 1, 2], [1, 0, 3, 4], [1, 0, 5, 6]].</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If ‘angles’ is present and angles are found for which no
+parameters are defined. In this case a warning a full list of
+all affected angles will be printed on STDOUT.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -923,11 +1197,38 @@ angle across periodic boundaries.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_dihedrals">
 <span class="sig-name descname"><span class="pre">get_dihedrals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dihedrals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_dihedrals" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate dihedral angles.</p>
-<p>Calculate dihedral angles (in degrees) between the list of vectors
-a0-&gt;a1 and a2-&gt;a3, where a0, a1, a2 and a3 are in each row of indices.</p>
-<p>Use mic=True to use the Minimum Image Convention and calculate the
-angles across periodic boundaries.</p>
+<dd><p>Returns an array of all dihedral types and
+an array of all dihedrals in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dihedrals</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>optional</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dih_types</strong> (<em>list</em>) – Array of strings characterizing all present dihedral types.
+Example: Consider a system consisting of one benzene molecule.
+There are three possible types of dihedrals and dih_type would
+be [‘C-C-C-C’, ‘C-C-C-H’, ‘H-C-C-H’].</p></li>
+<li><p><strong>dih_list</strong> (<em>list</em>) – len(dih_list) = n where n is the number of particles in the
+system. Each list entry is a list of 5 integers, characterizing
+the dihedrals present in the system. Example: Consider a system
+consisting of one benzene molecule with the ‘C’ atoms
+(0,1,2,3,4,5) and the ‘H’ atoms (6,7,8,9,10,11). dih_type would
+be [‘C-C-C-C’, ‘C-C-C-H’, ‘H-C-C-H’] and dih_list would be
+[[0, 0, 1, 2, 3], [0, 1, 2, 3, 4], … , [1, 6, 0, 1, 2],
+[1, 7, 1, 2, 3], … , [2, 6, 0, 1, 7], [2, 7, 1, 2, 8], …].</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Prints a warning to STDOUT if dihedrals are found for which no
+parameters are defined. If full_output is set, a complete list of
+all affected dihedrals is printed, if not, an example is printed
+for each dihedral type.</p>
 </dd></dl>
 
 <dl class="py method">
