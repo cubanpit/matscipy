@@ -1,0 +1,34 @@
+matscipy.calculators.manybody.explicit\_forms
+=============================================
+
+.. automodule:: matscipy.calculators.manybody.explicit_forms
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   matscipy.calculators.manybody.explicit_forms.harmonic
+   matscipy.calculators.manybody.explicit_forms.kumagai
+   matscipy.calculators.manybody.explicit_forms.stillinger_weber
+   matscipy.calculators.manybody.explicit_forms.tersoff_brenner
+

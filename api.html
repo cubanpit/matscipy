@@ -76,16 +76,20 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/matscipy.neighbours.html">matscipy.neighbours</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/matscipy.numerical.html">matscipy.numerical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/matscipy.rings.html">matscipy.rings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.spatial_correlation_function.html">matscipy.spatial_correlation_function</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#interatomic-potentials">Interatomic potentials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.calculator.html">matscipy.calculators.calculator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.pair_potential.PairPotential.html">matscipy.calculators.pair_potential.PairPotential</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.polydisperse.Polydisperse.html">matscipy.calculators.polydisperse.Polydisperse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.mcfm.MultiClusterForceMixingPotential.html">matscipy.calculators.mcfm.MultiClusterForceMixingPotential</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.eam.EAM.html">matscipy.calculators.eam.EAM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.ewald.Ewald.html">matscipy.calculators.ewald.Ewald</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.manybody.Manybody.html">matscipy.calculators.manybody.Manybody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.committee.html">matscipy.calculators.committee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.eam.html">matscipy.calculators.eam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.ewald.html">matscipy.calculators.ewald</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.fitting.html">matscipy.calculators.fitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.manybody.html">matscipy.calculators.manybody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.mcfm.html">matscipy.calculators.mcfm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.pair_potential.html">matscipy.calculators.pair_potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.polydisperse.html">matscipy.calculators.polydisperse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.supercell_calculator.html">matscipy.calculators.supercell_calculator</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility functions</a><ul>
@@ -187,6 +191,9 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.rings.html#module-matscipy.rings" title="matscipy.rings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.rings</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.spatial_correlation_function.html#module-matscipy.spatial_correlation_function" title="matscipy.spatial_correlation_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.spatial_correlation_function</span></code></a></p></td>
+<td><p>Compute the spatial correlation of a given function.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -197,39 +204,32 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.calculator.html#module-matscipy.calculators.calculator" title="matscipy.calculators.calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.calculator</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.pair_potential.PairPotential.html#matscipy.calculators.pair_potential.PairPotential" title="matscipy.calculators.pair_potential.PairPotential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.pair_potential.PairPotential</span></code></a>(f)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.committee.html#module-matscipy.calculators.committee" title="matscipy.calculators.committee"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.committee</span></code></a></p></td>
+<td><p>Implements the Committee (of Models) approach.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.polydisperse.Polydisperse.html#matscipy.calculators.polydisperse.Polydisperse" title="matscipy.calculators.polydisperse.Polydisperse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.polydisperse.Polydisperse</span></code></a>(f)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.eam.html#module-matscipy.calculators.eam" title="matscipy.calculators.eam"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.eam</span></code></a></p></td>
+<td><p>Implements the Embedded Atom Method</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.mcfm.MultiClusterForceMixingPotential.html#matscipy.calculators.mcfm.MultiClusterForceMixingPotential" title="matscipy.calculators.mcfm.MultiClusterForceMixingPotential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.mcfm.MultiClusterForceMixingPotential</span></code></a>([...])</p></td>
-<td><p>Subclass of ASE.Calculator facilitating a support for multiple QM clusters.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.ewald.html#module-matscipy.calculators.ewald" title="matscipy.calculators.ewald"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.ewald</span></code></a></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.eam.EAM.html#matscipy.calculators.eam.EAM" title="matscipy.calculators.eam.EAM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.eam.EAM</span></code></a>([fn, ...])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.fitting.html#module-matscipy.calculators.fitting" title="matscipy.calculators.fitting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.fitting</span></code></a></p></td>
+<td><p>Helper routines for potential fitting</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.ewald.Ewald.html#matscipy.calculators.ewald.Ewald" title="matscipy.calculators.ewald.Ewald"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.ewald.Ewald</span></code></a>()</p></td>
-<td><p>Ewal summation calculator.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.manybody.html#module-matscipy.calculators.manybody" title="matscipy.calculators.manybody"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.manybody</span></code></a></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.manybody.Manybody.html#matscipy.calculators.manybody.Manybody" title="matscipy.calculators.manybody.Manybody"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.manybody.Manybody</span></code></a>(...)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.mcfm.html#module-matscipy.calculators.mcfm" title="matscipy.calculators.mcfm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.mcfm</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.pair_potential.html#module-matscipy.calculators.pair_potential" title="matscipy.calculators.pair_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.pair_potential</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.polydisperse.html#module-matscipy.calculators.polydisperse" title="matscipy.calculators.polydisperse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.polydisperse</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.supercell_calculator.html#module-matscipy.calculators.supercell_calculator" title="matscipy.calculators.supercell_calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.supercell_calculator</span></code></a></p></td>
+<td><p>Run calculation on a supercell of the atomic structure.</p></td>
 </tr>
 </tbody>
 </table>

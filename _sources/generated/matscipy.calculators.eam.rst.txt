@@ -1,0 +1,33 @@
+﻿matscipy.calculators.eam
+========================
+
+.. automodule:: matscipy.calculators.eam
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   matscipy.calculators.eam.average_atom
+   matscipy.calculators.eam.calculator
+   matscipy.calculators.eam.io
+
