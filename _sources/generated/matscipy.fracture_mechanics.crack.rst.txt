@@ -14,6 +14,7 @@ matscipy.fracture\_mechanics.crack
    .. autosummary::
    
       G_to_strain
+      counted
       deformation_gradient_residual
       deformation_gradient_residuals
       displacement_residual

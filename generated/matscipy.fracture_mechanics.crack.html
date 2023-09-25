@@ -113,55 +113,58 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.G_to_strain" title="matscipy.fracture_mechanics.crack.G_to_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">G_to_strain</span></code></a>(G, E, nu, orig_height)</p></td>
 <td><p>Convert from energy release rate G to strain for thin strip geometry</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.deformation_gradient_residual" title="matscipy.fracture_mechanics.crack.deformation_gradient_residual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformation_gradient_residual</span></code></a>(r0, crack, x, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.counted" title="matscipy.fracture_mechanics.crack.counted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">counted</span></code></a>(f)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.deformation_gradient_residuals" title="matscipy.fracture_mechanics.crack.deformation_gradient_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformation_gradient_residuals</span></code></a>(r0, crack, x, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.deformation_gradient_residual" title="matscipy.fracture_mechanics.crack.deformation_gradient_residual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformation_gradient_residual</span></code></a>(r0, crack, x, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.deformation_gradient_residuals" title="matscipy.fracture_mechanics.crack.deformation_gradient_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deformation_gradient_residuals</span></code></a>(r0, crack, x, ...)</p></td>
 <td><p>Return actual displacement field minus ideal displacement field.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.displacement_residual" title="matscipy.fracture_mechanics.crack.displacement_residual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displacement_residual</span></code></a>(r0, crack, x, y, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.displacement_residual" title="matscipy.fracture_mechanics.crack.displacement_residual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displacement_residual</span></code></a>(r0, crack, x, y, ...)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.displacement_residuals" title="matscipy.fracture_mechanics.crack.displacement_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displacement_residuals</span></code></a>(r0, crack, x, y, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.displacement_residuals" title="matscipy.fracture_mechanics.crack.displacement_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displacement_residuals</span></code></a>(r0, crack, x, y, ...)</p></td>
 <td><p>Return actual displacement field minus ideal displacement field, divided by r**alpha.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_broken_bonds" title="matscipy.fracture_mechanics.crack.find_tip_broken_bonds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_broken_bonds</span></code></a>(atoms, cutoff[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_broken_bonds" title="matscipy.fracture_mechanics.crack.find_tip_broken_bonds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_broken_bonds</span></code></a>(atoms, cutoff[, ...])</p></td>
 <td><p>Find position of the tip from the atom coordination, i.e. broken bonds.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_coordination" title="matscipy.fracture_mechanics.crack.find_tip_coordination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_coordination</span></code></a>(a[, bondlength, bulk_nn])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_coordination" title="matscipy.fracture_mechanics.crack.find_tip_coordination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_coordination</span></code></a>(a[, bondlength, bulk_nn])</p></td>
 <td><p>Find position of tip in crack cluster from coordination</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_stress_field" title="matscipy.fracture_mechanics.crack.find_tip_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_stress_field</span></code></a>(atoms[, r_range, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.find_tip_stress_field" title="matscipy.fracture_mechanics.crack.find_tip_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_tip_stress_field</span></code></a>(atoms[, r_range, ...])</p></td>
 <td><p>Find the position of crack tip by fitting to the isotropic <cite>K</cite>-field stress</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.fit_crack_stress_field" title="matscipy.fracture_mechanics.crack.fit_crack_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_crack_stress_field</span></code></a>(atoms[, r_range, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.fit_crack_stress_field" title="matscipy.fracture_mechanics.crack.fit_crack_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_crack_stress_field</span></code></a>(atoms[, r_range, ...])</p></td>
 <td><p>Perform a least squares fit of near-tip stress field to isotropic solution</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_energy_release_rate" title="matscipy.fracture_mechanics.crack.get_energy_release_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy_release_rate</span></code></a>(atoms)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_energy_release_rate" title="matscipy.fracture_mechanics.crack.get_energy_release_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy_release_rate</span></code></a>(atoms)</p></td>
 <td><p>Return the current energy release rate G for <cite>atoms</cite></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_strain" title="matscipy.fracture_mechanics.crack.get_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_strain</span></code></a>(atoms)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_strain" title="matscipy.fracture_mechanics.crack.get_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_strain</span></code></a>(atoms)</p></td>
 <td><p>Return the current strain on thin strip configuration <cite>atoms</cite></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_stress_intensity_factor" title="matscipy.fracture_mechanics.crack.get_stress_intensity_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_intensity_factor</span></code></a>(atoms[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.get_stress_intensity_factor" title="matscipy.fracture_mechanics.crack.get_stress_intensity_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_intensity_factor</span></code></a>(atoms[, ...])</p></td>
 <td><p>Compute stress intensity factor K_I</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_displacement_field" title="matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_displacement_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isotropic_modeI_crack_tip_displacement_field</span></code></a>(K, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_displacement_field" title="matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_displacement_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isotropic_modeI_crack_tip_displacement_field</span></code></a>(K, ...)</p></td>
 <td><p>Compute Irwin singular crack tip displacement field for mode I fracture.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_stress_field" title="matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isotropic_modeI_crack_tip_stress_field</span></code></a>(K, r, t)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_stress_field" title="matscipy.fracture_mechanics.crack.isotropic_modeI_crack_tip_stress_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isotropic_modeI_crack_tip_stress_field</span></code></a>(K, r, t)</p></td>
 <td><p>Compute Irwin singular crack tip stress field for mode I fracture.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.plot_stress_fields" title="matscipy.fracture_mechanics.crack.plot_stress_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_stress_fields</span></code></a>(atoms[, r_range, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.plot_stress_fields" title="matscipy.fracture_mechanics.crack.plot_stress_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_stress_fields</span></code></a>(atoms[, r_range, ...])</p></td>
 <td><p>Fit and plot atomistic and continuum stress fields</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.print_crack_system" title="matscipy.fracture_mechanics.crack.print_crack_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_crack_system</span></code></a>(directions)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.print_crack_system" title="matscipy.fracture_mechanics.crack.print_crack_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_crack_system</span></code></a>(directions)</p></td>
 <td><p>Pretty printing of crack crystallographic coordinate system</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.strain_to_G" title="matscipy.fracture_mechanics.crack.strain_to_G"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strain_to_G</span></code></a>(strain, E, nu, orig_height)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.strain_to_G" title="matscipy.fracture_mechanics.crack.strain_to_G"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strain_to_G</span></code></a>(strain, E, nu, orig_height)</p></td>
 <td><p>Convert from strain to energy release rate G for thin strip geometry</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.thin_strip_displacement_y" title="matscipy.fracture_mechanics.crack.thin_strip_displacement_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thin_strip_displacement_y</span></code></a>(x, y, strain, a, b)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.thin_strip_displacement_y" title="matscipy.fracture_mechanics.crack.thin_strip_displacement_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thin_strip_displacement_y</span></code></a>(x, y, strain, a, b)</p></td>
 <td><p>Return vertical displacement ramp used to apply initial strain to slab</p></td>
 </tr>
 </tbody>
@@ -186,6 +189,11 @@
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.counted">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">counted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.counted" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.RectilinearAnisotropicCrack">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">RectilinearAnisotropicCrack</span></span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.RectilinearAnisotropicCrack" title="Permalink to this definition"></a></dt>
@@ -363,7 +371,7 @@ divided by r**alpha.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.CubicCrystalCrack">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">CubicCrystalCrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crack_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_front</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C11</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plane</span> <span class="pre">strain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Crot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">CubicCrystalCrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crack_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_front</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C11</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plane</span> <span class="pre">strain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Crot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cauchy_born</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Crack in a cubic crystal.</p>
 <p class="rubric">Methods</p>
@@ -419,7 +427,7 @@ divided by r**alpha.</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.CubicCrystalCrack.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crack_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_front</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C11</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plane</span> <span class="pre">strain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Crot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crack_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_front</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C11</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plane</span> <span class="pre">strain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Crot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cauchy_born</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize a crack in a cubic crystal with elastic constants C11, C12
 and C44 (or optionally a full 6x6 elastic constant matrix C).
 The crack surface is given by crack_surface, the cracks runs
@@ -650,7 +658,7 @@ relaxed positions.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">SinclairCrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacuum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_far_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.crack.</span></span><span class="sig-name descname"><span class="pre">SinclairCrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacuum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_far_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rI</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rIII</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Flexible boundary conditions for a Mode I crack as described in</p>
 <dl class="simple">
@@ -660,10 +668,13 @@ relaxed positions.</p>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.SinclairCrack.u_cle" title="matscipy.fracture_mechanics.crack.SinclairCrack.u_cle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">u_cle</span></code></a>([alpha])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.SinclairCrack.strain_err" title="matscipy.fracture_mechanics.crack.SinclairCrack.strain_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strain_err</span></code></a>(cutoff[, seperate_surface])</p></td>
+<td><p>Function that returns the atomistic corrector strain error Dv for each atom using the norm of the difference between the corrector on each atom and all those around it within some cutoff.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.SinclairCrack.u_cle" title="matscipy.fracture_mechanics.crack.SinclairCrack.u_cle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">u_cle</span></code></a>([alpha])</p></td>
 <td><p>Returns CLE displacement solution at current (alpha, K)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms" title="matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_atoms</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms" title="matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_atoms</span></code></a>()</p></td>
 <td><p>Update self.atoms from degrees of freedom (self.u, self.alpha, self.k)</p></td>
 </tr>
 </tbody>
@@ -676,46 +687,58 @@ relaxed positions.</p>
 <tr class="row-even"><td><p><strong>arc_length_continuation</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>fit_cle</strong></p></td>
+<tr class="row-odd"><td><p><strong>convergence_line_plot</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_crack_tip_force</strong></p></td>
+<tr class="row-even"><td><p><strong>fit_cle</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_crack_tip_force</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_deformation_gradient</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>get_dofs</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_forces</strong></p></td>
+<tr class="row-even"><td><p><strong>get_f_alpha_correction</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>get_k_force</strong></p></td>
+<tr class="row-odd"><td><p><strong>get_forces</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_potential_energy</strong></p></td>
+<tr class="row-even"><td><p><strong>get_k_force</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>get_precon</strong></p></td>
+<tr class="row-odd"><td><p><strong>get_potential_energy</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_xdot</strong></p></td>
+<tr class="row-even"><td><p><strong>get_precon</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>optimize</strong></p></td>
+<tr class="row-odd"><td><p><strong>get_xdot</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>pack</strong></p></td>
+<tr class="row-even"><td><p><strong>optimize</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>plot</strong></p></td>
+<tr class="row-odd"><td><p><strong>pack</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>rescale_k</strong></p></td>
+<tr class="row-even"><td><p><strong>plot</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_atoms</strong></p></td>
+<tr class="row-odd"><td><p><strong>rescale_k</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_dofs</strong></p></td>
+<tr class="row-even"><td><p><strong>set_atoms</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_dofs</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_shiftmask</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>unpack</strong></p></td>
@@ -724,11 +747,14 @@ relaxed positions.</p>
 <tr class="row-even"><td><p><strong>update_precon</strong></p></td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p><strong>write_atoms_to_file</strong></p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacuum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_far_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacuum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_far_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rI</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rIII</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -782,10 +808,25 @@ relaxed positions.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.get_deformation_gradient">
+<span class="sig-name descname"><span class="pre">get_deformation_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.get_deformation_gradient" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.set_shiftmask">
+<span class="sig-name descname"><span class="pre">set_shiftmask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radial_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.set_shiftmask" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms">
 <span class="sig-name descname"><span class="pre">update_atoms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.update_atoms" title="Permalink to this definition"></a></dt>
 <dd><p>Update self.atoms from degrees of freedom (self.u, self.alpha, self.k)</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.get_f_alpha_correction">
+<span class="sig-name descname"><span class="pre">get_f_alpha_correction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.get_f_alpha_correction" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.set_atoms">
@@ -794,7 +835,7 @@ relaxed positions.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.get_crack_tip_force">
-<span class="sig-name descname"><span class="pre">get_crack_tip_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.get_crack_tip_force" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_crack_tip_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_array_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.get_crack_tip_force" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -839,17 +880,51 @@ relaxed positions.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.arc_length_continuation">
-<span class="sig-name descname"><span class="pre">arc_length_continuation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ftol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continuation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x_traj.h5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.arc_length_continuation" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">arc_length_continuation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ftol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continuation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x_traj.h5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_aggressiveness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'krylov'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cos_alpha_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.arc_length_continuation" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1234'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1234'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rzoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions_styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.animate">
-<span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.animate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rzoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_tip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions_styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.animate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.write_atoms_to_file">
+<span class="sig-name descname"><span class="pre">write_atoms_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.write_atoms_to_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.strain_err">
+<span class="sig-name descname"><span class="pre">strain_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_surface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.strain_err" title="Permalink to this definition"></a></dt>
+<dd><p>Function that returns the atomistic corrector strain error Dv for each atom using the norm of the difference
+between the corrector on each atom and all those around it within some cutoff. Also has an option to return states
+adjacent to the free surface of the crack seperately for comparison.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cutoff</strong> (<em>float</em>) – cutoff around each atom to use to find the strain error norm.</p></li>
+<li><p><strong>seperate_surface</strong> (<em>bool</em>) – whether or not to return the surface atoms in a seperate array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>r</strong> (<em>array of atom radial distance from the centre of the crack system</em>)</p></li>
+<li><p><strong>dv</strong> (<em>norm strain error for each atom in r.</em>)</p></li>
+<li><p><em>”””</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.crack.SinclairCrack.convergence_line_plot">
+<span class="sig-name descname"><span class="pre">convergence_line_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.crack.SinclairCrack.convergence_line_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
