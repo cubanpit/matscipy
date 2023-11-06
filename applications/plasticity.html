@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -18,6 +19,8 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -53,7 +56,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Application domains</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plasticity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-and-tests">Installation and tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorials">Tutorials:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
@@ -93,7 +100,14 @@
   <section id="plasticity">
 <h1>Plasticity<a class="headerlink" href="#plasticity" title="Permalink to this heading"></a></h1>
 <p>For large loads, solids can respond with irreversible deformation. One form of irreversibility is plasticity, that is carried by extended defects, the dislocations, in crystals. The module <a class="reference internal" href="../generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a> implements tools for studying structure and movement of dislocations. Construction and analysis of model atomic systems is implemented for compact and dissociated screw, as well as edge dislocations in cubic crystals. The implementation supports ideal straight as well as kinked dislocations.</p>
-<p>Creating an atomistic system containing a dislocation requires a rather deep knowledge of crystallographic system, elastisity theory as well as hands on experience with atomistic simulations. Thus, it can be challenging for people not familiar to the field. Within this module we attempt to create a flexible, friendly and pythonic tool to enable atomistic simulations of dislocations with ease. The base of the model is <a class="reference internal" href="../generated/matscipy.dislocation.html#matscipy.dislocation.CubicCrystalDislocation" title="matscipy.dislocation.CubicCrystalDislocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">matscipy.dislocation.CubicCrystalDislocation</span></code></a> class that contains all the necessary information to create an atomistic dislocation. To start experimenting, a user only has to choose the dislocation of interest and provide a lattice parameter and elastic constants.</p>
+<p>Creating an atomistic system containing a dislocation requires a rather deep knowledge of crystallographic system, elasticity theory as well as hands on experience with atomistic simulations. Thus, it can be challenging for people not familiar to the field. Within this module we attempt to create a flexible, friendly and pythonic tool to enable atomistic simulations of dislocations with ease. The base of the model is <a class="reference internal" href="../generated/matscipy.dislocation.html#matscipy.dislocation.CubicCrystalDislocation" title="matscipy.dislocation.CubicCrystalDislocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">matscipy.dislocation.CubicCrystalDislocation</span></code></a> class that contains all the necessary information to create an atomistic dislocation. To start experimenting, a user only has to choose the dislocation of interest and provide a lattice parameter and elastic constants.</p>
+<section id="installation-and-tests">
+<h2>Installation and tests<a class="headerlink" href="#installation-and-tests" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="../generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a> module relies on the anisotropic elasticity theory solution within Stroh formalism implemented in <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> package. <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> is not a part of default dependency of <code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy</span></code>, however it can be easily installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">atomman</span></code>. To test your installation you can run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">test_dislocation.py</span></code> from <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory of the repository. If atomman is not installed, most of the tests will be skipped resulting in the output similar to the following: <code class="docutils literal notranslate"><span class="pre">ssssssssssssss..ssssssss..s.ssssssss.s</span></code> where <code class="docutils literal notranslate"><span class="pre">s</span></code> stands for skipped test and <code class="docutils literal notranslate"><span class="pre">.</span></code> for passed tests. You can see which test are skipped together with the reasoning behind by running pytest in verbose mode with <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">test_dislocation.py</span></code>. Once you have atomman installed you should have corresponding tests passing and should be able to use the code. If you plan to use <a class="reference external" href="https://lammps.org">LAMMPS</a> and <a class="reference external" href="https://docs.lammps.org/Python_module.html">lammps python module</a> there are couple of test that will test your installation when <a class="reference external" href="https://docs.lammps.org/Python_module.html">lammps python module</a> is detected.</p>
+<p>The majority of the tests (~70 %) are used during the development and adding new dislocations to the module. The idea is to check if <a class="reference external" href="https://www.ovito.org/manual/reference/pipelines/modifiers/dislocation_analysis.html">Dislocation analysis (DXA)</a> algorithm detects the same dislocation as we intend to create. These tests require <a class="reference external" href="https://www.ovito.org/manual/python/index.html">OVITO python interface</a> to be installed and are skipped if it is not detected. If you do not plan to add new structures to the module, you can safely ignore these tests.</p>
+</section>
+<section id="tutorials">
+<h2>Tutorials:<a class="headerlink" href="#tutorials" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a><ul>
@@ -105,12 +119,21 @@
 <li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#id1">&lt;100&gt;{001} edge dislocation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#face-centered-cubic">Face Centered Cubic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#diamond">Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#face-centered-cubic">Face Centered Cubic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#screw-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#edge-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} edge dislocation (perfect and dissociated)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#diamond-cubic">Diamond Cubic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#id2">1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#degree-screw-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} 60 degree screw dislocation (perfect and dissociated)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
+</section>
 </section>
 
 
@@ -124,7 +147,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+    <p>&#169; Copyright 2023, James Kermode, Lars Pastewka, et al.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

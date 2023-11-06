@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -18,6 +19,8 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -55,10 +58,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Application domains</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="plasticity.html">Plasticity</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Building cylindrical configurations with dislocations</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#body-centered-cubic">Body Centered Cubic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#face-centered-cubic">Face Centered Cubic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#diamond">Diamond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plasticity.html#installation-and-tests">Installation and tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="plasticity.html#tutorials">Tutorials:</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Building cylindrical configurations with dislocations</a></li>
 </ul>
 </li>
 </ul>
@@ -98,49 +100,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="building-cylindrical-configurations-with-dislocations">
+<h1>Building cylindrical configurations with dislocations<a class="headerlink" href="#building-cylindrical-configurations-with-dislocations" title="Permalink to this heading"></a></h1>
+<p><img alt="" src="../_images/dislocation_cylinder.png" /></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> provides a set of tools to create atomistic configurations containing dislocations. In this example we focus on cylindrical configurations. In order to create a dislocation we start with a cylinder of bulk material oriented along the vector of the future dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>. By convention assumed in <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> Z direction of the cell always corresponds to the dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>. Then a displacement field is applied to the cylinder and outer radial shell is fixed in order to stabilise the configuration. So we end up with periodic boundary conditions along the dislocation line (Z) and fixed boundaries along X and Y directions. As shown on the figure above, screw dislocations are characterised by a displacement with corresponding burgers vector <span class="math notranslate nohighlight">\(\vec b\)</span> parallel to the dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>, while edge dislocations have the burgers vector <span class="math notranslate nohighlight">\(\vec b\)</span> perpendicular to <span class="math notranslate nohighlight">\(\vec l\)</span>. <code class="docutils literal notranslate"><span class="pre">matscipy</span></code> uses an anisotropic solution within <a class="reference external" href="https://doi.org/10.1080/14786435808565804">Stroh formalism</a> to generate displacement field as implemented in <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> package.</p>
+<p>For the interactive visualisation of the structures we will use <a class="reference external" href="https://nglviewer.org/nglview/latest/">nglview</a> which allows viewing atomistic structures interactively within an IPython/Jupyter notebooks. We will also color atoms according to the crystallographic structure identified by <a class="reference external" href="https://www.ovito.org/docs/current/reference/pipelines/modifiers/common_neighbor_analysis.html">Common Neighbour Analysis algoritm</a> and its <a class="reference external" href="https://www.ovito.org/docs/current/reference/pipelines/modifiers/identify_diamond.html">extention for diamond structure</a> implemented in <a class="reference external" href="https://www.ovito.org/docs/current/introduction.html">OVITO</a> package. <a class="reference external" href="https://www.ovito.org/docs/current/introduction.html">OVITO</a>, <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> and <a class="reference external" href="https://nglviewer.org/nglview/latest/">nglview</a> are not part of the default dependencies of <code class="docutils literal notranslate"><span class="pre">matscipy</span></code> and require separate installation. Keep that in mind while running these examples as well test in <a class="reference external" href="https://github.com/libAtoms/matscipy/blob/master/tests/test_dislocation.py"><code class="docutils literal notranslate"><span class="pre">test_dislocation.py</span></code></a> since the majority of the tests there require this modules and thus will be skipped if the modules are not found in your system. Please note that for this example we use very small systems (small radius). For production calculations one should do a convergence tests with the system size in order to ensure that fixed boundaries do not affect the studied properties.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">get_elastic_constants</span><span class="p">,</span> <span class="n">plot_vitek</span>
-
-<span class="kn">from</span> <span class="nn">ase.optimize.precon</span> <span class="kn">import</span> <span class="n">PreconLBFGS</span>
-
-<span class="c1"># interactive visualisation inside the notebook</span>
-<span class="kn">from</span> <span class="nn">nglview</span> <span class="kn">import</span> <span class="n">show_ase</span>
-<span class="k">def</span> <span class="nf">interactive_view</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-    <span class="n">view</span> <span class="o">=</span> <span class="n">show_ase</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">_remove_representation</span><span class="p">()</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">add_unitcell</span><span class="p">()</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">add_spacefill</span><span class="p">()</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">update_spacefill</span><span class="p">(</span><span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span>
-                          <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-
-    <span class="n">view</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="s1">&#39;orthographic&#39;</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;clipDist&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-
-    <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">_remote_call</span><span class="p">(</span><span class="s2">&quot;setSize&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;Widget&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;300px&quot;</span><span class="p">,</span> <span class="s2">&quot;300px&quot;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">view</span>
+<span class="kn">import</span> <span class="nn">nglview</span> <span class="c1"># this import is necessary for rendering of the 3D view</span>
+<span class="kn">from</span> <span class="nn">visualisation</span> <span class="kn">import</span> <span class="n">show_dislocation</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3f925228df9344109a8387d7f3244c93"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7462980e8bf24a3fbcde7270bc02943a"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">nglview</span> <span class="c1"># this import is necessary for rendering of the 3D view</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">visualisation</span> <span class="kn">import</span> <span class="n">show_dislocation</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">matscipy</span><span class="o">/</span><span class="n">matscipy</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">visualisation</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">ovito.io.ase</span> <span class="kn">import</span> <span class="n">ase_to_ovito</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">ovito.modifiers</span> <span class="kn">import</span> <span class="n">CommonNeighborAnalysisModifier</span><span class="p">,</span> <span class="n">IdentifyDiamondModifier</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">ovito.pipeline</span> <span class="kn">import</span> <span class="n">StaticSource</span><span class="p">,</span> <span class="n">Pipeline</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">ovito.nonpublic</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Load all extension modules.</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">ovito._extensions</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># The public symbols of this root module:</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="s1">&#39;version_string&#39;</span><span class="p">,</span> <span class="s1">&#39;scene&#39;</span><span class="p">,</span> <span class="s1">&#39;Scene&#39;</span><span class="p">,</span> <span class="s1">&#39;enable_logging&#39;</span><span class="p">]</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="n">_extensions</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Load all plugin extension modules under the _extensions package.</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">for</span> <span class="n">modinfo</span> <span class="ow">in</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">walk_packages</span><span class="p">(</span><span class="n">__path__</span><span class="p">,</span> <span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">modinfo</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File /usr/lib/python3.10/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="n">_extensions</span><span class="o">/</span><span class="n">averaging</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load dependencies.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ovito._extensions.pyscript</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">ovito._extensions.stdobj</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Load the C extension module.</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="n">_extensions</span><span class="o">/</span><span class="n">pyscript</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load the C extension module.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ovito.plugins.PyScript</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Load class add-ons.</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">ovito._scene_class</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">36</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Incompatible version of the Qt cross-platform framework detected!</span><span class="se">\n</span><span class="s2">This version of the OVITO Python module is based on Qt6 (loaded via the PySide6 bindings module), &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="s2">&quot;but bindings for old Qt5 are already loaded at this point (through PyQt5 or PySide2 imports preceding the import of OVITO). To avoid library version conflicts, please make sure the rest of &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="s2">&quot;your application uses Qt6 too instead of Qt5. &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="s2">&quot;In addition, it may help to set the environment variable QT_API=pyside6 to force third-party packages (e.g. matplotlib) to load Qt6 instead of Qt5. &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>         <span class="s2">&quot;If you have any questions, please contact support@ovito.org.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="c1"># Load all the Qt bindings first before OVITO&#39;s own C++ modules get loaded.</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="c1"># This ensures that the right Qt shared libraries needed by OVITO are already loaded into the process when running in a system Python interpreter.</span>
+<span class="ne">---&gt; </span><span class="mi">36</span> <span class="kn">from</span> <span class="nn">ovito.qt_compat</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">ovito.qt_compat</span> <span class="kn">import</span> <span class="n">QtGui</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span> <span class="nn">ovito.qt_compat</span> <span class="kn">import</span> <span class="n">QtWidgets</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ovito</span><span class="o">/</span><span class="n">qt_compat</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Import Shiboken module first to preload shiboken6.dll, which is needed by the Qt DLLs.</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">shiboken6</span> <span class="k">as</span> <span class="nn">shiboken</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtNetwork</span><span class="p">,</span> <span class="n">QtXml</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># The QtOpenGLWidgets module is not included in the embedded PySide6 installation of OVITO Pro 3.7,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># but it should be loaded when using the PyPI version of PySide6.</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ImportError</span>: libEGL.so.1: cannot open shared object file: No such file or directory
+</pre></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="building-cylindrical-configurations-with-dislocations">
-<h1>Building cylindrical configurations with dislocations<a class="headerlink" href="#building-cylindrical-configurations-with-dislocations" title="Permalink to this heading"></a></h1>
-<p><img alt="" src="../_images/dislocation_cylinder.png" /></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> provides a set of tools to create atomistic configurations containing dislocations. In this example we focus on cylindrical configurations. In order to create a dislocation we start with a cylinder of bulk material oriented along the vector of the future dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>. By convention assumed in <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> Z direction of the cell always corresponds to the dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>. Then a displacement field is applied to the cylinder and outer radial shell is fixed in order to stabilise the configuration. So we end up with periodic boundary conditions along the dislocation line (Z) and fixed boundaries along X and Y directions.</p>
-<p>Ase shown on the figure above, screw dislocations are characterised by a displacement with corresponding burgers vector <span class="math notranslate nohighlight">\(\vec b\)</span> parallel to the dislocation line <span class="math notranslate nohighlight">\(\vec l\)</span>, while edge dislocations have the burgers vector <span class="math notranslate nohighlight">\(\vec b\)</span> perpendicular to <span class="math notranslate nohighlight">\(\vec l\)</span>. Here we use an anisotrpoic solution within <a class="reference external" href="https://doi.org/10.1080/14786435808565804">Stroh formalism</a> to generate displacement field as implemented in <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> package. Please note that for this example we use very small systems (small radius). For production calculations one should do a convergence tests with the system size in order to ensure that fixed boundaries do not affect the studied properties.</p>
+</div>
+</div>
 <section id="body-centered-cubic">
 <h2>Body Centered Cubic<a class="headerlink" href="#body-centered-cubic" title="Permalink to this heading"></a></h2>
-<p>Here we will use tungsten as an example BCC material. We need lattice parameter <span class="math notranslate nohighlight">\(a_0\)</span> and elastic constants <span class="math notranslate nohighlight">\(C_{11}\)</span>, <span class="math notranslate nohighlight">\(C_{12}\)</span> and <span class="math notranslate nohighlight">\(C_{44}\)</span> to create dislocation configuration. For the case of <em>ab initio</em> calculation one can provide corresponding values directly. For much faster calculations based on interatomic potentials <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> provides a convenient method <code class="docutils literal notranslate"><span class="pre">get_elastic_constants</span></code> to calculate desired properties. We will use and Embedded Atom Potential from <a class="reference external" href="http://dx.doi.org/10.1088/0953-8984/25/39/395502">Marinica <em>et. al.</em> 2013 paper</a> (version EAM4) for the case of tungsten.</p>
+<p>For the case of BCC structure we take tungsten as an example. In order to create a dislocation configuration one has to provide lattice parameter and elastic constants. It is possible to provide these values from literature. However, if you plan to relax the configuration with an interatomic potential, <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> provides a convenient method <code class="docutils literal notranslate"><span class="pre">get_elastic_constants</span></code> to calculate desired properties. We will use and Embedded Atom Potential from <a class="reference external" href="http://dx.doi.org/10.1088/0953-8984/25/39/395502">Marinica <em>et. al.</em> 2013 paper</a> (version EAM4) for the case of tungsten.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the calculator to provide forces and energies from the potential</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">get_elastic_constants</span>
+<span class="c1"># the calculator to provide forces and energies from the potential</span>
 <span class="kn">from</span> <span class="nn">matscipy.calculators.eam</span> <span class="kn">import</span> <span class="n">EAM</span>
 <span class="n">eam_calc</span> <span class="o">=</span> <span class="n">EAM</span><span class="p">(</span><span class="s2">&quot;../../tests/w_eam4.fs&quot;</span><span class="p">)</span>
 
@@ -157,136 +205,50 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy         fmax
 *Force-consistent energies used in optimization.
-FIRE:    0 13:57:39      -17.792788*       1.5616
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    1 13:57:39      -17.796007*       1.2330
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    2 13:57:39      -17.798904*       0.6354
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    3 13:57:39      -17.799853*       0.2223
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    4 13:57:39      -17.799882*       0.1976
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    5 13:57:39      -17.799928*       0.1509
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    6 13:57:39      -17.799970*       0.0870
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    7 13:57:39      -17.799991*       0.0130
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    8 13:57:39      -17.799981*       0.0629
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    9 13:57:39      -17.799981*       0.0611
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   10 13:57:39      -17.799982*       0.0576
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   11 13:57:39      -17.799984*       0.0525
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   12 13:57:39      -17.799986*       0.0458
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   13 13:57:39      -17.799988*       0.0379
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   14 13:57:39      -17.799989*       0.0289
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   15 13:57:39      -17.799991*       0.0191
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   16 13:57:39      -17.799991*       0.0076
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   17 13:57:39      -17.799992*       0.0052
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   18 13:57:39      -17.799992*       0.0052
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   19 13:57:39      -17.799992*       0.0051
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   20 13:57:39      -17.799992*       0.0049
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   21 13:57:39      -17.799992*       0.0047
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   22 13:57:39      -17.799992*       0.0044
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   23 13:57:39      -17.799992*       0.0041
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   24 13:57:39      -17.799992*       0.0038
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   25 13:57:39      -17.799992*       0.0034
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   26 13:57:39      -17.799992*       0.0028
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   27 13:57:39      -17.799992*       0.0022
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   28 13:57:39      -17.799992*       0.0015
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   29 13:57:39      -17.799992*       0.0006
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   30 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   31 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   32 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   33 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   34 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   35 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   36 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   37 13:57:39      -17.799992*       0.0003
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   38 13:57:39      -17.799992*       0.0002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   39 13:57:39      -17.799992*       0.0002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   40 13:57:39      -17.799992*       0.0002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   41 13:57:39      -17.799992*       0.0001
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:   42 13:57:39      -17.799992*       0.0001
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting C_11
+FIRE:    0 15:29:59      -17.792788*       1.5616
+FIRE:    1 15:29:59      -17.796007*       1.2330
+FIRE:    2 15:29:59      -17.798904*       0.6354
+FIRE:    3 15:29:59      -17.799853*       0.2223
+FIRE:    4 15:29:59      -17.799882*       0.1976
+FIRE:    5 15:29:59      -17.799928*       0.1509
+FIRE:    6 15:29:59      -17.799970*       0.0870
+FIRE:    7 15:29:59      -17.799991*       0.0130
+FIRE:    8 15:29:59      -17.799981*       0.0629
+FIRE:    9 15:29:59      -17.799981*       0.0611
+FIRE:   10 15:29:59      -17.799982*       0.0576
+FIRE:   11 15:29:59      -17.799984*       0.0525
+FIRE:   12 15:29:59      -17.799986*       0.0458
+FIRE:   13 15:29:59      -17.799988*       0.0379
+FIRE:   14 15:29:59      -17.799989*       0.0289
+FIRE:   15 15:29:59      -17.799991*       0.0191
+FIRE:   16 15:29:59      -17.799991*       0.0076
+FIRE:   17 15:29:59      -17.799992*       0.0052
+FIRE:   18 15:29:59      -17.799992*       0.0052
+FIRE:   19 15:29:59      -17.799992*       0.0051
+FIRE:   20 15:29:59      -17.799992*       0.0049
+FIRE:   21 15:29:59      -17.799992*       0.0047
+FIRE:   22 15:29:59      -17.799992*       0.0044
+FIRE:   23 15:29:59      -17.799992*       0.0041
+FIRE:   24 15:29:59      -17.799992*       0.0038
+FIRE:   25 15:29:59      -17.799992*       0.0034
+FIRE:   26 15:29:59      -17.799992*       0.0028
+FIRE:   27 15:29:59      -17.799992*       0.0022
+FIRE:   28 15:29:59      -17.799992*       0.0015
+FIRE:   29 15:29:59      -17.799992*       0.0006
+FIRE:   30 15:30:00      -17.799992*       0.0003
+FIRE:   31 15:30:00      -17.799992*       0.0003
+FIRE:   32 15:30:00      -17.799992*       0.0003
+FIRE:   33 15:30:00      -17.799992*       0.0003
+FIRE:   34 15:30:00      -17.799992*       0.0003
+FIRE:   35 15:30:00      -17.799992*       0.0003
+FIRE:   36 15:30:00      -17.799992*       0.0003
+FIRE:   37 15:30:00      -17.799992*       0.0003
+FIRE:   38 15:30:00      -17.799992*       0.0002
+FIRE:   39 15:30:00      -17.799992*       0.0002
+FIRE:   40 15:30:00      -17.799992*       0.0002
+FIRE:   41 15:30:00      -17.799992*       0.0001
+FIRE:   42 15:30:00      -17.799992*       0.0001
+Fitting C_11
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
 Stress array([-1.18143011e+01, -5.57729763e+00, -2.88261126e-04,  4.98286691e+00,
         9.85079614e+00]) GPa
@@ -390,135 +352,68 @@ Burgers vector:
 </div>
 </div>
 </div>
-<p>We are going to use <code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.build_cylinder()</span></code> method to build the cells. All the necessary parameters are passed automatically and we only need to chose the radius of the cell in (X,Y) plane. The function returns reference bulk cell and a cell containing dislocation. The displacement field is applied iteratively untill a converged value is achieved, the printed output prints the difference between the steps. The radius provided is a parameter is a radius of unconstrained region around the core. The outer shell of fixed atoms is added on top of this. The default value is 10 Angstom which is about two times larger than a cutoff for the used interatomic potential.</p>
+<p>We are going to use <code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.build_cylinder()</span></code> method to build the cells. All the necessary parameters are passed automatically and we only need to chose the radius of the cell in (X,Y) plane. The function returns reference bulk cell and a cell containing dislocation. The displacement field is applied iteratively until a converged value is achieved, the printed output shows the difference between the steps. The radius provided is a parameter is a radius of unconstrained region around the core. The outer shell of fixed atoms is added on top of this. The default value is 10 Angstrom which is about two times larger than the cutoff for the used interatomic potential. The information about which atoms are fixed is stored in <code class="docutils literal notranslate"><span class="pre">fix_mask</span></code> array and can be accessed via <code class="docutils literal notranslate"><span class="pre">W_screw_dislo.get_array('fix_mask')</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_screw_bulk</span><span class="p">,</span> <span class="n">W_screw_dislo</span> <span class="o">=</span> <span class="n">W_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector lenth:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">))</span>
-
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector lenth: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.0014007233320793289
-disloc SCF 1 |d1-d2|_inf = 6.704394989176521e-06
-disloc SCF 2 |d1-d2|_inf = 3.2089362944631716e-08
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.001400723332078968
+disloc SCF 1 |d1-d2|_inf = 6.704394990092455e-06
+disloc SCF 2 |d1-d2|_inf = 3.2089362583809233e-08
 
 Cell vectors:
 [[61.59759392  0.          0.        ]
  [ 0.         62.235928    0.        ]
  [ 0.          0.          2.72225477]]
 
-Burgers vector lenth:
-2.722254772666657
+Burgers vector lenth: 2.72 Angstrom
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "373a284737654cf8b8bb760a24ffc5bf"}</script></div>
 </div>
-<p>Here we have a cell with <span class="math notranslate nohighlight">\(|\vec b| = \frac{\sqrt{3}}{2}a_0\)</span> length along the dislocation line. With a periodic conditions along Z it corresponds to infinitely long straight dislocation line. Note that the periodic boundary conditions along the dislocation line are not applied in the visualisation. It makes it easier to see the displecement, but you might notice the atoms outside the simulation box.</p>
+</div>
+<p>Now we can look at the created structure with the interactive view. Hovering your mouse over an atom will show chemical symbol of the atom and the structure identified by CNA algorithm. Dislocation is shown with an arrow corresponding to the dislocation line vector <span class="math notranslate nohighlight">\(\vec l\)</span>. Hovering over the dislocation will display the dislocation name. Moreover, you can use your mouse to control the view:</p>
+<ul class="simple">
+<li><p>Translation: right click + drag</p></li>
+<li><p>Rotation: left click + drag</p></li>
+<li><p>Z-axis rotation: Ctrl + right click + drag</p></li>
+<li><p>Zoom: scroll wheel</p></li>
+<li><p>Center view: left click on the desired atom</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_dislocation</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;111&gt; screw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "df6d21351f824d99bd4ec008cc1417bc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>It can be seen that most of the cell is identified as BCC structure with some grey atoms identified as <em>Other</em>. These atoms represent the defect atoms, where the algorithm could not assign a crystallographic structure. In this case we have defect atoms at the dislocation core and on the artificial free surfaces on the edges of the cell. The atoms at the <em>surface</em> are part of fixed region of the cell.</p>
+<p>Here we have a cell with the length of one Burgers vector <span class="math notranslate nohighlight">\(|\vec b| = \frac{\sqrt{3}}{2}a_0\)</span> along the dislocation line. With the periodic boundary conditions along Z, it corresponds to infinitely long straight dislocation line. Note that the periodic boundary conditions along the dislocation line are not applied in the visualisation. It makes it easier to see the displacement, but you might notice the atoms outside the simulation box.</p>
 <p>To increase the size of the cell along the line we can rely on the magic of <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/">ASE</a> and simply multiply the cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_view</span><span class="p">(</span><span class="n">W_screw_dislo</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longer_W_screw_dislo</span> <span class="o">=</span> <span class="n">W_screw_dislo</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">longer_W_screw_dislo</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;111&gt; screw&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8436028fc416419da4804b012728fa14"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3645f686ef254210bd8007af69ca5ea2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>Since fo screw dislocations the displacement is parallel to the dislocation line, it is not easy to see the displacement without 3D tools. Thus so-called differential displacement (Vitek) maps are used to visualise the dislocation core. <code class="docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code> offers a tool called <a class="reference internal" href="../generated/matscipy.dislocation.html#matscipy.dislocation.plot_vitek" title="matscipy.dislocation.plot_vitek"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matscipy.dislocation.plot_vitek()</span></code></a> to build these maps. The colors of the atoms represent three non equivalen planes of W atoms along &lt;111&gt; direction and the arrows represent the difference in displacement of atoms along Z direction. The visualisation below shows so-called compact and symmetric core, which is the most stable for BCC materials.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plot_vitek</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">,</span> <span class="n">W_screw_bulk</span><span class="p">,</span> <span class="n">alat</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">xyscale</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">plot_axes</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/159a1a2de7b12caf84fee79241e99fcb9aeae2da4dfab137f4ab369e5f77070f.png" src="../_images/159a1a2de7b12caf84fee79241e99fcb9aeae2da4dfab137f4ab369e5f77070f.png" />
-</div>
-</div>
-<p>We can use the ASE minimisation tools to minimise the structure using the chosen interatomic potential:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_screw_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">)</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   0  13:57:42    -1936.097946       2.5284
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   1  13:57:45    -1936.291357       0.3596
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   2  13:57:45    -1936.346476       0.2286
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   3  13:57:46    -1936.361691       0.6206
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   4  13:57:47    -1936.374519       0.1534
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   5  13:57:48    -1936.377157       0.0604
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   6  13:57:49    -1936.378302       0.0847
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   7  13:57:50    -1936.378545       0.0449
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   8  13:57:51    -1936.378652       0.0124
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   9  13:57:52    -1936.378665       0.0059
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plot_vitek</span><span class="p">(</span><span class="n">W_screw_dislo</span><span class="p">,</span> <span class="n">W_screw_bulk</span><span class="p">,</span> <span class="n">alat</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">xyscale</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">plot_axes</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/212ef8a3e404bb9db934ca669d447841c842adc796b173ab68d8d40ca001b883.png" src="../_images/212ef8a3e404bb9db934ca669d447841c842adc796b173ab68d8d40ca001b883.png" />
-</div>
-</div>
-<p>Differential displacement map of the relaxed structure shows almost the same picture as before with symmetric ‘easy’ dislocation core. This means that for the selected interatomic potential this structure is indeed the most stable and that the initial guess of the displacement was reasonably good.</p>
+<p>If you want to save the configuration in a file for further analysis or as an input for a code you can use build in <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/io/io.html#ase.io.write">ASE write method</a> as <code class="docutils literal notranslate"><span class="pre">longer_W_screw_dislo.write(filename)</span></code>. The method supports a wide range of formats including <code class="docutils literal notranslate"><span class="pre">xyz</span></code> and LAMMPS data files. Do not forget to take into account fixed atoms if you use the saved file as an input for a simulation code like LAMMPS.</p>
 </section>
 <section id="edge-dislocation">
 <h3>1/2&lt;111&gt;{110} edge dislocation<a class="headerlink" href="#edge-dislocation" title="Permalink to this heading"></a></h3>
-<p>As we said before, for edge dislocations burgers vecort <span class="math notranslate nohighlight">\(\vec b\)</span> is perpendicular to the dislocation <span class="math notranslate nohighlight">\(\vec l\)</span>. So here, we have the same glide plane of (110) which fixes the cell Y direction to &lt;110&gt;. X direction now will be along burgers vector &lt;111&gt; and Z dislocation line direction &lt;112&gt;.</p>
+<p>As we said before, for edge dislocations burgers vectpr <span class="math notranslate nohighlight">\(\vec b\)</span> is perpendicular to the dislocation <span class="math notranslate nohighlight">\(\vec l\)</span>. So here, we have the same glide plane of (110) which fixes the cell Y direction to &lt;110&gt;. X direction now will be along burgers vector &lt;111&gt; and Z dislocation line direction &lt;112&gt;.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">BCCEdge111Dislocation</span>
@@ -551,249 +446,44 @@ Burgers vector:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector lenth:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">))</span>
-
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector lenth: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.17503717189387202
-disloc SCF 1 |d1-d2|_inf = 0.030669651063356312
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.17503717189385382
+disloc SCF 1 |d1-d2|_inf = 0.030669651063355258
 disloc SCF 2 |d1-d2|_inf = 0.004376489640269432
-disloc SCF 3 |d1-d2|_inf = 0.0008807112000271955
-disloc SCF 4 |d1-d2|_inf = 0.00015452837692367383
-disloc SCF 5 |d1-d2|_inf = 2.611264702961913e-05
-disloc SCF 6 |d1-d2|_inf = 5.748780400383069e-06
-disloc SCF 7 |d1-d2|_inf = 7.771108774257129e-07
+disloc SCF 3 |d1-d2|_inf = 0.0008807112000284167
+disloc SCF 4 |d1-d2|_inf = 0.00015452837692353505
+disloc SCF 5 |d1-d2|_inf = 2.6112647029508107e-05
+disloc SCF 6 |d1-d2|_inf = 5.7487804006051135e-06
+disloc SCF 7 |d1-d2|_inf = 7.771108773702018e-07
 
 Cell vectors:
 [[54.44509545  0.          0.        ]
  [ 0.         53.34508114  0.        ]
  [ 0.          0.          7.69969924]]
 
-Burgers vector lenth:
-2.722254772666657
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8fbe982c471b41348a29e68c6b0319f9"}</script></div>
-</div>
-<p>It can be seen that the case of edge dislocation the requires more iterations to achieve converged displacement field.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_edge_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">)</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+Burgers vector lenth: 2.72 Angstrom
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   0  13:57:54    -3017.104472       5.8264
-</pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   1  13:57:58    -3017.709557       4.8423
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   2  13:57:59    -3018.145952       3.6773
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   3  13:58:01    -3018.510026       2.2950
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   4  13:58:02    -3018.881181       1.4546
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   5  13:58:03    -3019.132006       0.7013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   6  13:58:05    -3019.257226       0.4936
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   7  13:58:06    -3019.309721       0.8501
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   8  13:58:08    -3019.331783       0.4275
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   9  13:58:11    -3019.340055       0.2540
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  10  13:58:14    -3019.343848       0.2224
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  11  13:58:15    -3019.345682       0.3022
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  12  13:58:16    -3019.347748       0.1698
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  13  13:58:17    -3019.348742       0.0915
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  14  13:58:20    -3019.349178       0.0348
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  15  13:58:21    -3019.349290       0.0489
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:  16  13:58:23    -3019.349394       0.0276
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">W_edge_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/precon/lbfgs.py:365,</span> in <span class="ni">PreconLBFGS.run</span><span class="nt">(self, fmax, steps, smax)</span>
-<span class="g g-Whitespace">    </span><span class="mi">363</span>     <span class="n">smax</span> <span class="o">=</span> <span class="n">fmax</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span> <span class="bp">self</span><span class="o">.</span><span class="n">smax</span> <span class="o">=</span> <span class="n">smax</span>
-<span class="ne">--&gt; </span><span class="mi">365</span> <span class="k">return</span> <span class="n">Optimizer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmax</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/optimize.py:269,</span> in <span class="ni">Optimizer.run</span><span class="nt">(self, fmax, steps)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span> <span class="k">if</span> <span class="n">steps</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span> <span class="o">=</span> <span class="n">steps</span>
-<span class="ne">--&gt; </span><span class="mi">269</span> <span class="k">return</span> <span class="n">Dynamics</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/optimize.py:156,</span> in <span class="ni">Dynamics.run</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Run dynamics algorithm.</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span><span class="sd">     This method will return when the forces on all individual</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span><span class="sd">     atoms are less than *fmax* or when the number of steps exceeds</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span><span class="sd">     *steps*.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">156</span>     <span class="k">for</span> <span class="n">converged</span> <span class="ow">in</span> <span class="n">Dynamics</span><span class="o">.</span><span class="n">irun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>         <span class="k">pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="k">return</span> <span class="n">converged</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/optimize.py:135,</span> in <span class="ni">Dynamics.irun</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> <span class="c1"># run the algorithm until converged or max_steps reached</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nsteps</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_steps</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> 
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="c1"># compute the next step</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="bp">self</span><span class="o">.</span><span class="n">nsteps</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="c1"># let the user inspect the step and change things before logging</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="c1"># and predicting the next step</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/precon/lbfgs.py:246,</span> in <span class="ni">PreconLBFGS.step</span><span class="nt">(self, f)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>     <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">246</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_search</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">previously_reset_hessian</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha_k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha_k</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/precon/lbfgs.py:327,</span> in <span class="ni">PreconLBFGS.line_search</span><span class="nt">(self, r, g, e, previously_reset_hessian)</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="c1"># CO: modified call to ls.run</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="c1"># TODO: pass also the old slope to the linesearch</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="c1">#    so that the RumPath can extract a better starting guess?</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="c1">#    alternatively: we can adjust the rotation_factors</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span>     <span class="c1">#    out using some extrapolation tricks?</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">ls</span> <span class="o">=</span> <span class="n">LineSearchArmijo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">c1</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">327</span>     <span class="n">step</span><span class="p">,</span> <span class="n">func_val</span><span class="p">,</span> <span class="n">no_update</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">a_min</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">func_start</span><span class="o">=</span><span class="n">e</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="n">func_prime_start</span><span class="o">=</span><span class="n">g</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">func_old</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">e0</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>         <span class="n">rigid_units</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rigid_units</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>         <span class="n">rotation_factors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rotation_factors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span>         <span class="n">maxstep</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">maxstep</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span>     <span class="bp">self</span><span class="o">.</span><span class="n">e0</span> <span class="o">=</span> <span class="n">e</span>
-<span class="g g-Whitespace">    </span><span class="mi">336</span>     <span class="bp">self</span><span class="o">.</span><span class="n">e1</span> <span class="o">=</span> <span class="n">func_val</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/utils/linesearcharmijo.py:297,</span> in <span class="ni">LineSearchArmijo.run</span><span class="nt">(self, x_start, dirn, a_max, a_min, a1, func_start, func_old, func_prime_start, rigid_units, rotation_factors, maxstep)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;a1 = </span><span class="si">%e</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span> <span class="c1">###CO replaced: func_a1 = self.func(x_start + a1 * self.dirn)</span>
-<span class="ne">--&gt; </span><span class="mi">297</span> <span class="n">func_a1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">x_start</span> <span class="o">+</span> <span class="n">path</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">a1</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="n">phi_a1</span> <span class="o">=</span> <span class="n">func_a1</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="c1"># compute sufficient decrease (Armijo) condition</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/optimize/precon/lbfgs.py:302,</span> in <span class="ni">PreconLBFGS.func</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Objective function for use of the optimizers&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">set_positions</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="ne">--&gt; </span><span class="mi">302</span> <span class="n">potl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">return</span> <span class="n">potl</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/atoms.py:731,</span> in <span class="ni">Atoms.get_potential_energy</span><span class="nt">(self, force_consistent, apply_constraint)</span>
-<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calc</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">729</span>         <span class="bp">self</span><span class="p">,</span> <span class="n">force_consistent</span><span class="o">=</span><span class="n">force_consistent</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">730</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">731</span>     <span class="n">energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calc</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">732</span> <span class="k">if</span> <span class="n">apply_constraint</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/calculators/calculator.py:709,</span> in <span class="ni">Calculator.get_potential_energy</span><span class="nt">(self, atoms, force_consistent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="k">def</span> <span class="nf">get_potential_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_consistent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">709</span>     <span class="n">energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="s1">&#39;energy&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>     <span class="k">if</span> <span class="n">force_consistent</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="k">if</span> <span class="s1">&#39;free_energy&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/ase/calculators/calculator.py:737,</span> in <span class="ni">Calculator.get_property</span><span class="nt">(self, name, atoms, allow_calculation)</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_calculation</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span>         <span class="k">return</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">737</span>     <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">system_changes</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">739</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="c1"># For some reason the calculator was not able to do what we want,</span>
-<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="c1"># and that is OK.</span>
-<span class="g g-Whitespace">    </span><span class="mi">742</span>     <span class="k">raise</span> <span class="n">PropertyNotImplementedError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> not present in this &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">743</span>                                       <span class="s1">&#39;calculation&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/matscipy/calculators/eam/calculator.py:212,</span> in <span class="ni">EAM.calculate</span><span class="nt">(self, atoms, properties, system_changes)</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">system_changes</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">dr_nc</span><span class="p">,</span> <span class="n">abs_dr_n</span> <span class="o">=</span> <span class="n">neighbour_list</span><span class="p">(</span><span class="s1">&#39;ijDd&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>                                            <span class="bp">self</span><span class="o">.</span><span class="n">_db_cutoff</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">212</span> <span class="n">epot</span><span class="p">,</span> <span class="n">virial_v</span><span class="p">,</span> <span class="n">forces_ic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy_virial_and_forces</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">dr_nc</span><span class="p">,</span> <span class="n">abs_dr_n</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="n">epot</span><span class="p">,</span> <span class="s1">&#39;free_energy&#39;</span><span class="p">:</span> <span class="n">epot</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>                      <span class="s1">&#39;stress&#39;</span><span class="p">:</span> <span class="n">virial_v</span><span class="o">/</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_volume</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>                      <span class="s1">&#39;forces&#39;</span><span class="p">:</span> <span class="n">forces_ic</span><span class="p">})</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/matscipy/calculators/eam/calculator.py:150,</span> in <span class="ni">EAM.energy_virial_and_forces</span><span class="nt">(self, atomic_numbers_i, i_n, j_n, dr_nc, abs_dr_n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>                     <span class="n">df_n</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">abs_dr_n</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">150</span>             <span class="n">f_n</span><span class="p">[</span><span class="n">mask1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">abs_dr_n</span><span class="p">[</span><span class="n">mask1</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>             <span class="n">df_n</span><span class="p">[</span><span class="n">mask1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">(</span><span class="n">abs_dr_n</span><span class="p">[</span><span class="n">mask1</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="n">density_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">i_n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">f_n</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="n">nat</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/scipy/interpolate/_fitpack2.py:395,</span> in <span class="ni">UnivariateSpline.__call__</span><span class="nt">(self, x, nu, ext)</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span>     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">394</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown extrapolation mode </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">ext</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="ne">--&gt; </span><span class="mi">395</span> <span class="k">return</span> <span class="n">_fitpack_impl</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_args</span><span class="p">,</span> <span class="n">der</span><span class="o">=</span><span class="n">nu</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="n">ext</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/dist-packages/scipy/interpolate/_fitpack_impl.py:321,</span> in <span class="ni">splev</span><span class="nt">(x, tck, der, ext)</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="n">x</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">if</span> <span class="n">der</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">321</span>     <span class="n">y</span><span class="p">,</span> <span class="n">ier</span> <span class="o">=</span> <span class="n">dfitpack</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="n">y</span><span class="p">,</span> <span class="n">ier</span> <span class="o">=</span> <span class="n">dfitpack</span><span class="o">.</span><span class="n">splder</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">der</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
-</details>
-</div>
+<p>It can be seen from the print output of <code class="docutils literal notranslate"> <span class="pre">W_edge.build_cylinder()</span></code> that the case of edge dislocation the requires more iterations to achieve converged displacement field.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_dislocation</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;111&gt; edge&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ffa1a678356e486d87749676e6ce4f85", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "863a61925a3c4d8ca4de13786507f13c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>It can be seen that relaxed core structure differs significantly from the initial guess.</p>
 </section>
 <section id="mixed-dislocation">
 <h3>1/2&lt;111&gt;{110} mixed dislocation<a class="headerlink" href="#mixed-dislocation" title="Permalink to this heading"></a></h3>
-<p>For mixed dislocation the cell vector are the same as for the screw dislocation. However the displacement vector is applied along &lt;111&gt; direction that is not parallel to the Z direction: [<span class="math notranslate nohighlight">\(1\bar 11\)</span>] and [<span class="math notranslate nohighlight">\(1\bar 1 \bar1\)</span>] with an angle of 70.5 degrees between the vectors. This leads to both edge and screw component in the displacement and thus the name <em>mixed</em> dislocation.</p>
+<p>For mixed dislocation the cell vector are the same as for the screw dislocation. The difference is that the displacement vector is applied along &lt;111&gt; direction that is not parallel to the Z direction: [<span class="math notranslate nohighlight">\(1\bar 11\)</span>] and [<span class="math notranslate nohighlight">\(1\bar 1 \bar1\)</span>] with an angle of 70.5 degrees between the vectors. This leads to both edge and screw component in the displacement and thus the name <em>mixed</em> dislocation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">BCCMixed111Dislocation</span>
@@ -814,131 +504,48 @@ Burgers vector lenth:
  [ 1  1  0]
  [ 1 -1  1]]
 Burgers vector:
-[ 1.57169589 -1.57169589 -1.57169589]
+[ 1.57169453 -1.57169453 -1.57169453]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_mixed_bulk</span><span class="p">,</span> <span class="n">W_mixed_dislo</span> <span class="o">=</span> <span class="n">W_mixed</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_mixed_bulk</span><span class="p">,</span> <span class="n">W_mixed_dislo</span> <span class="o">=</span> <span class="n">W_mixed</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector lenth:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">burgers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector length: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
 
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;111&gt; mixed&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.10539253373490873
-disloc SCF 1 |d1-d2|_inf = 0.018105901181897643
-disloc SCF 2 |d1-d2|_inf = 0.0028537827503362645
-disloc SCF 3 |d1-d2|_inf = 0.0004461832291074441
-disloc SCF 4 |d1-d2|_inf = 6.968773949250773e-05
-disloc SCF 5 |d1-d2|_inf = 1.0882737324524605e-05
-disloc SCF 6 |d1-d2|_inf = 1.6994622201171872e-06
-disloc SCF 7 |d1-d2|_inf = 2.6538950442800413e-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.10539187767041772
+disloc SCF 1 |d1-d2|_inf = 0.018105716735450528
+disloc SCF 2 |d1-d2|_inf = 0.002853744720166418
+disloc SCF 3 |d1-d2|_inf = 0.00044617599789692486
+disloc SCF 4 |d1-d2|_inf = 6.968641396387643e-05
+disloc SCF 5 |d1-d2|_inf = 1.0882499856867955e-05
+disloc SCF 6 |d1-d2|_inf = 1.6994203833053945e-06
+disloc SCF 7 |d1-d2|_inf = 2.653822296916353e-07
 
 Cell vectors:
-[[61.59764738  0.          0.        ]
- [ 0.         62.23598202  0.        ]
- [ 0.          0.          2.72225714]]
+[[61.59759392  0.          0.        ]
+ [ 0.         62.235928    0.        ]
+ [ 0.          0.          2.72225477]]
 
-Burgers vector lenth:
-2.7222571354952314
+Burgers vector length: 2.72 Angstrom
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e6e8cd4dd3f94b06a921d8bac0bc7c68", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c8e63ead26fc406590892d6e8897f0d0", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plot_vitek</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">,</span> <span class="n">W_mixed_bulk</span><span class="p">,</span> <span class="n">alat</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">xyscale</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">plot_axes</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/8f0e6f523d8ae5d790bec38a4989057edbbde37064ec25bd1ed9604fc0b94f97.png" src="../_images/8f0e6f523d8ae5d790bec38a4989057edbbde37064ec25bd1ed9604fc0b94f97.png" />
-</div>
-</div>
-<p>It can be seen that the screw displacement component is not local as compared to the case of screw dislocation. This is because in this visualisation edge component of the displacement is not taken into account. It is the full displacement as screw plus edge component that makes a periodic vector leading to perfect structure and thus no displacement far from the dislocation core.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_mixed_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">)</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   0  18:11:56    -1378.796211       6.1079
-PreconLBFGS:   1  18:11:58    -1379.177181       5.5696
-PreconLBFGS:   2  18:11:58    -1379.433631       3.8806
-PreconLBFGS:   3  18:11:59    -1379.678480       2.8772
-PreconLBFGS:   4  18:12:00    -1379.877549       1.7194
-PreconLBFGS:   5  18:12:00    -1380.025465       1.0665
-PreconLBFGS:   6  18:12:00    -1380.137886       0.4828
-PreconLBFGS:   7  18:12:01    -1380.207597       0.7496
-PreconLBFGS:   8  18:12:01    -1380.243102       0.6630
-PreconLBFGS:   9  18:12:02    -1380.255614       0.5914
-PreconLBFGS:  10  18:12:03    -1380.262569       0.6070
-PreconLBFGS:  11  18:12:03    -1380.272479       0.2771
-PreconLBFGS:  12  18:12:04    -1380.278208       0.2129
-PreconLBFGS:  13  18:12:05    -1380.283037       0.2463
-PreconLBFGS:  14  18:12:06    -1380.285827       0.1471
-PreconLBFGS:  15  18:12:06    -1380.287208       0.1001
-PreconLBFGS:  16  18:12:07    -1380.287801       0.0572
-PreconLBFGS:  17  18:12:07    -1380.287999       0.0161
-PreconLBFGS:  18  18:12:08    -1380.288042       0.0102
-PreconLBFGS:  19  18:12:09    -1380.288059       0.0061
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_view</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dd80ae03bbe5421aa359fa4326d6534f", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plot_vitek</span><span class="p">(</span><span class="n">W_mixed_dislo</span><span class="p">,</span> <span class="n">W_mixed_bulk</span><span class="p">,</span> <span class="n">alat</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">xyscale</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">plot_axes</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">W_mixed</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> direction ($\AA$)&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/ad864bb6a531b85eb0d6cfb8ec74870a32863a29088773930517f3930cb173fd.png" src="../_images/ad864bb6a531b85eb0d6cfb8ec74870a32863a29088773930517f3930cb173fd.png" />
-</div>
-</div>
-<p>Spreading of the dislocation core along the glide plane can be seen in the displacement map after relaxation.</p>
 </section>
 <section id="edge-junction-dislocation">
 <h3>&lt;100&gt;{110} edge ‘junction’ dislocation<a class="headerlink" href="#edge-junction-dislocation" title="Permalink to this heading"></a></h3>
-<p>So called junction dislocations with burdgers vector along &lt;100&gt; can be formed in the reactions between more abundant dislocations with burgers vector &lt;111&gt; such as:</p>
+<p>So called junction dislocations with burdgers vector along &lt;100&gt; can be formed in the reactions between more abundant dislocations with burgers vector 1/2&lt;111&gt; such as:</p>
 <div class="math notranslate nohighlight">
 \[
     \frac{1}{2}[1\bar{1}1] + \frac{1}{2}[11\bar{1}] = [100]
@@ -948,13 +555,13 @@ PreconLBFGS:  19  18:12:09    -1380.288059       0.0061
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">BCCEdge100110Dislocation</span>
 
-<span class="n">W_edge</span> <span class="o">=</span> <span class="n">BCCEdge100110Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">)</span>
+<span class="n">W_100110_edge</span> <span class="o">=</span> <span class="n">BCCEdge100110Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W_100110_edge</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W_100110_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -964,95 +571,48 @@ PreconLBFGS:  19  18:12:09    -1380.288059       0.0061
  [ 0  1  1]
  [ 0 -1  1]]
 Burgers vector:
-[3.14339178 0.         0.        ]
+[3.14338905 0.         0.        ]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_edge_bulk</span><span class="p">,</span> <span class="n">W_edge_dislo</span> <span class="o">=</span> <span class="n">W_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_100110_edge_bulk</span><span class="p">,</span> <span class="n">W_100110_edge_dislo</span> <span class="o">=</span> <span class="n">W_100110_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">W_100110_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;&lt;100&gt;</span><span class="si">{110}</span><span class="s2"> edge&quot;</span><span class="p">,</span> <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.2560104778537572
-disloc SCF 1 |d1-d2|_inf = 0.060168332357741605
-disloc SCF 2 |d1-d2|_inf = 0.008688118653886967
-disloc SCF 3 |d1-d2|_inf = 0.002036828550612449
-disloc SCF 4 |d1-d2|_inf = 0.00025500431885919217
-disloc SCF 5 |d1-d2|_inf = 8.301996157844549e-05
-disloc SCF 6 |d1-d2|_inf = 1.657879984715005e-05
-disloc SCF 7 |d1-d2|_inf = 1.7271584200617696e-06
-disloc SCF 8 |d1-d2|_inf = 6.753730281694459e-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.256011923011219
+disloc SCF 1 |d1-d2|_inf = 0.06016875789278883
+disloc SCF 2 |d1-d2|_inf = 0.008688239875985548
+disloc SCF 3 |d1-d2|_inf = 0.002036859690120879
+disloc SCF 4 |d1-d2|_inf = 0.00025500641555943615
+disloc SCF 5 |d1-d2|_inf = 8.302194247189476e-05
+disloc SCF 6 |d1-d2|_inf = 1.6579146270331857e-05
+disloc SCF 7 |d1-d2|_inf = 1.7272275882884713e-06
+disloc SCF 8 |d1-d2|_inf = 6.753932630942927e-07
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d7fbb8ab564e4cd5868adc766d70fdd3", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_edge_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">)</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   0  18:20:57    -1730.274578       3.4263
-PreconLBFGS:   1  18:20:59    -1730.777063       2.4833
-PreconLBFGS:   2  18:20:59    -1731.178752       2.1508
-PreconLBFGS:   3  18:21:00    -1731.476037       1.8161
-PreconLBFGS:   4  18:21:00    -1731.690456       1.3642
-PreconLBFGS:   5  18:21:01    -1731.853182       0.7967
-PreconLBFGS:   6  18:21:02    -1731.973529       0.6496
-PreconLBFGS:   7  18:21:02    -1732.026735       0.5298
-PreconLBFGS:   8  18:21:03    -1732.042318       0.2324
-PreconLBFGS:   9  18:21:04    -1732.049330       0.1783
-PreconLBFGS:  10  18:21:05    -1732.051240       0.1082
-PreconLBFGS:  11  18:21:06    -1732.052185       0.0623
-PreconLBFGS:  12  18:21:07    -1732.052429       0.0465
-PreconLBFGS:  13  18:21:09    -1732.052507       0.0273
-PreconLBFGS:  14  18:21:10    -1732.052541       0.0196
-PreconLBFGS:  15  18:21:12    -1732.052557       0.0112
-PreconLBFGS:  16  18:21:13    -1732.052567       0.0087
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c28fbc37cabf46b7bffb8a6636ed2b1e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "97a6a8aa8305419b802a254b534dcf62", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="id1">
 <h3>&lt;100&gt;{001} edge dislocation<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<p>This is the same junction dislocation but lying in a different glide plane.</p>
+<p>This is the same junction dislocation but lying in a different glide plane: (001).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">BCCEdge100Dislocation</span>
 
-<span class="n">W_edge</span> <span class="o">=</span> <span class="n">BCCEdge100Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">)</span>
+<span class="n">W_100_edge</span> <span class="o">=</span> <span class="n">BCCEdge100Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W_100_edge</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W_100_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1062,37 +622,43 @@ PreconLBFGS:  16  18:21:13    -1732.052567       0.0087
  [ 0  0 -1]
  [ 0  1  0]]
 Burgers vector:
-[3.14339178 0.         0.        ]
+[3.14338905 0.         0.        ]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_edge_bulk</span><span class="p">,</span> <span class="n">W_edge_dislo</span> <span class="o">=</span> <span class="n">W_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_100_edge_bulk</span><span class="p">,</span> <span class="n">W_100_edge_dislo</span> <span class="o">=</span> <span class="n">W_100_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">W_100_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;&lt;100&gt;</span><span class="si">{001}</span><span class="s2"> edge&quot;</span><span class="p">,</span> <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.2972369526680858
-disloc SCF 1 |d1-d2|_inf = 0.038938521701512574
-disloc SCF 2 |d1-d2|_inf = 0.011189887637262474
-disloc SCF 3 |d1-d2|_inf = 0.0014928978841749763
-disloc SCF 4 |d1-d2|_inf = 0.0004654204442429144
-disloc SCF 5 |d1-d2|_inf = 8.16202896045462e-05
-disloc SCF 6 |d1-d2|_inf = 1.3592535523576643e-05
-disloc SCF 7 |d1-d2|_inf = 4.370933882835715e-06
-disloc SCF 8 |d1-d2|_inf = 5.007789461095036e-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.29723896079013645
+disloc SCF 1 |d1-d2|_inf = 0.03893895819760007
+disloc SCF 2 |d1-d2|_inf = 0.011189961805871729
+disloc SCF 3 |d1-d2|_inf = 0.001492901691747324
+disloc SCF 4 |d1-d2|_inf = 0.00046542738716470744
+disloc SCF 5 |d1-d2|_inf = 8.162136711258039e-05
+disloc SCF 6 |d1-d2|_inf = 1.3593036747305831e-05
+disloc SCF 7 |d1-d2|_inf = 4.370960947186475e-06
+disloc SCF 8 |d1-d2|_inf = 5.007713447316431e-07
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a990407a4144ae097f576fd3a8fa971", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f3c5f9df4a574110902f9da11ff7372f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
+</section>
+</section>
+<section id="face-centered-cubic">
+<h2>Face Centered Cubic<a class="headerlink" href="#face-centered-cubic" title="Permalink to this heading"></a></h2>
+<p>As an example of FCC material we will consider Ni and an interatomic potential from <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/14786430903299824">Bonny <em>et. al.</em></a></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_edge_dislo</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">eam_calc</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">PreconLBFGS</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">)</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eam_calc</span> <span class="o">=</span> <span class="n">EAM</span><span class="p">(</span><span class="s2">&quot;../../tests/FeCuNi.eam.alloy&quot;</span><span class="p">)</span>
+
+<span class="c1"># the function accepts any ASE type of calculator</span>
+<span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span> <span class="o">=</span> <span class="n">get_elastic_constants</span><span class="p">(</span><span class="n">calculator</span><span class="o">=</span><span class="n">eam_calc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Ni&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1102,27 +668,67 @@ disloc SCF 8 |d1-d2|_inf = 5.007789461095036e-07
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PreconLBFGS:   0  18:21:44    -1197.049020       4.0122
-PreconLBFGS:   1  18:21:46    -1197.620258       2.9055
-PreconLBFGS:   2  18:21:46    -1198.067899       2.6049
-PreconLBFGS:   3  18:21:47    -1198.399388       2.4441
-PreconLBFGS:   4  18:21:47    -1198.586897       1.1265
-PreconLBFGS:   5  18:21:47    -1198.671152       1.3040
-PreconLBFGS:   6  18:21:48    -1198.697964       0.7715
-PreconLBFGS:   7  18:21:49    -1198.716499       0.2101
-PreconLBFGS:   8  18:21:50    -1198.718510       0.1449
-PreconLBFGS:   9  18:21:50    -1198.719648       0.1189
-PreconLBFGS:  10  18:21:51    -1198.720365       0.0850
-PreconLBFGS:  11  18:21:52    -1198.720723       0.0767
-PreconLBFGS:  12  18:21:53    -1198.720870       0.0402
-PreconLBFGS:  13  18:21:54    -1198.720932       0.0269
-PreconLBFGS:  14  18:21:55    -1198.720978       0.0333
-PreconLBFGS:  15  18:21:56    -1198.721004       0.0175
-PreconLBFGS:  16  18:21:57    -1198.721017       0.0121
-PreconLBFGS:  17  18:21:58    -1198.721022       0.0046
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy         fmax
+*Force-consistent energies used in optimization.
+FIRE:    0 15:30:04      -17.801046*       0.0001
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-5.12800014e+00, -2.50333320e+00, -1.41366167e-04,  2.37961959e+00,
+        4.63379565e+00]) GPa
+Cij (gradient) / GPa    :     244.0654437182867
+Error in Cij / GPa      :     4.217968506243491
+Correlation coefficient :     0.9995522932872427
+Setting C11 (1) to 1.523337 +/- 0.026326
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-3.37539886e+00, -1.58459192e+00, -1.41366167e-04,  1.38619385e+00,
+        2.58171226e+00]) GPa
+Cij (gradient) / GPa    :     148.85008009740656
+Error in Cij / GPa      :     6.776719382842348
+Correlation coefficient :     0.9969053432709588
+Setting C21 (7) to 0.929049 +/- 0.042297
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-3.37539886e+00, -1.58459192e+00, -1.41366167e-04,  1.38619385e+00,
+        2.58171226e+00]) GPa
+Cij (gradient) / GPa    :     148.850080097406
+Error in Cij / GPa      :     6.776719382842323
+Correlation coefficient :     0.9969053432709588
+Updating C31 (7) with value 0.929049 +/- 0.042297
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-2.51031965e+00, -1.25545671e+00, -2.54901650e-17,  1.25652507e+00,
+        2.51470655e+00]) GPa
+Cij (gradient) / GPa    :     125.62034171207866
+Error in Cij / GPa      :     0.0380968152678079
+Correlation coefficient :     0.9999998620414655
+Setting C44 (4) to 0.784061 +/- 0.000238
+
+
+[[b C11 b C12 b C12 b     b     b    ]
+ [b C12 b C11 b C12 b     b     b    ]
+ [b C12 b C12 b C11 b     b     b    ]
+ [b     b     b     b C44 b     b    ]
+ [b     b     b     b     b C44 b    ]
+ [b     b     b     b     b     b C44]]
+
+ = 
+
+[[244.07 148.85 148.85   0.     0.     0.  ]
+ [148.85 244.07 148.85   0.     0.     0.  ]
+ [148.85 148.85 244.07   0.     0.     0.  ]
+ [  0.     0.     0.   125.62   0.     0.  ]
+ [  0.     0.     0.     0.   125.62   0.  ]
+ [  0.     0.     0.     0.     0.   125.62]]
+C_11 = 244.07 +/- 4.22 GPa
+C_12 = 148.85 +/- 6.78 GPa
+C_44 = 125.62 +/- 0.04 GPa
 </pre></div>
 </div>
 </div>
@@ -1130,22 +736,494 @@ PreconLBFGS:  17  18:21:58    -1198.721022       0.0046
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactive_view</span><span class="p">(</span><span class="n">W_edge_dislo</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alat</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (Angstrom), </span><span class="si">{</span><span class="n">C11</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">C12</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">C44</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (GPa)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a0056c8ee94a4568b71887325358d4b4", "version_major": 2, "version_minor": 0}</script></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.520 (Angstrom), 244.07, 148.85, 125.62 (GPa)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="screw-dislocation-perfect-and-dissociated">
+<h3>1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)<a class="headerlink" href="#screw-dislocation-perfect-and-dissociated" title="Permalink to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">FCCScrew110Dislocation</span>
+
+<span class="n">Ni_screw</span> <span class="o">=</span> <span class="n">FCCScrew110Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Ni&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell orientation:
+[[ 1  1 -2]
+ [ 1  1  1]
+ [ 1 -1  0]]
+Burgers vector:
+[ 1.76 -1.76  0.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ni_screw_bulk</span><span class="p">,</span> <span class="n">Ni_screw_dislo</span> <span class="o">=</span> <span class="n">Ni_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_screw_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector length: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Ni_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Ni_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;110&gt; screw dislocation line&quot;</span><span class="p">,</span> 
+                 <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.021791458261984697
+disloc SCF 1 |d1-d2|_inf = 0.0002936041882874109
+disloc SCF 2 |d1-d2|_inf = 4.8928735380371347e-05
+disloc SCF 3 |d1-d2|_inf = 1.2696678054050815e-06
+disloc SCF 4 |d1-d2|_inf = 1.0764587210498888e-07
+disloc SCF 0 |d1-d2|_inf = 0.020321133865591423
+disloc SCF 1 |d1-d2|_inf = 0.0006134137472214689
+disloc SCF 2 |d1-d2|_inf = 5.9406489367308524e-05
+disloc SCF 3 |d1-d2|_inf = 2.948341477265748e-06
+disloc SCF 4 |d1-d2|_inf = 8.340714410803862e-08
+
+Cell vectors:
+[[60.35542726  0.          0.        ]
+ [ 0.         60.96818843  0.        ]
+ [ 0.          0.          2.48901587]]
+
+Burgers vector length: 2.49 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4f9f14bc6c84ecebe6c05988046b9d6", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Due to stable Intrinsic Stacking Fault (ISF) the 1/2&lt;110&gt; dislocations are not stable and dissociate in two 1/6&lt;112&gt; Shockley partials separated by stacking fault. For example:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{1}{2}[1\bar10] \rightarrow \frac{1}{6}[2\bar1\bar1] + \mathrm{ISF} + \frac{1}{2}[1\bar21]
+\]</div>
+<p>where ISF is intrinsic stacking fault. It is possible to pass a parameter <code class="docutils literal notranslate"><span class="pre">partial_distance</span></code> to <code class="docutils literal notranslate"><span class="pre">build_cylinder()</span></code> function in order to create dissociated dislocation. <code class="docutils literal notranslate"><span class="pre">partial</span> <span class="pre">distance</span></code> defines separation distance (length of the stacking fault) of two partial dislocations. The value corresponds to number of glide distances the distance in Angstrom be obtaines as <code class="docutils literal notranslate"><span class="pre">patial_distance</span> <span class="pre">*</span> <span class="pre">dislocation.glide_distance</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ni_screw_bulk</span><span class="p">,</span> <span class="n">Ni_screw_dislo</span> <span class="o">=</span> <span class="n">Ni_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Expected partial distance: </span><span class="si">{</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Ni_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Ni_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Ni_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="p">,</span>
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/6&lt;112&gt; Shockley partial screw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.02179145826198453
+disloc SCF 1 |d1-d2|_inf = 0.0002936041882874109
+disloc SCF 2 |d1-d2|_inf = 4.892873538059339e-05
+disloc SCF 3 |d1-d2|_inf = 1.2696678051752307e-06
+disloc SCF 4 |d1-d2|_inf = 1.0764587193845543e-07
+disloc SCF 0 |d1-d2|_inf = 0.020321133865591506
+disloc SCF 1 |d1-d2|_inf = 0.0006134137472214689
+disloc SCF 2 |d1-d2|_inf = 5.9406489367308524e-05
+disloc SCF 3 |d1-d2|_inf = 2.948341477515548e-06
+disloc SCF 4 |d1-d2|_inf = 8.340714444804442e-08
+
+Expected partial distance: 10.8 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "edb77f22bec7476bb0cce5beb1723915", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Together with FCC (green) and defect atoms (grey) the CNA algorithm identified the atoms of the stacking fault as HCP structure (pink), which is a result of the local change of stacking order of the atomic layers within the defect.</p>
+</section>
+<section id="edge-dislocation-perfect-and-dissociated">
+<h3>1/2&lt;110&gt;{111} edge dislocation (perfect and dissociated)<a class="headerlink" href="#edge-dislocation-perfect-and-dissociated" title="Permalink to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">FCCEdge110Dislocation</span>
+
+<span class="n">Ni_edge</span> <span class="o">=</span> <span class="n">FCCEdge110Dislocation</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Ni&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_edge</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell orientation:
+[[ 1 -1  0]
+ [ 1  1  1]
+ [-1 -1  2]]
+Burgers vector:
+[ 1.76 -1.76  0.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ni_edge_bulk</span><span class="p">,</span> <span class="n">Ni_edge_dislo</span> <span class="o">=</span> <span class="n">Ni_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ni_edge_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector length: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Ni_edge</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Ni_edge_dislo</span><span class="p">,</span> <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;110&gt; edge&quot;</span><span class="p">,</span> <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.04310715442453525
+disloc SCF 1 |d1-d2|_inf = 0.0031359890399249857
+disloc SCF 2 |d1-d2|_inf = 0.00018078113282300745
+disloc SCF 3 |d1-d2|_inf = 1.4501349156037513e-05
+disloc SCF 4 |d1-d2|_inf = 9.978781161934513e-07
+disloc SCF 0 |d1-d2|_inf = 0.03462421627571943
+disloc SCF 1 |d1-d2|_inf = 0.0022123322463467043
+disloc SCF 2 |d1-d2|_inf = 0.00021564683900149317
+disloc SCF 3 |d1-d2|_inf = 1.1838612354972411e-05
+disloc SCF 4 |d1-d2|_inf = 6.324895580611667e-07
+
+Cell vectors:
+[[64.71441261  0.          0.        ]
+ [ 0.         60.96818843  0.        ]
+ [ 0.          0.          4.31110195]]
+
+Burgers vector length: 2.49 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1329680a67d3459ca901a4ccb7c66955", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ni_edge_bulk</span><span class="p">,</span> <span class="n">Ni_edge_dislo</span> <span class="o">=</span> <span class="n">Ni_edge</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">partial_distance</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Expected partial distance: </span><span class="si">{</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Ni_edge</span><span class="o">.</span><span class="n">glide_distance</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Ni_edge_dislo</span><span class="p">,</span> 
+                 <span class="n">partial_distance</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">Ni_edge</span><span class="o">.</span><span class="n">glide_distance</span><span class="p">,</span> 
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;110&gt; Shockley partial edge&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>disloc SCF 0 |d1-d2|_inf = 0.04310715442453525
+disloc SCF 1 |d1-d2|_inf = 0.0031359890399249857
+disloc SCF 2 |d1-d2|_inf = 0.00018078113282300745
+disloc SCF 3 |d1-d2|_inf = 1.4501349155759957e-05
+disloc SCF 4 |d1-d2|_inf = 9.978781162003902e-07
+disloc SCF 0 |d1-d2|_inf = 0.03462421627571943
+disloc SCF 1 |d1-d2|_inf = 0.002212332246347065
+disloc SCF 2 |d1-d2|_inf = 0.00021564683900149317
+disloc SCF 3 |d1-d2|_inf = 1.1838612354972411e-05
+disloc SCF 4 |d1-d2|_inf = 6.324895580611667e-07
+Expected partial distance: 12.4 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbffabd9c6eb418f91e58d021cd4912e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 </section>
-<section id="face-centered-cubic">
-<h2>Face Centered Cubic<a class="headerlink" href="#face-centered-cubic" title="Permalink to this heading"></a></h2>
-<p>Work in progress.</p>
+<section id="diamond-cubic">
+<h2>Diamond Cubic<a class="headerlink" href="#diamond-cubic" title="Permalink to this heading"></a></h2>
+<p>As an example of diamond structure we will use Si and potential from <a class="reference external" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.80.746">work of D. Holland and M. Marder</a>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.calculators.manybody.explicit_forms.stillinger_weber</span> <span class="kn">import</span> <span class="n">StillingerWeber</span><span class="p">,</span>\
+                                                                <span class="n">Holland_Marder_PRL_80_746_Si</span>
+<span class="kn">from</span> <span class="nn">matscipy.calculators.manybody</span> <span class="kn">import</span> <span class="n">Manybody</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Manybody</span><span class="p">(</span><span class="o">**</span><span class="n">StillingerWeber</span><span class="p">(</span><span class="n">Holland_Marder_PRL_80_746_Si</span><span class="p">))</span>
+
+<span class="c1"># the function accepts any ASE type of calculator</span>
+<span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span> <span class="o">=</span> <span class="n">get_elastic_constants</span><span class="p">(</span><span class="n">calculator</span><span class="o">=</span><span class="n">calc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy         fmax
+*Force-consistent energies used in optimization.
+FIRE:    0 15:30:06      -34.692786*       0.0922
+FIRE:    1 15:30:06      -34.692742*       0.1881
+FIRE:    2 15:30:06      -34.692797*       0.0452
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRE:    3 15:30:06      -34.692771*       0.1323
+FIRE:    4 15:30:06      -34.692781*       0.1071
+FIRE:    5 15:30:06      -34.692794*       0.0616
+FIRE:    6 15:30:06      -34.692800*       0.0043
+FIRE:    7 15:30:06      -34.692795*       0.0537
+FIRE:    8 15:30:06      -34.692796*       0.0511
+FIRE:    9 15:30:06      -34.692796*       0.0461
+FIRE:   10 15:30:06      -34.692798*       0.0390
+FIRE:   11 15:30:06      -34.692799*       0.0299
+FIRE:   12 15:30:06      -34.692799*       0.0195
+FIRE:   13 15:30:06      -34.692800*       0.0081
+FIRE:   14 15:30:06      -34.692800*       0.0036
+FIRE:   15 15:30:06      -34.692800*       0.0036
+FIRE:   16 15:30:06      -34.692800*       0.0035
+FIRE:   17 15:30:06      -34.692800*       0.0034
+FIRE:   18 15:30:06      -34.692800*       0.0032
+FIRE:   19 15:30:06      -34.692800*       0.0030
+FIRE:   20 15:30:06      -34.692800*       0.0028
+FIRE:   21 15:30:06      -34.692800*       0.0025
+FIRE:   22 15:30:06      -34.692800*       0.0022
+FIRE:   23 15:30:06      -34.692800*       0.0017
+FIRE:   24 15:30:06      -34.692800*       0.0013
+FIRE:   25 15:30:06      -34.692800*       0.0007
+FIRE:   26 15:30:06      -34.692800*       0.0000
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-4.18437928e+00, -2.05313584e+00, -2.57946679e-05,  1.97559670e+00,
+        3.87433910e+00]) GPa
+Cij (gradient) / GPa    :     201.46169296718193
+Error in Cij / GPa      :     2.6470882834179283
+Correlation coefficient :     0.999741134311275
+Setting C11 (1) to 1.257425 +/- 0.016522
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.13686951e+00, -5.40672589e-01, -2.57946679e-05,  4.89041361e-01,
+        9.30285346e-01]) GPa
+Cij (gradient) / GPa    :     51.640236590323106
+Error in Cij / GPa      :     1.7644327851076396
+Correlation coefficient :     0.9982534295801976
+Setting C21 (7) to 0.322313 +/- 0.011013
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.13686951e+00, -5.40672589e-01, -2.57946679e-05,  4.89041361e-01,
+        9.30285346e-01]) GPa
+Cij (gradient) / GPa    :     51.64023659032299
+Error in Cij / GPa      :     1.764432785107523
+Correlation coefficient :     0.9982534295801978
+Updating C31 (7) with value 0.322313 +/- 0.011013
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-2.43911684e+00, -1.19995048e+00,  2.16046225e-14,  1.16236368e+00,
+        2.28858547e+00]) GPa
+Cij (gradient) / GPa    :     118.17718786807852
+Error in Cij / GPa      :     1.2857535435707688
+Correlation coefficient :     0.9998224896147394
+Setting C44 (4) to 0.737604 +/- 0.008025
+
+
+[[b C11 b C12 b C12 b     b     b    ]
+ [b C12 b C11 b C12 b     b     b    ]
+ [b C12 b C12 b C11 b     b     b    ]
+ [b     b     b     b C44 b     b    ]
+ [b     b     b     b     b C44 b    ]
+ [b     b     b     b     b     b C44]]
+
+ = 
+
+[[201.46  51.64  51.64   0.     0.     0.  ]
+ [ 51.64 201.46  51.64   0.     0.     0.  ]
+ [ 51.64  51.64 201.46   0.     0.     0.  ]
+ [  0.     0.     0.   118.18   0.     0.  ]
+ [  0.     0.     0.     0.   118.18   0.  ]
+ [  0.     0.     0.     0.     0.   118.18]]
+C_11 = 201.46 +/- 2.65 GPa
+C_12 = 51.64 +/- 1.76 GPa
+C_44 = 118.18 +/- 1.29 GPa
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alat</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (Angstrom), </span><span class="si">{</span><span class="n">C11</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">C12</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">C44</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (GPa)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.431 (Angstrom), 201.46, 51.64, 118.18 (GPa)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">DiamondGlideScrew</span>
+
+<span class="n">Si_screw</span> <span class="o">=</span> <span class="n">DiamondGlideScrew</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell orientation:
+[[ 1  1 -2]
+ [ 1  1  1]
+ [ 1 -1  0]]
+Burgers vector:
+[ 2.71547466 -2.71547466  0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si_screw_bulk</span><span class="p">,</span> <span class="n">Si_screw_dislo</span> <span class="o">=</span> <span class="n">Si_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_screw_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector length: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Si_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Si_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                 <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+                 <span class="n">add_bonds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># bonds make it a bit easier to see the structure</span>
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;110&gt; screw&quot;</span><span class="p">,</span> 
+                 <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell vectors:
+[[66.51527324  0.          0.        ]
+ [ 0.         75.25344122  0.        ]
+ [ 0.          0.          3.84026109]]
+
+Burgers vector length: 3.84 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f7355f892a57430e9b62045a228e9ac3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>The modification of the CNA algorithm for the diamond structure identifies the defect atoms gradually depending how <em>far</em> they are from the perfect structure. The important outcome for us is now dislocation core and free surface atoms are identified as 1st and 2nd neighbors of the <em>Cubic diamond</em> structure.</p>
+<p>As in FCC structure similar dissociation mechanism exists in diamond structure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si_screw_bulk</span><span class="p">,</span> <span class="n">Si_screw_dislo</span> <span class="o">=</span> <span class="n">Si_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected partial distance: </span><span class="si">{</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Si_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Si_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># bonds make it a bit easier to see the structure</span>
+                 <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">add_bonds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                 <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Si_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="p">,</span> 
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/6&lt;112&gt; 30 degree partial screw&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected partial distance: 16.6 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ee85e17cbfb74e9fab64ef50de7c4517", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>The stacking fault atoms are identified as <em>Hexagonal diamond</em> structure.</p>
 </section>
-<section id="diamond">
-<h2>Diamond<a class="headerlink" href="#diamond" title="Permalink to this heading"></a></h2>
-<p>Work in progress.</p>
+<section id="degree-screw-dislocation-perfect-and-dissociated">
+<h3>1/2&lt;110&gt;{111} 60 degree screw dislocation (perfect and dissociated)<a class="headerlink" href="#degree-screw-dislocation-perfect-and-dissociated" title="Permalink to this heading"></a></h3>
+<p>Due to the particular symmetry of cubic diamond structure, there exist dislocations with 60 degree angle between burgers vector and dislocation line. This dislocation can dissociate in two partials: 30 and 90 degree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matscipy.dislocation</span> <span class="kn">import</span> <span class="n">DiamondGlide60Degree</span>
+
+<span class="n">Si_60_degree_screw</span> <span class="o">=</span> <span class="n">DiamondGlide60Degree</span><span class="p">(</span><span class="n">alat</span><span class="p">,</span> <span class="n">C11</span><span class="p">,</span> <span class="n">C12</span><span class="p">,</span> <span class="n">C44</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell orientation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_screw</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burgers vector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell orientation:
+[[ 1  1 -2]
+ [ 1  1  1]
+ [ 1 -1  0]]
+Burgers vector:
+[ 2.71547466 -2.71547466  0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si_60_degree_screw_bulk</span><span class="p">,</span> \
+<span class="n">Si_60_degree_screw_dislo</span> <span class="o">=</span> <span class="n">Si_60_degree_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cell vectors:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Si_60_degree_screw_dislo</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Burgers vector length: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Si_60_degree_screw</span><span class="o">.</span><span class="n">burgers</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Si_60_degree_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                 <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">add_bonds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">d_name</span><span class="o">=</span><span class="s2">&quot;1/2&lt;110&gt; 60 degree screw&quot;</span><span class="p">,</span> 
+                 <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell vectors:
+[[66.51527324  0.          0.        ]
+ [ 0.         75.25344122  0.        ]
+ [ 0.          0.          3.84026109]]
+
+Burgers vector length: 3.84 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8d7eb594109f426e99d12a4a0d60125b", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si_60_degree_screw_bulk</span><span class="p">,</span> \
+<span class="n">Si_60_degree_screw_dislo</span> <span class="o">=</span> <span class="n">Si_60_degree_screw</span><span class="o">.</span><span class="n">build_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
+                                                             <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected partial distance: </span><span class="si">{</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Si_60_degree_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Angstrom&quot;</span><span class="p">)</span>
+<span class="n">show_dislocation</span><span class="p">(</span><span class="n">Si_60_degree_screw_dislo</span><span class="p">,</span> 
+                 <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                 <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+                 <span class="n">add_bonds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                 <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                 <span class="n">partial_distance</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Si_screw</span><span class="o">.</span><span class="n">glide_distance</span><span class="p">,</span> 
+                 <span class="n">d_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1/6&lt;112&gt; 90 degree partial screw&quot;</span><span class="p">,</span> 
+                         <span class="s2">&quot;1/6&lt;112&gt; 30 degree partial screw&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected partial distance: 16.6 Angstrom
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8844142c06074a1ea1d1ceae83239da3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1160,7 +1238,7 @@ PreconLBFGS:  17  18:21:58    -1198.721022       0.0046
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+    <p>&#169; Copyright 2023, James Kermode, Lars Pastewka, et al.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

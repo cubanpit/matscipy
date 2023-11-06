@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -18,6 +19,8 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -105,17 +108,29 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plasticity.html">Plasticity</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#body-centered-cubic">Body Centered Cubic</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#screw-dislocation">1/2&lt;111&gt;{110} screw dislocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#edge-dislocation">1/2&lt;111&gt;{110} edge dislocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#mixed-dislocation">1/2&lt;111&gt;{110} mixed dislocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#edge-junction-dislocation">&lt;100&gt;{110} edge ‘junction’ dislocation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#id1">&lt;100&gt;{001} edge dislocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasticity.html#installation-and-tests">Installation and tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasticity.html#tutorials">Tutorials:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#body-centered-cubic">Body Centered Cubic</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#screw-dislocation">1/2&lt;111&gt;{110} screw dislocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#edge-dislocation">1/2&lt;111&gt;{110} edge dislocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#mixed-dislocation">1/2&lt;111&gt;{110} mixed dislocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#edge-junction-dislocation">&lt;100&gt;{110} edge ‘junction’ dislocation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#id1">&lt;100&gt;{001} edge dislocation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#face-centered-cubic">Face Centered Cubic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#diamond">Diamond</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#face-centered-cubic">Face Centered Cubic</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#screw-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#edge-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} edge dislocation (perfect and dissociated)</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cylinder_configurations.html#diamond-cubic">Diamond Cubic</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#id2">1/2&lt;110&gt;{111} screw dislocation (perfect and dissociated)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cylinder_configurations.html#degree-screw-dislocation-perfect-and-dissociated">1/2&lt;110&gt;{111} 60 degree screw dislocation (perfect and dissociated)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,7 +170,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+    <p>&#169; Copyright 2023, James Kermode, Lars Pastewka, et al.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
