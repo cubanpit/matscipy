@@ -13,14 +13,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1dba82e2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -99,16 +98,16 @@
            <div itemprop="articleBody">
              
   <section id="plasticity">
-<h1>Plasticity<a class="headerlink" href="#plasticity" title="Permalink to this heading"></a></h1>
+<h1>Plasticity<a class="headerlink" href="#plasticity" title="Link to this heading"></a></h1>
 <p>For large loads, solids can respond with irreversible deformation. One form of irreversibility is plasticity, that is carried by extended defects, the dislocations, in crystals. The module <a class="reference internal" href="../generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a> implements tools for studying structure and movement of dislocations. Construction and analysis of model atomic systems is implemented for compact and dissociated screw, as well as edge dislocations in cubic crystals. The implementation supports ideal straight as well as kinked dislocations.</p>
 <p>Creating an atomistic system containing a dislocation requires a rather deep knowledge of crystallographic system, elasticity theory as well as hands on experience with atomistic simulations. Thus, it can be challenging for people not familiar to the field. Within this module we attempt to create a flexible, friendly and pythonic tool to enable atomistic simulations of dislocations with ease. The base of the model is <a class="reference internal" href="../generated/matscipy.dislocation.html#matscipy.dislocation.CubicCrystalDislocation" title="matscipy.dislocation.CubicCrystalDislocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">matscipy.dislocation.CubicCrystalDislocation</span></code></a> class that contains all the necessary information to create an atomistic dislocation. To start experimenting, a user only has to choose the dislocation of interest and provide a lattice parameter and elastic constants.</p>
 <section id="installation-and-tests">
-<h2>Installation and tests<a class="headerlink" href="#installation-and-tests" title="Permalink to this heading"></a></h2>
+<h2>Installation and tests<a class="headerlink" href="#installation-and-tests" title="Link to this heading"></a></h2>
 <p><a class="reference internal" href="../generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a> module relies on the anisotropic elasticity theory solution within Stroh formalism implemented in <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> package. <a class="reference external" href="https://www.ctcms.nist.gov/potentials/atomman/">atomman</a> is not a part of default dependency of <code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy</span></code>, however it can be easily installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">atomman</span></code>. To test your installation you can run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">test_dislocation.py</span></code> from <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory of the repository. If atomman is not installed, most of the tests will be skipped resulting in the output similar to the following: <code class="docutils literal notranslate"><span class="pre">ssssssssssssss..ssssssss..s.ssssssss.s</span></code> where <code class="docutils literal notranslate"><span class="pre">s</span></code> stands for skipped test and <code class="docutils literal notranslate"><span class="pre">.</span></code> for passed tests. You can see which test are skipped together with the reasoning behind by running pytest in verbose mode with <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">test_dislocation.py</span></code>. Once you have atomman installed you should have corresponding tests passing and should be able to use the code. If you plan to use <a class="reference external" href="https://lammps.org">LAMMPS</a> and <a class="reference external" href="https://docs.lammps.org/Python_module.html">lammps python module</a> there are couple of test that will test your installation when <a class="reference external" href="https://docs.lammps.org/Python_module.html">lammps python module</a> is detected.</p>
 <p>The majority of the tests (~70 %) are used during the development and adding new dislocations to the module. The idea is to check if <a class="reference external" href="https://www.ovito.org/manual/reference/pipelines/modifiers/dislocation_analysis.html">Dislocation analysis (DXA)</a> algorithm detects the same dislocation as we intend to create. These tests require <a class="reference external" href="https://www.ovito.org/manual/python/index.html">OVITO python interface</a> to be installed and are skipped if it is not detected. If you do not plan to add new structures to the module, you can safely ignore these tests.</p>
 </section>
 <section id="tutorials">
-<h2>Tutorials:<a class="headerlink" href="#tutorials" title="Permalink to this heading"></a></h2>
+<h2>Tutorials:<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a><ul>

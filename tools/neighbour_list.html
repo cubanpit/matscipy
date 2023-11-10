@@ -13,14 +13,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1dba82e2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
         <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -97,9 +96,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="neighbour-list">
-<h1>Neighbour list<a class="headerlink" href="#neighbour-list" title="Permalink to this heading"></a></h1>
+<h1>Neighbour list<a class="headerlink" href="#neighbour-list" title="Link to this heading"></a></h1>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">matscipy</span></code> neighbour lists are stored in a format similar to the coordinate (<code class="docutils literal notranslate"><span class="pre">COO</span></code>) format of sparse matrices. The basic neighbor list consists of two array that each contain the indices of the atoms that constitute the pair.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -146,7 +145,7 @@
 <p>The oxygen atom has a coordination of 2 (both hydrogens) while each of the hydrogens has a coordination of 1 (since only the oxygen is the neighbor).</p>
 </section>
 <section id="per-atom-properties">
-<h2>Per-atom properties<a class="headerlink" href="#per-atom-properties" title="Permalink to this heading"></a></h2>
+<h2>Per-atom properties<a class="headerlink" href="#per-atom-properties" title="Link to this heading"></a></h2>
 <p>The neighbour list can also compute per atom properties, in particular distances and distance vectors. The first argument to the <code class="docutils literal notranslate"><span class="pre">neighbour_list</span></code> function is a string that identifies the members of the return tuple. If we want distances between atoms, we additionally specific a ‘d’ in this string. The return tuple then has three members.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -178,7 +177,7 @@
 </div>
 </section>
 <section id="interatomic-potential">
-<h2>Interatomic potential<a class="headerlink" href="#interatomic-potential" title="Permalink to this heading"></a></h2>
+<h2>Interatomic potential<a class="headerlink" href="#interatomic-potential" title="Link to this heading"></a></h2>
 <p>As an advances usage of the neighbor list, consider the implementation of a pair potential on top of the neighbour list data structure. (This is actually how it is done in the calculators that ship with <code class="docutils literal notranslate"><span class="pre">matscipy</span></code>.) The following code example implements an attractive <span class="math notranslate nohighlight">\(\propto r^{-6}\)</span> potential, i.e. a London dispersion force with a prefactor {math}:<code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

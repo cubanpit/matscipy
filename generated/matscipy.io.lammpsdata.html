@@ -13,14 +13,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1dba82e2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section id="module-matscipy.io.lammpsdata">
-<span id="matscipy-io-lammpsdata"></span><h1>matscipy.io.lammpsdata<a class="headerlink" href="#module-matscipy.io.lammpsdata" title="Permalink to this heading"></a></h1>
+<span id="matscipy-io-lammpsdata"></span><h1>matscipy.io.lammpsdata<a class="headerlink" href="#module-matscipy.io.lammpsdata" title="Link to this heading"></a></h1>
 <p>Helper class LAMMPSData to read/write LAMMPS text files.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
@@ -130,7 +129,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.read_molecules_from_lammps_data">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">read_molecules_from_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TextIOBase</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.read_molecules_from_lammps_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">read_molecules_from_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIOBase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.read_molecules_from_lammps_data" title="Link to this definition"></a></dt>
 <dd><p>Read molecules information from LAMMPS data file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -153,19 +152,19 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.check_legal_name">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">check_legal_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.check_legal_name" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">check_legal_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.check_legal_name" title="Link to this definition"></a></dt>
 <dd><p>Check proper dataset name.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.column_size">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">column_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.column_size" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">column_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.column_size" title="Link to this definition"></a></dt>
 <dd><p>Compute number of columns from dtype.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.LAMMPSData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">LAMMPSData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'atomic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.io.lammpsdata.</span></span><span class="sig-name descname"><span class="pre">LAMMPSData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'atomic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Main class to interact with LAMMPS text files.</p>
 <p class="rubric">Methods</p>
@@ -181,19 +180,19 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.LAMMPSData.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'atomic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'atomic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize data object with atom style.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.LAMMPSData.write">
-<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TextIOBase</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.write" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIOBase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.write" title="Link to this definition"></a></dt>
 <dd><p>Write data to text file or stream.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.io.lammpsdata.LAMMPSData.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TextIOBase</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIOBase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.lammpsdata.LAMMPSData.read" title="Link to this definition"></a></dt>
 <dd><p>Read data from text file or stream.</p>
 </dd></dl>
 

@@ -13,14 +13,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1dba82e2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section id="module-matscipy.io.opls">
-<span id="matscipy-io-opls"></span><h1>matscipy.io.opls<a class="headerlink" href="#module-matscipy.io.opls" title="Permalink to this heading"></a></h1>
+<span id="matscipy-io-opls"></span><h1>matscipy.io.opls<a class="headerlink" href="#module-matscipy.io.opls" title="Link to this heading"></a></h1>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -145,7 +144,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_extended_xyz">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_extended_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_extended_xyz" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_extended_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_extended_xyz" title="Link to this definition"></a></dt>
 <dd><p>Read extended xyz file with labeled atoms. The number of atoms should
 be given in the first line, the second line contains the cell
 dimensions and the definition of the columns. The file should contain
@@ -175,7 +174,7 @@ H 5.5 5.0 5.0 1 H1
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_block">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_block" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_block" title="Link to this definition"></a></dt>
 <dd><p>Read a named data block from a parameter file for a non-reactive
 potential. Blocks begin with ‘# name’ and are terminated by empty
 lines. More information and an example can be found in the
@@ -201,7 +200,7 @@ documentation of the ‘read_parameter_file’ function.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_cutoffs">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_cutoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_cutoffs" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_cutoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_cutoffs" title="Link to this definition"></a></dt>
 <dd><p>Read the cutoffs for construction of a non-reactive system from a
 file. Comments in the file begin with ‘#’, the file should be
 structured like this:</p>
@@ -226,7 +225,7 @@ C1-H1 7.89  # name, cutoff (A)
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_parameter_file">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_parameter_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_parameter_file" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_parameter_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_parameter_file" title="Link to this definition"></a></dt>
 <dd><p>Read the parameters of a non-reactive potential from a file. An example
 for the file structure is given below. The blocks are separated by empty
 lines, comments begin with ‘#’. For more information about the
@@ -276,7 +275,7 @@ C1-H1 1.15  # name, cutoff (A)
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps" title="Link to this definition"></a></dt>
 <dd><p>Convenience function. The functions ‘write_lammps_in’,
 ‘write_lammps_atoms’ and ‘write_lammps_definitions’ are usually
 called at the same time. This function combines them, filenames
@@ -293,7 +292,7 @@ will be ‘prefix.in’, ‘prefix.atoms’ and ‘prefix.opls’.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_in">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_in" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_in" title="Link to this definition"></a></dt>
 <dd><p>Writes a simple LAMMPS input script for a structure optimization using
 a non-reactive potential. The name of the resulting script is
 ‘prefix.in’, while the atomic structure is defined in ‘prefix.atoms’
@@ -307,7 +306,7 @@ and the definition of the atomic interaction in ‘prefix.opls’.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_atoms">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metal'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_atoms" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metal'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_atoms" title="Link to this definition"></a></dt>
 <dd><p>Write atoms input for LAMMPS. Filename will be ‘prefix.atoms’.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -322,7 +321,7 @@ and the definition of the atomic interaction in ‘prefix.opls’.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.write_lammps_definitions">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_definitions" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">write_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.write_lammps_definitions" title="Link to this definition"></a></dt>
 <dd><p>Write force field definitions for LAMMPS.
 Filename will be ‘prefix.opls’.</p>
 <dl class="field-list simple">
@@ -337,7 +336,7 @@ Filename will be ‘prefix.opls’.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_lammps_definitions">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_definitions" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_definitions" title="Link to this definition"></a></dt>
 <dd><p>Reads force field definitions from a LAMMPS parameter file and
 stores the parameters in the LJQData, BondData, AnglesData and
 DihedralsData objects. The ‘number’ of the particles, pairs, …
@@ -375,7 +374,7 @@ bond_type_index[1] = ‘AA-BB’
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.read_lammps_data">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_lammps_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">read_lammps_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_lammps_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.read_lammps_data" title="Link to this definition"></a></dt>
 <dd><p>Read positions, bonds, angles and dihedrals from a LAMMPS file.
 Optionally, a LAMMPS parameter file can be specified to restore
 all interactions from a preceding simulation.</p>
@@ -394,7 +393,7 @@ all interactions from a preceding simulation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.io.opls.update_from_lammps_dump">
-<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">update_from_lammps_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.update_from_lammps_dump" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.io.opls.</span></span><span class="sig-name descname"><span class="pre">update_from_lammps_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.io.opls.update_from_lammps_dump" title="Link to this definition"></a></dt>
 <dd><p>Read simulation cell, positions and velocities from a LAMMPS
 dump file and use them to update an existing configuration.</p>
 <dl class="field-list simple">

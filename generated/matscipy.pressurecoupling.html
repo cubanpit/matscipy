@@ -13,14 +13,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1dba82e2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="module-matscipy.pressurecoupling">
-<span id="matscipy-pressurecoupling"></span><h1>matscipy.pressurecoupling<a class="headerlink" href="#module-matscipy.pressurecoupling" title="Permalink to this heading"></a></h1>
+<span id="matscipy-pressurecoupling"></span><h1>matscipy.pressurecoupling<a class="headerlink" href="#module-matscipy.pressurecoupling" title="Link to this heading"></a></h1>
 <p>Classes to be used with ASE in order to perform pressure relaxation
 and/or sliding simulations under pressure.</p>
 <p>A usage example can be found in docs/applications/tribology.ipynb.</p>
@@ -139,7 +138,7 @@ as indicated again below.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.AutoDamping">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">AutoDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">AutoDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Automatic damping.</p>
 <p>Following L. Pastewka, S. Moser, and M. Moseler,
@@ -162,12 +161,12 @@ Tribol. Lett. 39, 49 (2010).</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.AutoDamping.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.AutoDamping.get_M_gamma">
-<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping.get_M_gamma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.AutoDamping.get_M_gamma" title="Link to this definition"></a></dt>
 <dd><p>Calculate mass M and dissipation constant gamma.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -190,7 +189,7 @@ Tribol. Lett. 39, 49 (2010).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedDamping">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">FixedDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">FixedDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Damping with fixed damping constant and fixed mass.</p>
 <dl class="field-list simple">
@@ -211,12 +210,12 @@ Tribol. Lett. 39, 49 (2010).</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedDamping.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedDamping.get_M_gamma">
-<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping.get_M_gamma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedDamping.get_M_gamma" title="Link to this definition"></a></dt>
 <dd><p>Calculate mass M and damping constant gamma.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -239,7 +238,7 @@ Tribol. Lett. 39, 49 (2010).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedMassCriticalDamping">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">FixedMassCriticalDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">FixedMassCriticalDamping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Damping with fixed mass and critical damping constant.</p>
 <p>Useful for fast pressure equilibration with small lid mass.</p>
@@ -261,12 +260,12 @@ Tribol. Lett. 39, 49 (2010).</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedMassCriticalDamping.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.FixedMassCriticalDamping.get_M_gamma">
-<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping.get_M_gamma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_M_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.FixedMassCriticalDamping.get_M_gamma" title="Link to this definition"></a></dt>
 <dd><p>Calculate mass M and damping constant gamma.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -289,7 +288,7 @@ Tribol. Lett. 39, 49 (2010).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideWithNormalPressureCuboidCell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideWithNormalPressureCuboidCell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>ASE constraint used for sliding with pressure coupling.</p>
 <p>Following L. Pastewka, S. Moser, and M. Moseler,
@@ -339,12 +338,12 @@ constraint top atoms (the atoms which slide with constant speed).</p></li>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.Tdir">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Tdir</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.Tdir" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Tdir</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.Tdir" title="Link to this definition"></a></dt>
 <dd><p>Direction used for thermostatting.</p>
 <p>Thermostat direction is normal to the sliding direction
 and the direction of the applied load direction.</p>
@@ -360,7 +359,7 @@ and the direction of the applied load direction.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.middle_mask">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">middle_mask</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.middle_mask" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">middle_mask</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.middle_mask" title="Link to this definition"></a></dt>
 <dd><p>Mask of free atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -375,13 +374,13 @@ not being part of lower or upper rigid group.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_positions">
-<span class="sig-name descname"><span class="pre">adjust_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_positions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">adjust_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_positions" title="Link to this definition"></a></dt>
 <dd><p>Do not adjust positions.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.get_A">
-<span class="sig-name descname"><span class="pre">get_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.get_A" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.get_A" title="Link to this definition"></a></dt>
 <dd><p>Calculate cell area normal to applied load.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -399,7 +398,7 @@ SlideWithNormalPressureCuboidCell only works for orthogonal cells.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_forces">
-<span class="sig-name descname"><span class="pre">adjust_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_forces" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">adjust_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_forces" title="Link to this definition"></a></dt>
 <dd><p>Adjust forces of upper and lower rigid atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
@@ -411,7 +410,7 @@ SlideWithNormalPressureCuboidCell only works for orthogonal cells.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_momenta">
-<span class="sig-name descname"><span class="pre">adjust_momenta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momenta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_momenta" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">adjust_momenta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momenta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_momenta" title="Link to this definition"></a></dt>
 <dd><p>Adjust momenta of upper and lower rigid atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
@@ -423,7 +422,7 @@ SlideWithNormalPressureCuboidCell only works for orthogonal cells.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_potential_energy">
-<span class="sig-name descname"><span class="pre">adjust_potential_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_potential_energy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">adjust_potential_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell.adjust_potential_energy" title="Link to this definition"></a></dt>
 <dd><p>Do not adjust energy.</p>
 </dd></dl>
 
@@ -431,7 +430,7 @@ SlideWithNormalPressureCuboidCell only works for orthogonal cells.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLogger">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Logger to be attached to an ASE integrator.</p>
 <p>For new files (not restart jobs), the write_header method should
@@ -486,12 +485,12 @@ be called once in order to write the header to the file.</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLogger.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLogger.write_header">
-<span class="sig-name descname"><span class="pre">write_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger.write_header" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">write_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLogger.write_header" title="Link to this definition"></a></dt>
 <dd><p>Write header of log-file.</p>
 </dd></dl>
 
@@ -499,7 +498,7 @@ be called once in order to write the header to the file.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.pressurecoupling.</span></span><span class="sig-name descname"><span class="pre">SlideLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Reader for logs written with SlideLogger instance.</p>
 <dl class="field-list simple">
@@ -509,7 +508,7 @@ be called once in order to write the header to the file.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.step">
-<span class="sig-name descname"><span class="pre">step</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.step" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">step</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.step" title="Link to this definition"></a></dt>
 <dd><p>Step indices 0, 1, 2, ….</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -520,7 +519,7 @@ be called once in order to write the header to the file.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.time">
-<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.time" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.time" title="Link to this definition"></a></dt>
 <dd><p>Simulation time in fs at step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -531,7 +530,7 @@ be called once in order to write the header to the file.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.T_thermostat">
-<span class="sig-name descname"><span class="pre">T_thermostat</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.T_thermostat" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">T_thermostat</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.T_thermostat" title="Link to this definition"></a></dt>
 <dd><p>Instantantaneous temperature in K from thermostat-region
 only from degrees of freedom along thermalized direction.</p>
 <dl class="field-list simple">
@@ -543,7 +542,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.P_top">
-<span class="sig-name descname"><span class="pre">P_top</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.P_top" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">P_top</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.P_top" title="Link to this definition"></a></dt>
 <dd><p>Normal pressure on lid in GPa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -554,7 +553,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.P_bottom">
-<span class="sig-name descname"><span class="pre">P_bottom</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.P_bottom" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">P_bottom</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.P_bottom" title="Link to this definition"></a></dt>
 <dd><p>Normal pressure on base in GPa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -565,7 +564,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.h">
-<span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.h" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.h" title="Link to this definition"></a></dt>
 <dd><p>Separation of lid and base in Ang.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -576,7 +575,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.v">
-<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.v" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.v" title="Link to this definition"></a></dt>
 <dd><p>Normal speed of lid in Ang / fs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -587,7 +586,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.a">
-<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.a" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.a" title="Link to this definition"></a></dt>
 <dd><p>Normal acceleration of lid in Ang / fs ** 2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -598,7 +597,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.tau_top">
-<span class="sig-name descname"><span class="pre">tau_top</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.tau_top" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">tau_top</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.tau_top" title="Link to this definition"></a></dt>
 <dd><p>Shear stress on lid in GPa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -609,7 +608,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.tau_bottom">
-<span class="sig-name descname"><span class="pre">tau_bottom</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.tau_bottom" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">tau_bottom</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.tau_bottom" title="Link to this definition"></a></dt>
 <dd><p>Shear stress on base in GPa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -620,7 +619,7 @@ only from degrees of freedom along thermalized direction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.rows">
-<span class="sig-name descname"><span class="pre">rows</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.rows" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rows</span></span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.rows" title="Link to this definition"></a></dt>
 <dd><p>All data in a 2d array with axis 0 step and axis 1
 the values ordered as above.</p>
 <dl class="field-list simple">
@@ -632,7 +631,7 @@ the values ordered as above.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.pressurecoupling.SlideLog.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.pressurecoupling.SlideLog.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
