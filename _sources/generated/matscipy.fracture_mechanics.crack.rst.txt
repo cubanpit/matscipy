@@ -26,6 +26,7 @@ matscipy.fracture\_mechanics.crack
       get_energy_release_rate
       get_strain
       get_stress_intensity_factor
+      isotropic_modeII_crack_tip_displacement_field
       isotropic_modeI_crack_tip_displacement_field
       isotropic_modeI_crack_tip_stress_field
       plot_stress_fields
