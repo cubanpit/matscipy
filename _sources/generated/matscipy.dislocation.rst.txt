@@ -48,9 +48,11 @@
 
    .. autosummary::
    
+      AnisotropicDislocation
       BCCEdge100110Dislocation
       BCCEdge100Dislocation
       BCCEdge111Dislocation
+      BCCEdge111barDislocation
       BCCMixed111Dislocation
       BCCScrew111Dislocation
       BodyCenteredCubicOctahedralFactory
