@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>matscipy.fracture_mechanics.crack &mdash; matscipy devel documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -57,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Application domains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topology/index.html">Structure and topology generation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#application-domains">Application domains</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="matscipy.dislocation.html">matscipy.dislocation</a></li>
@@ -1188,7 +1191,7 @@ are guessed from Atoms object.</p></li>
 <li><p><strong>fix_params</strong> (<em>dict</em>) – Names and values of parameters to fix during the fit,
 e.g. <code class="docutils literal notranslate"><span class="pre">{y0:</span> <span class="pre">0.0}</span></code> to constrain the fit to the line y=0</p></li>
 <li><p><strong>sigma</strong> (<em>None</em><em> or </em><em>array with shape</em><em> (</em><em>len</em><em>(</em><em>atoms</em><em>)</em><em>, </em><em>3</em><em>, </em><em>3</em><em>)</em>) – Explicitly provide the per-atom stresses. Avoids calling Atoms’
-calculators <a class="reference internal" href="matscipy.calculators.pair_potential.calculator.html#matscipy.calculators.pair_potential.calculator.PairPotential.get_stresses" title="matscipy.calculators.pair_potential.calculator.PairPotential.get_stresses"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stresses()</span></code></a> method.</p></li>
+calculators <a class="reference internal" href="matscipy.calculators.manybody.newmb.html#matscipy.calculators.manybody.newmb.Manybody.get_stresses" title="matscipy.calculators.manybody.newmb.Manybody.get_stresses"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stresses()</span></code></a> method.</p></li>
 <li><p><strong>avg_sigma</strong> (<em>None</em><em> or </em><em>array with shape</em><em> (</em><em>len</em><em>(</em><em>atoms</em><em>)</em><em>, </em><em>3</em><em>, </em><em>3</em><em>)</em>) – If present, use this array to accumulate the time-averaged
 stress field. Useful when processing a trajectory.</p></li>
 <li><p><strong>avg_decay</strong> (<em>real</em>) – Factor by which average stress is attenuated at each step.
