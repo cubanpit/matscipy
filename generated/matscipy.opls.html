@@ -112,7 +112,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.twochar" title="matscipy.opls.twochar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twochar</span></code></a>(name)</p></td>
-<td><p>Forces the length of the particle names to be two characters.</p></td>
+<td><p>Ensures that the particle names have a length of exactly two characters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -135,14 +135,15 @@
 <td><p>Store Lennard-Jones parameters and charges for each particle type.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPLSStructure</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Extension of the ASE Atoms class for non-reactive simulations.</p></td>
+<td><p>Extension of the <code class="xref py py-class docutils literal notranslate"><span class="pre">ase.Atoms</span></code> class for non-reactive simulations.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.opls.twochar">
 <span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">twochar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.twochar" title="Link to this definition"></a></dt>
-<dd><p>Forces the length of the particle names to be two characters.</p>
+<dd><p>Ensures that the particle names have a length of exactly two
+characters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Particle name.</p>
@@ -164,19 +165,22 @@
 the simplest version, each particle type has one set of Lennard-Jones
 parameters, with geometric mixing applied between parameters of
 different types. Parameters for individual pairs of particle types can
-be specified in the ‘lj_pairs’ dictionary.</p>
-<p>====== Example ======
+be specified in the <code class="docutils literal notranslate"><span class="pre">lj_pairs</span></code> dictionary.</p>
+<p>Example:
 Set the Lennard-Jones and Coulomb cutoffs to 12 and 8 Angstroms, geometric
-mixing of the Lennard-Jones parameters for particles ‘C1’ and ‘C2’ and
-between ‘C2’ and ‘C3’, custom parameters and cutoff for the interaction
-between ‘C1’ and ‘C3’:</p>
-<p>LJQData.lj_cutoff = 12.0
-LJQData.c_cutoff  =  8.0</p>
-<p>LJQData[‘C1’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]
-LJQData[‘C2’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]
-LJQData[‘C3’] = [LJ-epsilon (eV), LJ-sigma (A), charge (e)]</p>
-<p>LJQData.lj_pairs[‘C1-C3’] = [epsilon (eV), sigma (A), cutoff (A)]
-====== End of example ======</p>
+mixing of the Lennard-Jones parameters for particles <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> and
+between <code class="docutils literal notranslate"><span class="pre">C2</span></code> and <code class="docutils literal notranslate"><span class="pre">C3</span></code>, custom parameters and cutoff for the interaction
+between <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C3</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LJQData</span><span class="o">.</span><span class="n">lj_cutoff</span> <span class="o">=</span> <span class="mf">12.0</span>
+<span class="n">LJQData</span><span class="o">.</span><span class="n">c_cutoff</span>  <span class="o">=</span>  <span class="mf">8.0</span>
+
+<span class="n">LJQData</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">LJ</span><span class="o">-</span><span class="n">epsilon</span> <span class="p">(</span><span class="n">eV</span><span class="p">),</span> <span class="n">LJ</span><span class="o">-</span><span class="n">sigma</span> <span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">charge</span> <span class="p">(</span><span class="n">e</span><span class="p">)]</span>
+<span class="n">LJQData</span><span class="p">[</span><span class="s1">&#39;C2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">LJ</span><span class="o">-</span><span class="n">epsilon</span> <span class="p">(</span><span class="n">eV</span><span class="p">),</span> <span class="n">LJ</span><span class="o">-</span><span class="n">sigma</span> <span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">charge</span> <span class="p">(</span><span class="n">e</span><span class="p">)]</span>
+<span class="n">LJQData</span><span class="p">[</span><span class="s1">&#39;C3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">LJ</span><span class="o">-</span><span class="n">epsilon</span> <span class="p">(</span><span class="n">eV</span><span class="p">),</span> <span class="n">LJ</span><span class="o">-</span><span class="n">sigma</span> <span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">charge</span> <span class="p">(</span><span class="n">e</span><span class="p">)]</span>
+
+<span class="n">LJQData</span><span class="o">.</span><span class="n">lj_pairs</span><span class="p">[</span><span class="s1">&#39;C1-C3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">epsilon</span> <span class="p">(</span><span class="n">eV</span><span class="p">),</span> <span class="n">sigma</span> <span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">cutoff</span> <span class="p">(</span><span class="n">A</span><span class="p">)]</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -295,48 +299,125 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Store spring constants and equilibrium distances for harmonic potentials
 and ensure correct handling of permutations. See documentation of the
-LAMMPS ‘bond_style harmonic’ command for details.</p>
+LAMMPS <code class="docutils literal notranslate"><span class="pre">bond_style</span> <span class="pre">harmonic</span></code> command for details.</p>
 <p class="rubric">Methods</p>
-<table class="docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>get_name</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.BondData.get_name" title="matscipy.opls.BondData.get_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the name of the bond type between two particle types as it is defined internally.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_value</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.BondData.get_value" title="matscipy.opls.BondData.get_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_value</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the potential parameters for a bond between two particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code>, i.e. the spring constant and the equilibrium distance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>name_value</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.BondData.name_value" title="matscipy.opls.BondData.name_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_value</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the name of a bond type between two particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code> as stored internally and the corresponding potential parameters, i.e. the spring constant and the equilibrium distance.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_names</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.BondData.set_names" title="matscipy.opls.BondData.set_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_names</span></code></a>(names)</p></td>
+<td><p>Create a list of participating particles from a list of bond types.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.BondData.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_value_hash</strong> (<em>dict</em><em>, </em><em>optional</em>) – <p>Bond names and corresponding potential parameters, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;AA-BB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="s1">&#39;AA-CC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">20.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="o">...</span><span class="p">}</span><span class="o">.</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.BondData.set_names">
 <span class="sig-name descname"><span class="pre">set_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData.set_names" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create a list of participating particles from a list of bond
+types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> (<em>list</em>) – <p>List of bond type names, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;AA-BB&#39;</span><span class="p">,</span> <span class="s1">&#39;AA-CC&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.BondData.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData.get_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of the bond type between two particle types
+as it is defined internally. If one particle is named <code class="docutils literal notranslate"><span class="pre">AA</span></code>
+and the other is named <code class="docutils literal notranslate"><span class="pre">BB</span></code>, the bond type between them could
+be either <code class="docutils literal notranslate"><span class="pre">AA-BB</span></code> or <code class="docutils literal notranslate"><span class="pre">BB-AA</span></code>. The parameters would be the same
+and are stored only once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bond-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname</span></code> or <code class="docutils literal notranslate"><span class="pre">bname-aname</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.BondData.name_value">
 <span class="sig-name descname"><span class="pre">name_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData.name_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of a bond type between two particles of type
+<code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code> as stored internally and the corresponding
+potential parameters, i.e. the spring constant and the equilibrium
+distance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Bond-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname</span></code> or <code class="docutils literal notranslate"><span class="pre">bname-aname</span></code>.</p></li>
+<li><p><strong>parameters</strong> (<em>list</em>) – Potential parameters, i.e. spring constant and
+equilibrium distance.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.BondData.get_value">
 <span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.BondData.get_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the potential parameters for a bond between two
+particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code>, i.e. the spring
+constant and the equilibrium distance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Potential parameters, i.e. spring constant and
+equilibrium distance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -346,23 +427,28 @@ LAMMPS ‘bond_style harmonic’ command for details.</p>
 <dd><p>Bases: <a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><code class="xref py py-class docutils literal notranslate"><span class="pre">BondData</span></code></a></p>
 <p>Store cutoffs for pair interactions and ensure correct handling of
 permutations. Cutoffs can be used to automatically find all interacting
-atoms of an OPLSStructure object based on a simple distance criterion.</p>
+atoms of a <a class="reference internal" href="#matscipy.opls.OPLSStructure" title="matscipy.opls.OPLSStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">matscipy.opls.OPLSStructure</span></code></a> object based on a simple
+distance criterion.</p>
 <p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.CutoffList.get_name" title="matscipy.opls.CutoffList.get_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the name of the bond type between two particle types as it is defined internally.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.CutoffList.get_value" title="matscipy.opls.CutoffList.get_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_value</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the potential parameters for a bond between two particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code>, i.e. the spring constant and the equilibrium distance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.CutoffList.name_value" title="matscipy.opls.CutoffList.name_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_value</span></code></a>(aname, bname)</p></td>
+<td><p>Returns the name of a bond type between two particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code> as stored internally and the corresponding potential parameters, i.e. the spring constant and the equilibrium distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.CutoffList.set_names" title="matscipy.opls.CutoffList.set_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_names</span></code></a>(names)</p></td>
+<td><p>Create a list of participating particles from a list of bond types.</p></td>
+</tr>
+</tbody>
+</table>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>get_name</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>get_value</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-odd"><td><p><strong>max</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>name_value</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_names</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -375,27 +461,104 @@ atoms of an OPLSStructure object based on a simple distance criterion.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_value_hash</strong> (<em>dict</em><em>, </em><em>optional</em>) – <p>Bond names and corresponding potential parameters, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;AA-BB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="s1">&#39;AA-CC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">20.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="o">...</span><span class="p">}</span><span class="o">.</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList.get_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of the bond type between two particle types
+as it is defined internally. If one particle is named <code class="docutils literal notranslate"><span class="pre">AA</span></code>
+and the other is named <code class="docutils literal notranslate"><span class="pre">BB</span></code>, the bond type between them could
+be either <code class="docutils literal notranslate"><span class="pre">AA-BB</span></code> or <code class="docutils literal notranslate"><span class="pre">BB-AA</span></code>. The parameters would be the same
+and are stored only once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bond-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname</span></code> or <code class="docutils literal notranslate"><span class="pre">bname-aname</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList.get_value">
 <span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList.get_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the potential parameters for a bond between two
+particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code>, i.e. the spring
+constant and the equilibrium distance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Potential parameters, i.e. spring constant and
+equilibrium distance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList.name_value">
 <span class="sig-name descname"><span class="pre">name_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList.name_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of a bond type between two particles of type
+<code class="docutils literal notranslate"><span class="pre">aname</span></code> and <code class="docutils literal notranslate"><span class="pre">bname</span></code> as stored internally and the corresponding
+potential parameters, i.e. the spring constant and the equilibrium
+distance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Bond-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname</span></code> or <code class="docutils literal notranslate"><span class="pre">bname-aname</span></code>.</p></li>
+<li><p><strong>parameters</strong> (<em>list</em>) – Potential parameters, i.e. spring constant and
+equilibrium distance.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.CutoffList.set_names">
 <span class="sig-name descname"><span class="pre">set_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.CutoffList.set_names" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create a list of participating particles from a list of bond
+types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> (<em>list</em>) – <p>List of bond type names, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;AA-BB&#39;</span><span class="p">,</span> <span class="s1">&#39;AA-CC&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -405,48 +568,119 @@ atoms of an OPLSStructure object based on a simple distance criterion.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Store spring constants and equilibrium angles for harmonic potentials
 and ensure correct handling of permutations. See documentation of the
-LAMMPS ‘angle_style harmonic’ command for details.</p>
+LAMMPS <code class="docutils literal notranslate"><span class="pre">angle_style</span> <span class="pre">harmonic</span></code> command for details.</p>
 <p class="rubric">Methods</p>
-<table class="docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>add_name</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.AnglesData.add_name" title="matscipy.opls.AnglesData.add_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_name</span></code></a>(aname, bname, cname)</p></td>
+<td><p>Add an angle type to the internal list if not already present.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_name</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.AnglesData.get_name" title="matscipy.opls.AnglesData.get_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code></a>(aname, bname, cname)</p></td>
+<td><p>Returns the name of the angle type between three particle types as it is defined internally.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>name_value</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.AnglesData.name_value" title="matscipy.opls.AnglesData.name_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_value</span></code></a>(aname, bname, cname)</p></td>
+<td><p>Returns the name of an angle type between three particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code>, <code class="docutils literal notranslate"><span class="pre">bname</span></code> and <code class="docutils literal notranslate"><span class="pre">cname</span></code> as stored internally and the corresponding potential parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_names</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.AnglesData.set_names" title="matscipy.opls.AnglesData.set_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_names</span></code></a>(names)</p></td>
+<td><p>Create a list of participating particles from a list of angle types.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_value_hash</strong> (<em>dict</em><em>, </em><em>optional</em>) – <p>Angle names and corresponding potential parameters, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;AA-BB-CC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="s1">&#39;AA-CC-BB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">20.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData.set_names">
 <span class="sig-name descname"><span class="pre">set_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData.set_names" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create a list of participating particles from a list of angle
+types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> (<em>list</em>) – <p>List of angle type names, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;AA-BB-CC&#39;</span><span class="p">,</span> <span class="s1">&#39;AA-CC-BB&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData.add_name">
 <span class="sig-name descname"><span class="pre">add_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData.add_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Add an angle type to the internal list if not already present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData.get_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of the angle type between three particle
+types as it is defined internally. If the particles are named
+<code class="docutils literal notranslate"><span class="pre">AA</span></code>, <code class="docutils literal notranslate"><span class="pre">BB</span></code>, <code class="docutils literal notranslate"><span class="pre">CC</span></code>, the angle type could be <code class="docutils literal notranslate"><span class="pre">AA-BB-CC</span></code>
+or <code class="docutils literal notranslate"><span class="pre">CC-BB-AA</span></code>. The parameters would be the same and are
+stored only once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Angle-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname-cname</span></code>
+or <code class="docutils literal notranslate"><span class="pre">cname-bname-aname</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.AnglesData.name_value">
 <span class="sig-name descname"><span class="pre">name_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.AnglesData.name_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of an angle type between three particles of
+type <code class="docutils literal notranslate"><span class="pre">aname</span></code>, <code class="docutils literal notranslate"><span class="pre">bname</span></code> and <code class="docutils literal notranslate"><span class="pre">cname</span></code> as stored internally
+and the corresponding potential parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Angle-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname-cname</span></code>
+or <code class="docutils literal notranslate"><span class="pre">cname-bname-aname</span></code>.</p></li>
+<li><p><strong>parameters</strong> (<em>list</em>) – Potential parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -455,49 +689,115 @@ LAMMPS ‘angle_style harmonic’ command for details.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">DihedralsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Store energy constants for dihedral potentials and ensure correct handling
-of permutations. See documentation of the LAMMPS ‘dihedral_style opls’
+of permutations. See documentation of the LAMMPS <code class="docutils literal notranslate"><span class="pre">dihedral_style</span> <span class="pre">opls</span></code>
 command for details.</p>
 <p class="rubric">Methods</p>
-<table class="docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>add_name</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.DihedralsData.add_name" title="matscipy.opls.DihedralsData.add_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_name</span></code></a>(aname, bname, cname, dname)</p></td>
+<td><p>Add a dihedral type to the internal list if not already present.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_name</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.DihedralsData.get_name" title="matscipy.opls.DihedralsData.get_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code></a>(aname, bname, cname, dname)</p></td>
+<td><p>Add a dihedral type to the internal list if not already present.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>name_value</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.DihedralsData.name_value" title="matscipy.opls.DihedralsData.name_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_value</span></code></a>(aname, bname, cname, dname)</p></td>
+<td><p>Returns the name of a dihedral type between four particles of type <code class="docutils literal notranslate"><span class="pre">aname</span></code>, <code class="docutils literal notranslate"><span class="pre">bname</span></code>, <code class="docutils literal notranslate"><span class="pre">cname</span></code> and <code class="docutils literal notranslate"><span class="pre">dname</span></code> as stored internally and the corresponding potential parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_names</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.DihedralsData.set_names" title="matscipy.opls.DihedralsData.set_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_names</span></code></a>(names)</p></td>
+<td><p>Create a list of participating particles from a list of dihedral types.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_value_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_value_hash</strong> (<em>dict</em><em>, </em><em>optional</em>) – <p>Dihedral names and corresponding potential parameters, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;AA-BB-CC-DD&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+ <span class="s1">&#39;AA-BB-AA-BB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData.set_names">
 <span class="sig-name descname"><span class="pre">set_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData.set_names" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create a list of participating particles from a list of
+dihedral types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> (<em>list</em>) – <p>List of dihedral type names, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;AA-BB-CC-DD&#39;</span><span class="p">,</span> <span class="s1">&#39;AA-BB-AA-BB&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData.add_name">
 <span class="sig-name descname"><span class="pre">add_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData.add_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Add a dihedral type to the internal list if not already
+present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+<li><p><strong>dname</strong> (<em>str</em>) – Name of fourth particle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData.get_name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Add a dihedral type to the internal list if not already
+present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+<li><p><strong>dname</strong> (<em>str</em>) – Name of fourth particle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.DihedralsData.name_value">
 <span class="sig-name descname"><span class="pre">name_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.DihedralsData.name_value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of a dihedral type between four particles of
+type <code class="docutils literal notranslate"><span class="pre">aname</span></code>, <code class="docutils literal notranslate"><span class="pre">bname</span></code>, <code class="docutils literal notranslate"><span class="pre">cname</span></code> and <code class="docutils literal notranslate"><span class="pre">dname</span></code> as stored
+internally and the corresponding potential parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aname</strong> (<em>str</em>) – Name of first particle.</p></li>
+<li><p><strong>bname</strong> (<em>str</em>) – Name of second particle.</p></li>
+<li><p><strong>cname</strong> (<em>str</em>) – Name of third particle.</p></li>
+<li><p><strong>dname</strong> (<em>str</em>) – Name of fourth particle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Angle-name, either <code class="docutils literal notranslate"><span class="pre">aname-bname-cname-dname</span></code>
+or <code class="docutils literal notranslate"><span class="pre">dname-cname-bname-aname</span></code>.</p></li>
+<li><p><strong>parameters</strong> (<em>list</em>) – Potential parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -505,7 +805,7 @@ command for details.</p>
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.opls.</span></span><span class="sig-name descname"><span class="pre">OPLSStructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></p>
-<p>Extension of the ASE Atoms class for non-reactive simulations.</p>
+<p>Extension of the <code class="xref py py-class docutils literal notranslate"><span class="pre">ase.Atoms</span></code> class for non-reactive simulations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -532,7 +832,7 @@ command for details.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.append" title="matscipy.opls.OPLSStructure.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append</span></code></a>(atom)</p></td>
-<td><p>Append atom to end.</p></td>
+<td><p>Append atom to the end.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.opls.OPLSStructure.center" title="matscipy.opls.OPLSStructure.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a>([vacuum, axis, about])</p></td>
 <td><p>Center atoms in unit cell.</p></td>
@@ -816,25 +1116,15 @@ command for details.</p>
 This enables atoms of the same element to have different interaction
 potentials. During initialization, the types are initially derived from
 the chemical symbols of the atoms.</p>
-<p class="rubric">Notes</p>
-<p>self._combinations
-Angle lists are generated from neighbor lists. Assume an atom with the
-number 2 has the three neighbors [4, 6, 9]. Then the following angles
-with 2 in the middle are possible: (4-2-6), (4-2-9), (6-2-9) and the
-equivalent angles (6-2-4), (9-2-4) and (9-2-6). self._combinations
-contains predefined combinations of indices of the neighbor lists for
-the most frequently occurring numbers of nearest neighbors. With these,
-the list of occurring angles can be determined much faster than if the
-combinations had to be calculated in each step.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.append" title="Link to this definition"></a></dt>
-<dd><p>Append atom to end.</p>
+<dd><p>Append atom to the end.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>atom</strong> (<em>ase.Atoms</em>) – </p>
+<dd class="field-odd"><p><strong>atom</strong> (<em>ase.Atoms</em>) – The particle to append.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -843,8 +1133,8 @@ combinations had to be calculated in each step.</p>
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.set_types">
 <span class="sig-name descname"><span class="pre">set_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.set_types" title="Link to this definition"></a></dt>
 <dd><p>Set a type for each atom to specify the interaction with its
-neighbors. This enables atoms of the same element to have different
-interaction potentials.</p>
+neighbors. This enables atoms of the same element to have
+different interaction potentials.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>types</strong> (<em>list</em>) – A list of strings that specify the type of each atom.</p>
@@ -858,7 +1148,8 @@ interaction potentials.</p>
 <dd><p>Returns a unique list of atom types.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Each element is a str with two characters.</p>
+<dd class="field-odd"><p>Particle types. Each element is a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> with two
+characters.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.ndarray</p>
@@ -870,11 +1161,12 @@ interaction potentials.</p>
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.set_cutoffs">
 <span class="sig-name descname"><span class="pre">set_cutoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cutoffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.set_cutoffs" title="Link to this definition"></a></dt>
 <dd><p>Add a CutoffList object to the structure. This allows the
-‘get_neighbors’ method to find all interacting atoms of the structure
-based on a simple distance criterion.</p>
+<a class="reference internal" href="#matscipy.opls.OPLSStructure.get_neighbors" title="matscipy.opls.OPLSStructure.get_neighbors"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matscipy.opls.OPLSStructure.get_neighbors()</span></code></a> method
+to find all interacting atoms of the structure based on a
+simple distance criterion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cutoffs</strong> (<a class="reference internal" href="#matscipy.opls.CutoffList" title="matscipy.opls.CutoffList"><em>opls.CutoffList</em></a>) – </p>
+<dd class="field-odd"><p><strong>cutoffs</strong> (<a class="reference internal" href="#matscipy.opls.CutoffList" title="matscipy.opls.CutoffList"><em>opls.CutoffList</em></a>) – Cutoffs.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -892,13 +1184,13 @@ other based on a simple distance criterion.</p>
 <dd><p>Set Lennard-Jones parameters and atomic charges. Notice that each
 atom has exactly one set of Lennard-Jones parameters. Parameters
 for interactions between different types of atoms are calculated
-by geometric mixing. See documentation of the LAMMPS ‘pair_modify’
-command for details.</p>
+by geometric mixing. See documentation of the LAMMPS
+<code class="docutils literal notranslate"><span class="pre">pair_modify</span></code> command for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>atom_data</strong> (<em>dict</em>) – Dictionary containing Lennard-Jones parameters and charges for
-each particle type. key: Particle type, one or two characters,
-value: [LJ-epsilon, LJ-sigma, charge].</p>
+each particle type. key: <code class="docutils literal notranslate"><span class="pre">Particle</span> <span class="pre">type</span></code>, one or two
+characters, value: <code class="docutils literal notranslate"><span class="pre">[LJ-epsilon,</span> <span class="pre">LJ-sigma,</span> <span class="pre">charge]</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -907,12 +1199,15 @@ value: [LJ-epsilon, LJ-sigma, charge].</p>
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_charges">
 <span class="sig-name descname"><span class="pre">get_charges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_charges" title="Link to this definition"></a></dt>
 <dd><p>Return an array of atomic charges. Same functionality as the
-‘get_charges’ method of the ‘ase.Atoms’ class, but atomic charges
-are taken from a user definition instead of the result of a
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">ase.Atoms.get_charges()</span></code> method, but atomic charges are
+taken from a user definition instead of the result of a
 calculation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Particle charges.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -920,34 +1215,54 @@ calculation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_bonds">
 <span class="sig-name descname"><span class="pre">get_bonds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_bonds" title="Link to this definition"></a></dt>
-<dd><p>Returns an array of all bond types and
-an array of all bonds in the system.</p>
+<dd><p>Returns an array of all bond types and an array of all bonds
+in the system. This method also checks if potential parameters
+for all found bonds are present.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bonds</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p>
+<dd class="field-odd"><p><strong>bonds</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – Pairwise potential parameters. Can be set here or elsewhere
+in the code, e.g. by setting the attribute
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">matscipy.opls.OPLSStructure.bonds</span></code>. If it is present,
+this method runs a test to check if interaction parameters
+are defined for all present bonds.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
+<dd class="field-even"><p><ul>
 <li><p><strong>bond_types</strong> (<em>numpy.ndarray</em>) – Array of strings characterizing all present bond types.
-Example: A system consists of particles with the types ‘A1’ and
-‘A2’. If all particles interact with each other, bond_types
-will be [‘A1-A1’, ‘A1-A2’, ‘A2-A2’]. If there were no
-interactions between the types ‘A1’ and ‘A2’, bond_types would
-be [‘A1-A1’, ‘A2-A2’].</p></li>
-<li><p><strong>bond_list</strong> (<em>numpy.ndarray</em>) – bond_list.shape = (n, 3) where n is the number of particles in
-the system. Contains arrays of 3 integers for each bond in the
-system. First number: interaction type, index of bond_types,
-second and third numbers: indicees of participating particles.
-Example: A system consists of 3 particles of type ‘AA’, all
-particles are interacting. bond_types would be [‘AA-AA’] and
-bond_list would be [[0, 0, 1], [0, 0, 2], [0, 1, 2]].</p></li>
+Example: A system consists of particles with the types
+<code class="docutils literal notranslate"><span class="pre">A1</span></code> and <code class="docutils literal notranslate"><span class="pre">A2</span></code>. If all particles interact with each
+other, <code class="docutils literal notranslate"><span class="pre">bond_types</span></code> will be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;A1-A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A1-A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A2-A2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If there were no interactions between the types <code class="docutils literal notranslate"><span class="pre">A1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">A2</span></code>, <code class="docutils literal notranslate"><span class="pre">bond_types</span></code> would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;A1-A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2-A2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>bond_list</strong> (<em>numpy.ndarray</em>) – <code class="docutils literal notranslate"><span class="pre">bond_list.shape</span> <span class="pre">=</span> <span class="pre">(n,</span> <span class="pre">3)</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number
+of particles in the system. Contains arrays of 3 integers
+for each bond in the system. First number: interaction
+type, index of <code class="docutils literal notranslate"><span class="pre">bond_types</span></code>, second and third numbers:
+indicees of participating particles.
+Example: A system consists of 3 particles of type <code class="docutils literal notranslate"><span class="pre">AA</span></code>,
+all particles are interacting. bond_types would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;AA-AA&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and bond_list would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>RuntimeError</strong> – If ‘bonds’ is present and bonds are found for which no
-parameters are defined. In this case a warning a full list of
-all affected bonds will be printed on STDOUT.</p>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If <code class="docutils literal notranslate"><span class="pre">self.bonds</span></code> is present and bonds are found for which
+no parameters are defined. In this case a warning a full
+list of all affected bonds will be printed on <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -955,33 +1270,48 @@ all affected bonds will be printed on STDOUT.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_angles">
 <span class="sig-name descname"><span class="pre">get_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_angles" title="Link to this definition"></a></dt>
-<dd><p>Returns an array of all angle types and
-an array of all angles in the system.</p>
+<dd><p>Returns an array of all angle types and an array of all
+angles in the system. This method also checks if potential
+parameters for all found angles are present.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>angles</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p>
+<dd class="field-odd"><p><strong>angles</strong> (<a class="reference internal" href="#matscipy.opls.AnglesData" title="matscipy.opls.AnglesData"><em>opls.AnglesData</em></a><em>, </em><em>optional</em>) – Potential parameters. Can be set here or elsewhere in the
+code, e.g. by setting the attribute
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">matscipy.opls.OPLSStructure.angles</span></code>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
+<dd class="field-even"><p><ul>
 <li><p><strong>ang_types</strong> (<em>list</em>) – Array of strings characterizing all present angle types.
-Example: A system consists of atoms of types ‘A1’ and ‘A2’,
-all conceivable angle types are present in the system.
-ang_types would be [‘A1-A1-A1’, ‘A1-A1-A2’, ‘A1-A2-A1’,
-‘A1-A2-A2’, ‘A2-A1-A2’, ‘A2-A2-A2’].</p></li>
-<li><p><strong>ang_list</strong> (<em>list</em>) – len(ang_list) = n where n is the number of particles in the
-system. Each list entry is a list of 4 integers, characterizing
-the angles present in the system. Example: A system contains 7
-atoms, (0,1,2) of type ‘A1’ and (3,4,5,6) of type ‘A2’. If
-there are angles between (0,1,2), (0,3,4) and (0,5,6), ang_list
-would be [‘A1-A1-A1’, ‘A2-A1-A2’] and ang list would be
-[[0, 0, 1, 2], [1, 0, 3, 4], [1, 0, 5, 6]].</p></li>
+Example: A system consists of atoms of types <code class="docutils literal notranslate"><span class="pre">A1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">A2</span></code>, all conceivable angle types are present in the
+system. <code class="docutils literal notranslate"><span class="pre">ang_types</span></code> would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;A1-A1-A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A1-A1-A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A1-A2-A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A1-A2-A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A2-A1-A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A2-A2-A2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>ang_list</strong> (<em>list</em>) – <code class="docutils literal notranslate"><span class="pre">len(ang_list)</span> <span class="pre">=</span> <span class="pre">n</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of particles
+in the system. Each list entry is a list of 4 integers,
+characterizing the angles present in the system.
+Example:
+A system contains 7 atoms, <code class="docutils literal notranslate"><span class="pre">(0,1,2)</span></code> of type <code class="docutils literal notranslate"><span class="pre">A1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">(3,4,5,6)</span></code> of type <code class="docutils literal notranslate"><span class="pre">A2</span></code>. If there are angles between
+<code class="docutils literal notranslate"><span class="pre">(0,1,2)</span></code>, <code class="docutils literal notranslate"><span class="pre">(0,3,4)</span></code> and <code class="docutils literal notranslate"><span class="pre">(0,5,6)</span></code>, <code class="docutils literal notranslate"><span class="pre">ang_list</span></code>
+would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;A1-A1-A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2-A1-A2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">ang_list</span></code> would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>RuntimeError</strong> – If ‘angles’ is present and angles are found for which no
-parameters are defined. In this case a warning a full list of
-all affected angles will be printed on STDOUT.</p>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If <code class="docutils literal notranslate"><span class="pre">self.angles</span></code> is present and angles are found for which
+no parameters are defined. In this case a warning a full list
+of all affected angles will be printed on <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1202,38 +1532,50 @@ angle across periodic boundaries.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.opls.OPLSStructure.get_dihedrals">
 <span class="sig-name descname"><span class="pre">get_dihedrals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dihedrals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.opls.OPLSStructure.get_dihedrals" title="Link to this definition"></a></dt>
-<dd><p>Returns an array of all dihedral types and
-an array of all dihedrals in the system.</p>
+<dd><p>Returns an array of all dihedral types and an array of all
+dihedrals in the system. This method also checks if potential
+parameters for all found dihedrals are present.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dihedrals</strong> (<a class="reference internal" href="#matscipy.opls.BondData" title="matscipy.opls.BondData"><em>opls.BondData</em></a><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>dihedrals</strong> (<a class="reference internal" href="#matscipy.opls.DihedralsData" title="matscipy.opls.DihedralsData"><em>opls.DihedralsData</em></a><em>, </em><em>optional</em>) – Potential parameters. Can be set here or elsewhere in the
+code, e.g. by setting the attribute
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">matscipy.opls.OPLSStructure.dihedrals</span></code>.</p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a full list of all found dihedrals on <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code> for
+which no potential parameters are defined. By default, only
+one example is printed. Having the full list is sometimes
+helpful for debugging.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
+<dd class="field-even"><p><ul>
 <li><p><strong>dih_types</strong> (<em>list</em>) – Array of strings characterizing all present dihedral types.
 Example: Consider a system consisting of one benzene molecule.
-There are three possible types of dihedrals and dih_type would
-be [‘C-C-C-C’, ‘C-C-C-H’, ‘H-C-C-H’].</p></li>
-<li><p><strong>dih_list</strong> (<em>list</em>) – len(dih_list) = n where n is the number of particles in the
-system. Each list entry is a list of 5 integers, characterizing
-the dihedrals present in the system. Example: Consider a system
-consisting of one benzene molecule with the ‘C’ atoms
-(0,1,2,3,4,5) and the ‘H’ atoms (6,7,8,9,10,11). dih_type would
-be [‘C-C-C-C’, ‘C-C-C-H’, ‘H-C-C-H’] and dih_list would be
-[[0, 0, 1, 2, 3], [0, 1, 2, 3, 4], … , [1, 6, 0, 1, 2],
-[1, 7, 1, 2, 3], … , [2, 6, 0, 1, 7], [2, 7, 1, 2, 8], …].</p></li>
+There are three possible types of dihedrals and <code class="docutils literal notranslate"><span class="pre">dih_type</span></code>
+would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;C-C-C-C&#39;</span><span class="p">,</span> <span class="s1">&#39;C-C-C-H&#39;</span><span class="p">,</span> <span class="s1">&#39;H-C-C-H&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>dih_list</strong> (<em>list</em>) – <code class="docutils literal notranslate"><span class="pre">len(dih_list)</span> <span class="pre">=</span> <span class="pre">n</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of particles in the
+system. Each list entry is a list of 5 integers, characterizing the
+dihedrals present in the system.
+Example: Consider a system consisting of one benzene molecule with
+the <code class="docutils literal notranslate"><span class="pre">C</span></code> atoms <code class="docutils literal notranslate"><span class="pre">(0,1,2,3,4,5)</span></code> and the <code class="docutils literal notranslate"><span class="pre">H</span></code> atoms
+<code class="docutils literal notranslate"><span class="pre">(6,7,8,9,10,11)</span></code>. <code class="docutils literal notranslate"><span class="pre">dih_type</span></code> would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;C-C-C-C&#39;</span><span class="p">,</span> <span class="s1">&#39;C-C-C-H&#39;</span><span class="p">,</span> <span class="s1">&#39;H-C-C-H&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">dih_list</span></code> would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="o">...</span> <span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="o">...</span> <span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
-<p>Prints a warning to STDOUT if dihedrals are found for which no
-parameters are defined. If full_output is set, a complete list of
-all affected dihedrals is printed, if not, an example is printed
-for each dihedral type.</p>
 </dd></dl>
 
 <dl class="py method">
