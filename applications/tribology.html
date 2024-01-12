@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analysis tools" href="../tools/index.html" />
-    <link rel="prev" title="Quasi static fracture simulations" href="quasi_static_crack.html" /> 
+    <link rel="prev" title="Steric correction" href="electrochemistry_3.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,6 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plasticity.html">Plasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electrochemistry.html">Electrochemistry</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Tribology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#system-setup">System setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initial-pressure-equilibration">Initial pressure equilibration</a></li>
@@ -71,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology/index.html">Structure and topology generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command line interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 </ul>
 
@@ -127,6 +129,12 @@ is not explicitly included in the simulation.</p>
 <span class="c1"># remove pbc along z direction</span>
 <span class="n">atoms</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vacuum</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">atoms</span><span class="o">.</span><span class="n">set_pbc</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version &gt;=1.17.3 and &lt;1.25.0 is required for this version of SciPy (detected version 1.26.3
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
 </pre></div>
 </div>
 </div>
@@ -511,7 +519,7 @@ The log file can be read using the class (<a class="reference internal" href="..
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quasi_static_crack.html" class="btn btn-neutral float-left" title="Quasi static fracture simulations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="electrochemistry_3.html" class="btn btn-neutral float-left" title="Steric correction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../tools/index.html" class="btn btn-neutral float-right" title="Analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

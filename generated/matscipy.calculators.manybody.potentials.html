@@ -60,6 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology/index.html">Structure and topology generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command line interface</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#application-domains">Application domains</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#structure-and-topology-generation">Structure and topology generation</a></li>
@@ -154,6 +155,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.StillingerWeberPair" title="matscipy.calculators.manybody.potentials.StillingerWeberPair"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StillingerWeberPair</span></code></a>(parameters[, cutoff])</p></td>
 <td><p>Implementation of the Stillinger-Weber Potential</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymPhi" title="matscipy.calculators.manybody.potentials.SymPhi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymPhi</span></code></a>(energy_expression, symbols)</p></td>
+<td><p>Pair potential from Sympy symbolic expression.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymTheta" title="matscipy.calculators.manybody.potentials.SymTheta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymTheta</span></code></a>(energy_expression, symbols)</p></td>
+<td><p>Three-body potential from Sympy symbolic expression.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.TersoffBrennerAngle" title="matscipy.calculators.manybody.potentials.TersoffBrennerAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TersoffBrennerAngle</span></code></a>(parameters)</p></td>
 <td><p>Implementation of Theta for Tersoff-Brenner potentials</p></td>
@@ -666,6 +673,93 @@ Energy is shifted to zero at the cutoff</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.TersoffBrennerAngle.hessian">
 <span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rij</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rik</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rjk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.TersoffBrennerAngle.hessian" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return [∂₁₁Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),</dt><dd><p>∂₂₂Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
+∂₃₃Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
+∂₂₃Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
+∂₁₃Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
+∂₁₂Θ(rᵢⱼ², rᵢₖ², rⱼₖ²)].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymPhi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.potentials.</span></span><span class="sig-name descname"><span class="pre">SymPhi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_expression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymPhi" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="matscipy.calculators.manybody.newmb.html#matscipy.calculators.manybody.newmb.Manybody.Phi" title="matscipy.calculators.manybody.newmb.Manybody.Phi"><code class="xref py py-class docutils literal notranslate"><span class="pre">Phi</span></code></a></p>
+<p>Pair potential from Sympy symbolic expression.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(rsq_p, xi_p)</p></td>
+<td><p>Return ɸ(rᵢⱼ², ξᵢⱼ).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymPhi.gradient" title="matscipy.calculators.manybody.potentials.SymPhi.gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gradient</span></code></a>(rsq_p, xi_p)</p></td>
+<td><p>Return [∂₁ɸ(rᵢⱼ², ξᵢⱼ), ∂₂ɸ(rᵢⱼ², ξᵢⱼ)].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymPhi.hessian" title="matscipy.calculators.manybody.potentials.SymPhi.hessian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hessian</span></code></a>(rsq_p, xi_p)</p></td>
+<td><p>Return [∂₁₁ɸ(rᵢⱼ², ξᵢⱼ), ∂₂₂ɸ(rᵢⱼ², ξᵢⱼ), ∂₁₂ɸ(rᵢⱼ², ξᵢⱼ)].</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymPhi.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_expression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymPhi.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymPhi.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rsq_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi_p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymPhi.gradient" title="Link to this definition"></a></dt>
+<dd><p>Return [∂₁ɸ(rᵢⱼ², ξᵢⱼ), ∂₂ɸ(rᵢⱼ², ξᵢⱼ)].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymPhi.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rsq_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi_p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymPhi.hessian" title="Link to this definition"></a></dt>
+<dd><p>Return [∂₁₁ɸ(rᵢⱼ², ξᵢⱼ), ∂₂₂ɸ(rᵢⱼ², ξᵢⱼ), ∂₁₂ɸ(rᵢⱼ², ξᵢⱼ)].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymTheta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.potentials.</span></span><span class="sig-name descname"><span class="pre">SymTheta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_expression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymTheta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="matscipy.calculators.manybody.newmb.html#matscipy.calculators.manybody.newmb.Manybody.Theta" title="matscipy.calculators.manybody.newmb.Manybody.Theta"><code class="xref py py-class docutils literal notranslate"><span class="pre">Theta</span></code></a></p>
+<p>Three-body potential from Sympy symbolic expression.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(R1_t, R2_t, R3_t)</p></td>
+<td><p>Return Θ(rᵢⱼ², rᵢₖ², rⱼₖ²).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymTheta.gradient" title="matscipy.calculators.manybody.potentials.SymTheta.gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gradient</span></code></a>(R1_t, R2_t, R3_t)</p></td>
+<td><p>Return [∂₁Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.potentials.SymTheta.hessian" title="matscipy.calculators.manybody.potentials.SymTheta.hessian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hessian</span></code></a>(R1_t, R2_t, R3_t)</p></td>
+<td><p>Return [∂₁₁Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymTheta.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_expression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Symbol</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymTheta.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymTheta.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R1_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R2_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R3_t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymTheta.gradient" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return [∂₁Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),</dt><dd><p>∂₂Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
+∂₃Θ(rᵢⱼ², rᵢₖ², rⱼₖ²)].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.potentials.SymTheta.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R1_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R2_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R3_t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.potentials.SymTheta.hessian" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Return [∂₁₁Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),</dt><dd><p>∂₂₂Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),
 ∂₃₃Θ(rᵢⱼ², rᵢₖ², rⱼₖ²),

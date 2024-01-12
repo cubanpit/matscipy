@@ -32,6 +32,8 @@ matscipy.calculators.manybody.potentials
       LennardJones
       StillingerWeberAngle
       StillingerWeberPair
+      SymPhi
+      SymTheta
       TersoffBrennerAngle
       TersoffBrennerPair
       ZeroAngle

@@ -55,6 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculators/index.html">Interatomic potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology/index.html">Structure and topology generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">Command line interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 </ul>
 
@@ -204,6 +205,10 @@
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.StillingerWeberPair.__init__">(matscipy.calculators.manybody.potentials.StillingerWeberPair method)</a>
 </li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymPhi.__init__">(matscipy.calculators.manybody.potentials.SymPhi method)</a>
+</li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymTheta.__init__">(matscipy.calculators.manybody.potentials.SymTheta method)</a>
+</li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerAngle.__init__">(matscipy.calculators.manybody.potentials.TersoffBrennerAngle method)</a>
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerPair.__init__">(matscipy.calculators.manybody.potentials.TersoffBrennerPair method)</a>
@@ -289,6 +294,10 @@
         <li><a href="generated/matscipy.elasticity.html#matscipy.elasticity.CubicElasticModuli.__init__">(matscipy.elasticity.CubicElasticModuli method)</a>
 </li>
         <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.__init__">(matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+</li>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.__init__">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.__init__">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
         <li><a href="generated/matscipy.electrochemistry.steric_correction.html#matscipy.electrochemistry.steric_correction.DeferredMessage.__init__">(matscipy.electrochemistry.steric_correction.DeferredMessage method)</a>
 </li>
@@ -495,8 +504,6 @@
         <li><a href="generated/matscipy.calculators.mcfm.html#matscipy.calculators.mcfm.MultiClusterForceMixingPotential.all_changes">(matscipy.calculators.mcfm.MultiClusterForceMixingPotential attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.calculators.ewald.calculator.html#matscipy.calculators.ewald.calculator.Ewald.allowed_wave_vectors">allowed_wave_vectors() (matscipy.calculators.ewald.calculator.Ewald static method)</a>
 </li>
       <li><a href="generated/matscipy.calculators.ewald.calculator.html#matscipy.calculators.ewald.calculator.Ewald.alpha">alpha (matscipy.calculators.ewald.calculator.Ewald property)</a>
@@ -505,6 +512,8 @@
 </li>
       <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.angle_distance_defined">angle_distance_defined() (in module matscipy.calculators.manybody.potentials)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.angle_distribution.html#matscipy.angle_distribution.angle_distribution">angle_distribution() (in module matscipy.angle_distribution)</a>
 </li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.AnglesData">AnglesData (class in matscipy.opls)</a>
@@ -518,6 +527,26 @@
       <li><a href="generated/matscipy.electrochemistry.steric_correction.html#matscipy.electrochemistry.steric_correction.apply_steric_correction">apply_steric_correction() (in module matscipy.electrochemistry.steric_correction)</a>
 </li>
       <li><a href="generated/matscipy.fracture_mechanics.crack.html#matscipy.fracture_mechanics.crack.ConstantStrainRate.apply_strain">apply_strain() (matscipy.fracture_mechanics.crack.ConstantStrainRate method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyCentralReferenceConcentrationConstraint">applyCentralReferenceConcentrationConstraint() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyLeftConcentrationDirichletBC">applyLeftConcentrationDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyLeftPotentialDirichletBC">applyLeftPotentialDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyLeftPotentialRobinBC">applyLeftPotentialRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyNumberConservationConstraint">applyNumberConservationConstraint() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyPotentialDirichletBC">applyPotentialDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyPotentialRobinBC">applyPotentialRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyRightConcentrationDirichletBC">applyRightConcentrationDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyRightPotentialDirichletBC">applyRightPotentialDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.applyRightPotentialRobinBC">applyRightPotentialRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
       <li><a href="generated/matscipy.fracture_mechanics.crack.html#matscipy.fracture_mechanics.crack.SinclairCrack.arc_length_continuation">arc_length_continuation() (matscipy.fracture_mechanics.crack.SinclairCrack method)</a>
 </li>
@@ -704,6 +733,14 @@
       <li><a href="generated/matscipy.opls.html#matscipy.opls.BondData">BondData (class in matscipy.opls)</a>
 </li>
       <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.BornMayerCut">BornMayerCut (class in matscipy.calculators.manybody.potentials)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary">Boundary (class in matscipy.electrochemistry.poisson_nernst_planck_solver_fenics)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.boundary_C">boundary_C() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.boundary_L">boundary_L() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.boundary_R">boundary_R() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.steric_correction.html#matscipy.electrochemistry.steric_correction.box_constraint">box_constraint() (in module matscipy.electrochemistry.steric_correction)</a>
 </li>
@@ -1246,7 +1283,11 @@
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.center">center() (matscipy.opls.OPLSStructure method)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.charge_density">charge_density (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.charge_density">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_boltzmann_distribution.html#matscipy.electrochemistry.poisson_boltzmann_distribution.charge_density">charge_density() (in module matscipy.electrochemistry.poisson_boltzmann_distribution)</a>
 </li>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.check_basis_volume">check_basis_volume() (matscipy.dislocation.BodyCenteredCubicOctahedralFactory method)</a>
@@ -1338,7 +1379,11 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.concentration">concentration (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.concentration">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_boltzmann_distribution.html#matscipy.electrochemistry.poisson_boltzmann_distribution.concentration">concentration() (in module matscipy.electrochemistry.poisson_boltzmann_distribution)</a>
 </li>
       <li><a href="generated/matscipy.neighbours.html#matscipy.neighbours.CutoffNeighbourhood.connected_triplets">connected_triplets() (matscipy.neighbours.CutoffNeighbourhood method)</a>
@@ -1728,7 +1773,11 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.discretize">discretize() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.discretize">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.AnisotropicDislocation.displacement">displacement() (matscipy.dislocation.AnisotropicDislocation method)</a>
 </li>
       <li><a href="generated/matscipy.fracture_mechanics.crack.html#matscipy.fracture_mechanics.crack.displacement_residual">displacement_residual() (in module matscipy.fracture_mechanics.crack)</a>
@@ -2116,7 +2165,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.G">G() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.G">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.fracture_mechanics.crack.html#matscipy.fracture_mechanics.crack.G_to_strain">G_to_strain() (in module matscipy.fracture_mechanics.crack)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_boltzmann_distribution.html#matscipy.electrochemistry.poisson_boltzmann_distribution.gamma">gamma() (in module matscipy.electrochemistry.poisson_boltzmann_distribution)</a>
@@ -3096,6 +3149,8 @@
 </li>
         <li><a href="generated/matscipy.calculators.supercell_calculator.html#matscipy.calculators.supercell_calculator.SupercellCalculator.get_property">(matscipy.calculators.supercell_calculator.SupercellCalculator method)</a>
 </li>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.get_property">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
         <li><a href="generated/matscipy.fracture_mechanics.idealbrittlesolid.html#matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid.get_property">(matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid method)</a>
 </li>
       </ul></li>
@@ -3520,6 +3575,10 @@
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.StillingerWeberPair.gradient">(matscipy.calculators.manybody.potentials.StillingerWeberPair method)</a>
 </li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymPhi.gradient">(matscipy.calculators.manybody.potentials.SymPhi method)</a>
+</li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymTheta.gradient">(matscipy.calculators.manybody.potentials.SymTheta method)</a>
+</li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerAngle.gradient">(matscipy.calculators.manybody.potentials.TersoffBrennerAngle method)</a>
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerPair.gradient">(matscipy.calculators.manybody.potentials.TersoffBrennerPair method)</a>
@@ -3530,7 +3589,11 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.grid">grid (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.grid">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -3590,6 +3653,10 @@
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.StillingerWeberPair.hessian">(matscipy.calculators.manybody.potentials.StillingerWeberPair method)</a>
 </li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymPhi.hessian">(matscipy.calculators.manybody.potentials.SymPhi method)</a>
+</li>
+        <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymTheta.hessian">(matscipy.calculators.manybody.potentials.SymTheta method)</a>
+</li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerAngle.hessian">(matscipy.calculators.manybody.potentials.TersoffBrennerAngle method)</a>
 </li>
         <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.TersoffBrennerPair.hessian">(matscipy.calculators.manybody.potentials.TersoffBrennerPair method)</a>
@@ -3622,7 +3689,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.I">I (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.I">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.calculators.committee.committee.html#matscipy.calculators.committee.committee.Committee.id_counter">id_counter (matscipy.calculators.committee.committee.Committee property)</a>
 </li>
       <li><a href="generated/matscipy.calculators.committee.committee.html#matscipy.calculators.committee.committee.Committee.id_to_atoms">id_to_atoms (matscipy.calculators.committee.committee.Committee property)</a>
@@ -3698,7 +3769,11 @@
       <li><a href="generated/matscipy.calculators.eam.io.html#matscipy.calculators.eam.io.EAMParameters.index">index() (matscipy.calculators.eam.io.EAMParameters method)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.init">init() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.init">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.init_anisotropic_dislocation">init_anisotropic_dislocation() (matscipy.dislocation.BCCEdge100110Dislocation method)</a>
 
       <ul>
@@ -3770,11 +3845,17 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.initial_values">initial_values() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.initial_values">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.inside">inside() (matscipy.dislocation.BodyCenteredCubicOctahedralFactory method)</a>
 
       <ul>
         <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.inside">(matscipy.dislocation.BodyCenteredCubicTetrahedralFactory method)</a>
+</li>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.inside">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
 </li>
       </ul></li>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.int_basis">int_basis (matscipy.dislocation.BodyCenteredCubicOctahedralFactory attribute)</a>
@@ -3902,7 +3983,11 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.lambda_D">lambda_D (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.lambda_D">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.io.lammpsdata.html#matscipy.io.lammpsdata.LAMMPSData">LAMMPSData (class in matscipy.io.lammpsdata)</a>
 </li>
       <li><a href="generated/matscipy.calculators.eam.io.html#matscipy.calculators.eam.io.EAMParameters.lattice_constants">lattice_constants (matscipy.calculators.eam.io.EAMParameters attribute)</a>
@@ -3919,20 +4004,44 @@
         <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.left_dislocation">(matscipy.dislocation.FCCScrew110Dislocation attribute)</a>
 </li>
       </ul></li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftControlledVolumeSchemeFluxBC">leftControlledVolumeSchemeFluxBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftControlledVolumeSchemeFluxBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftControlledVolumeSchemeFluxBC">leftControlledVolumeSchemeFluxBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
-</li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftDirichletBC">leftDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftDirichletBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftFiniteDifferenceSchemeFluxBC">leftFiniteDifferenceSchemeFluxBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftFiniteDifferenceSchemeFluxBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftPotentialDirichletBC">leftPotentialDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftPotentialDirichletBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftPotentialRobinBC">leftPotentialRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftPotentialRobinBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.leftRobinBC">leftRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.leftRobinBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.LennardJones">LennardJones (class in matscipy.calculators.manybody.potentials)</a>
 </li>
       <li><a href="generated/matscipy.calculators.pair_potential.calculator.html#matscipy.calculators.pair_potential.calculator.LennardJones84">LennardJones84 (class in matscipy.calculators.pair_potential.calculator)</a>
@@ -4019,7 +4128,15 @@
 </li>
       <li><a href="generated/matscipy.calculators.manybody.newmb.html#matscipy.calculators.manybody.newmb.Manybody.Theta">Manybody.Theta (class in matscipy.calculators.manybody.newmb)</a>
 </li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.map">map() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
       <li><a href="generated/matscipy.calculators.mcfm.cluster_data.html#matscipy.calculators.mcfm.cluster_data.ClusterData.mark">mark (matscipy.calculators.mcfm.cluster_data.ClusterData attribute)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.mark">mark() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.mark_cells">mark_cells() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.mark_facets">mark_facets() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
 </li>
       <li><a href="generated/matscipy.neighbours.html#matscipy.neighbours.CutoffNeighbourhood.mask">mask() (matscipy.neighbours.CutoffNeighbourhood static method)</a>
 
@@ -4373,6 +4490,13 @@
 </li>
       </ul></li>
       <li>
+    matscipy.electrochemistry.poisson_nernst_planck_solver_fenics
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#module-matscipy.electrochemistry.poisson_nernst_planck_solver_fenics">module</a>
+</li>
+      </ul></li>
+      <li>
     matscipy.electrochemistry.steric_correction
 
       <ul>
@@ -4414,6 +4538,8 @@
         <li><a href="generated/matscipy.fracture_mechanics.energy_release.html#module-matscipy.fracture_mechanics.energy_release">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     matscipy.fracture_mechanics.idealbrittlesolid
 
@@ -4421,8 +4547,6 @@
         <li><a href="generated/matscipy.fracture_mechanics.idealbrittlesolid.html#module-matscipy.fracture_mechanics.idealbrittlesolid">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     matscipy.hessian_finite_differences
 
@@ -4698,6 +4822,8 @@
 </li>
         <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#module-matscipy.electrochemistry.poisson_nernst_planck_solver">matscipy.electrochemistry.poisson_nernst_planck_solver</a>
 </li>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#module-matscipy.electrochemistry.poisson_nernst_planck_solver_fenics">matscipy.electrochemistry.poisson_nernst_planck_solver_fenics</a>
+</li>
         <li><a href="generated/matscipy.electrochemistry.steric_correction.html#module-matscipy.electrochemistry.steric_correction">matscipy.electrochemistry.steric_correction</a>
 </li>
         <li><a href="generated/matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics">matscipy.fracture_mechanics</a>
@@ -4830,7 +4956,11 @@
       <li><a href="generated/matscipy.calculators.mcfm.neighbour_list_mcfm.neighbour_list_mcfm.html#matscipy.calculators.mcfm.neighbour_list_mcfm.neighbour_list_mcfm.NeighbourListMCFM">NeighbourListMCFM (class in matscipy.calculators.mcfm.neighbour_list_mcfm.neighbour_list_mcfm)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.nernst_planck_pde">nernst_planck_pde() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.nernst_planck_pde">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.new_array">new_array() (matscipy.opls.OPLSStructure method)</a>
 </li>
       <li><a href="generated/matscipy.calculators.fitting.html#matscipy.calculators.fitting.FitB2.new_bulk">new_bulk() (matscipy.calculators.fitting.FitB2 method)</a>
@@ -4896,7 +5026,11 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.newton">newton() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.newton">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.calculators.manybody.calculator.html#matscipy.calculators.manybody.calculator.NiceManybody">NiceManybody (class in matscipy.calculators.manybody.calculator)</a>
 </li>
       <li><a href="generated/matscipy.calculators.manybody.calculator.html#matscipy.calculators.manybody.calculator.NiceManybody.F">NiceManybody.F (class in matscipy.calculators.manybody.calculator)</a>
@@ -4914,7 +5048,11 @@
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.number_of_lattice_vectors">number_of_lattice_vectors (matscipy.opls.OPLSStructure property)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.numberConservationConstraint">numberConservationConstraint() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.numberConservationConstraint">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.numbers">numbers (matscipy.opls.OPLSStructure property)</a>
 </li>
       <li><a href="generated/matscipy.numerical.html#matscipy.numerical.numerical_forces">numerical_forces() (in module matscipy.numerical)</a>
@@ -5404,10 +5542,16 @@
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.plot_vitek">plot_vitek() (in module matscipy.dislocation)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.poisson_pde">poisson_pde() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.poisson_pde">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.elasticity.html#matscipy.elasticity.poisson_ratio">poisson_ratio() (in module matscipy.elasticity)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem">PoissonNernstPlanckSystem (class in matscipy.electrochemistry.poisson_nernst_planck_solver)</a>
+</li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS">PoissonNernstPlanckSystemFEniCS (class in matscipy.electrochemistry.poisson_nernst_planck_solver_fenics)</a>
 </li>
       <li><a href="generated/matscipy.calculators.polydisperse.calculator.html#matscipy.calculators.polydisperse.calculator.Polydisperse">Polydisperse (class in matscipy.calculators.polydisperse.calculator)</a>
 </li>
@@ -5422,7 +5566,11 @@
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.positions">positions (matscipy.opls.OPLSStructure property)</a>
 </li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.potential">potential (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.potential">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_boltzmann_distribution.html#matscipy.electrochemistry.poisson_boltzmann_distribution.potential">potential() (in module matscipy.electrochemistry.poisson_boltzmann_distribution)</a>
 </li>
       <li><a href="generated/matscipy.logger.html#matscipy.logger.Logger.pr">pr() (matscipy.logger.Logger method)</a>
@@ -5688,17 +5836,41 @@
 </li>
       </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightControlledVolumeSchemeFluxBC">rightControlledVolumeSchemeFluxBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightControlledVolumeSchemeFluxBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightDirichletBC">rightDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightDirichletBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightFiniteDifferenceSchemeFluxBC">rightFiniteDifferenceSchemeFluxBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightFiniteDifferenceSchemeFluxBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightPotentialDirichletBC">rightPotentialDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightPotentialDirichletBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightPotentialRobinBC">rightPotentialRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightPotentialRobinBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.rightRobinBC">rightRobinBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.rightRobinBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.rings.html#matscipy.rings.ring_statistics">ring_statistics() (in module matscipy.rings)</a>
 </li>
       <li><a href="generated/matscipy.calculators.ewald.calculator.html#matscipy.calculators.ewald.calculator.Ewald.rms_kspace">rms_kspace() (matscipy.calculators.ewald.calculator.Ewald static method)</a>
@@ -6029,14 +6201,14 @@
 </li>
       <li><a href="generated/matscipy.fracture_mechanics.crack.html#matscipy.fracture_mechanics.crack.SinclairCrack.set_dofs">set_dofs() (matscipy.fracture_mechanics.crack.SinclairCrack method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.fracture_mechanics.clusters.html#matscipy.fracture_mechanics.clusters.set_groups">set_groups() (in module matscipy.fracture_mechanics.clusters)</a>
 </li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.set_initial_charges">set_initial_charges() (matscipy.opls.OPLSStructure method)</a>
 </li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.set_initial_magnetic_moments">set_initial_magnetic_moments() (matscipy.opls.OPLSStructure method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.fracture_mechanics.idealbrittlesolid.html#matscipy.fracture_mechanics.idealbrittlesolid.set_initial_velocities">set_initial_velocities() (in module matscipy.fracture_mechanics.idealbrittlesolid)</a>
 </li>
       <li><a href="generated/matscipy.calculators.committee.committee.html#matscipy.calculators.committee.committee.Committee.set_internal_validation_set">set_internal_validation_set() (matscipy.calculators.committee.committee.Committee method)</a>
@@ -6185,6 +6357,8 @@
 </li>
       <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.set_positions">set_positions() (matscipy.opls.OPLSStructure method)</a>
 </li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.set_property">set_property() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
       <li><a href="generated/matscipy.calculators.mcfm.calculator.html#matscipy.calculators.mcfm.calculator.MultiClusterForceMixingPotential.set_qm_atoms">set_qm_atoms() (matscipy.calculators.mcfm.calculator.MultiClusterForceMixingPotential method)</a>
 
       <ul>
@@ -6229,10 +6403,20 @@
 </li>
       <li><a href="generated/matscipy.pressurecoupling.html#matscipy.pressurecoupling.SlideWithNormalPressureCuboidCell">SlideWithNormalPressureCuboidCell (class in matscipy.pressurecoupling)</a>
 </li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary.snap">snap() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.Boundary method)</a>
+</li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.solve">solve() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.solve">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.solver_callback">solver_callback() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.solver_callback">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.spatial_correlation_function.html#matscipy.spatial_correlation_function.spatial_correlation_function">spatial_correlation_function() (in module matscipy.spatial_correlation_function)</a>
 </li>
       <li><a href="generated/matscipy.spatial_correlation_function.html#matscipy.spatial_correlation_function.spatial_correlation_function_near">spatial_correlation_function_near() (in module matscipy.spatial_correlation_function)</a>
@@ -6333,6 +6517,10 @@
         <li><a href="generated/matscipy.opls.html#matscipy.opls.OPLSStructure.symbols">(matscipy.opls.OPLSStructure property)</a>
 </li>
       </ul></li>
+      <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymPhi">SymPhi (class in matscipy.calculators.manybody.potentials)</a>
+</li>
+      <li><a href="generated/matscipy.calculators.manybody.potentials.html#matscipy.calculators.manybody.potentials.SymTheta">SymTheta (class in matscipy.calculators.manybody.potentials)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -6577,14 +6765,32 @@
         <li><a href="generated/matscipy.calculators.mcfm.qm_cluster_tools.qm_flagging_tool.html#matscipy.calculators.mcfm.qm_cluster_tools.qm_flagging_tool.QMFlaggingTool.update_qm_region">(matscipy.calculators.mcfm.qm_cluster_tools.qm_flagging_tool.QMFlaggingTool method)</a>
 </li>
       </ul></li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.useCentralReferenceConcentrationBasedCellBC">useCentralReferenceConcentrationBasedCellBC() (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
+</li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.useStandardCellBC">useStandardCellBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.useStandardCellBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.useStandardDirichletBC">useStandardDirichletBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.useStandardDirichletBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.useStandardInterfaceBC">useStandardInterfaceBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.useStandardInterfaceBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.useSternLayerCellBC">useSternLayerCellBC() (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem method)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.useSternLayerCellBC">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -6733,8 +6939,14 @@
 <h2 id="X">X</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.x1_scaled">x1_scaled (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.X">X (matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
 </li>
+      <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver.html#matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem.x1_scaled">x1_scaled (matscipy.electrochemistry.poisson_nernst_planck_solver.PoissonNernstPlanckSystem property)</a>
+
+      <ul>
+        <li><a href="generated/matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html#matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS.x1_scaled">(matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.PoissonNernstPlanckSystemFEniCS property)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/matscipy.dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.xtal_name">xtal_name (matscipy.dislocation.BodyCenteredCubicOctahedralFactory attribute)</a>

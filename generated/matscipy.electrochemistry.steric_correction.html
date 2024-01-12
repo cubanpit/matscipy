@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="matscipy.fracture_mechanics" href="matscipy.fracture_mechanics.html" />
-    <link rel="prev" title="matscipy.electrochemistry.poisson_nernst_planck_solver" href="matscipy.electrochemistry.poisson_nernst_planck_solver.html" /> 
+    <link rel="prev" title="matscipy.electrochemistry.poisson_nernst_planck_solver_fenics" href="matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,6 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology/index.html">Structure and topology generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command line interface</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#application-domains">Application domains</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="matscipy.dislocation.html">matscipy.dislocation</a></li>
@@ -66,6 +67,7 @@
 <li class="toctree-l4"><a class="reference internal" href="matscipy.electrochemistry.continuous2discrete.html">matscipy.electrochemistry.continuous2discrete</a></li>
 <li class="toctree-l4"><a class="reference internal" href="matscipy.electrochemistry.poisson_boltzmann_distribution.html">matscipy.electrochemistry.poisson_boltzmann_distribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="matscipy.electrochemistry.poisson_nernst_planck_solver.html">matscipy.electrochemistry.poisson_nernst_planck_solver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html">matscipy.electrochemistry.poisson_nernst_planck_solver_fenics</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">matscipy.electrochemistry.steric_correction</a></li>
 </ul>
 </li>
@@ -660,7 +662,7 @@ and k marks spatial dimension.</p>
 (default: {‘gtol’:1.e-5,’maxiter’:10,’disp’:True,’eps’:1.e-8})</p></li>
 <li><p><strong>target_function</strong> (<em>func</em><em>, </em><em>optional</em>) – One of the target functions within this submodule, or function
 of same signature. (default: neigh_list_based_target_function)</p></li>
-<li><p><strong>returns_gradient</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: Trze</em><em>)</em>) – If True, then ‘target_function’ is expected to return a tuple (f, df)
+<li><p><strong>returns_gradient</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: True</em><em>)</em>) – If True, then ‘target_function’ is expected to return a tuple (f, df)
 with f the actual target function value and df its (N,dim) gradient.
 This flag must be set for ‘neigh_list_based_target_function’.</p></li>
 <li><p><strong>closest_pair_function</strong> (<em>func</em><em>, </em><em>optional</em>) – One of the closest pair functions within this submodule, or function
@@ -668,10 +670,11 @@ of same signature. (default: scipy_distance_based_closest_pair)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>float</strong> – Modified particle coordinates, meeting steric constraints.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(N,dim) ndarray</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>float</strong> (<em>(N,dim) ndarray</em>) – Modified particle coordinates, meeting steric constraints.</p></li>
+<li><p><em>scipy.optimize.OptimizeResult</em> – Forwarded raw object as returned by scipy.optimize.minimize</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -682,7 +685,7 @@ of same signature. (default: scipy_distance_based_closest_pair)</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="matscipy.electrochemistry.poisson_nernst_planck_solver.html" class="btn btn-neutral float-left" title="matscipy.electrochemistry.poisson_nernst_planck_solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matscipy.electrochemistry.poisson_nernst_planck_solver_fenics.html" class="btn btn-neutral float-left" title="matscipy.electrochemistry.poisson_nernst_planck_solver_fenics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="matscipy.fracture_mechanics.html" class="btn btn-neutral float-right" title="matscipy.fracture_mechanics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
