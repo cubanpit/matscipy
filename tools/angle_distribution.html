@@ -124,7 +124,7 @@ f_\text{a}(\phi) = \frac{1}{N} \sum_{i=1}^N \frac{1}{N_i^2} \sum_{j=1}^N \sum_{k
 
 <span class="c1"># Get compute angle distribution</span>
 <span class="n">nbins</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">bin_spacing</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">nbins</span>
+<span class="n">bin_spacing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">nbins</span>
 <span class="n">angle</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nbins</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">bin_spacing</span>
 <span class="n">nb_angles</span> <span class="o">=</span> <span class="n">angle_distribution</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">nbins</span><span class="p">)</span>  <span class="c1"># `angle_distribution` returns the number of triangles</span>
 <span class="n">probability</span> <span class="o">=</span> <span class="n">nb_angles</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">nb_angles</span><span class="p">)</span> <span class="o">*</span> <span class="n">bin_spacing</span><span class="p">)</span>  <span class="c1"># Normalize</span>
@@ -133,15 +133,15 @@ f_\text{a}(\phi) = \frac{1}{N} \sum_{i=1}^N \frac{1}{N_i^2} \sum_{j=1}^N \sum_{k
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">probability</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Bond angle $\phi$ (radians)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Probability density $f_\text</span><span class="si">{a}</span><span class="s1">(\phi)$ (radians$^{-1}$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 6.283185307179586)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 3.141592653589793)
 </pre></div>
 </div>
-<img alt="../_images/74e76caf8ce8a42b533b94eae5e6f7c51b601cc5f3e08472d50789d870d266a5.png" src="../_images/74e76caf8ce8a42b533b94eae5e6f7c51b601cc5f3e08472d50789d870d266a5.png" />
+<img alt="../_images/5c9b6e42abf1e2e472f7331fe7ff93cc1fcf88af1328a2b1267d21b1517903ff.png" src="../_images/5c9b6e42abf1e2e472f7331fe7ff93cc1fcf88af1328a2b1267d21b1517903ff.png" />
 </div>
 </div>
 </section>
