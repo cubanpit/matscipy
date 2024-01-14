@@ -169,12 +169,12 @@
     <span class="n">c</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">delta_u</span><span class="o">=</span><span class="n">delta_u</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">,</span>
     <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;hybr&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xtol&#39;</span><span class="p">:</span><span class="mf">1e-12</span><span class="p">})</span>
 
-<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">useStandardInterfaceBC</span><span class="p">()</span>
+<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">use_standard_interface_bc</span><span class="p">()</span>
 <span class="n">uij</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">lamj</span> <span class="o">=</span> <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 
 <span class="c1"># define desired system</span>
 <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PoissonNernstPlanckSystemFEniCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">delta_u</span><span class="o">=</span><span class="n">delta_u</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">useStandardInterfaceBC</span><span class="p">()</span>
+<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">use_standard_interface_bc</span><span class="p">()</span>
 <span class="n">uij</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -193,9 +193,9 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling FFC just-in-time (JIT) compiler, this may take some time.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No Jacobian form specified for nonlinear variational problem.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling FFC just-in-time (JIT) compiler, this may take some time.
+No Jacobian form specified for nonlinear variational problem.
 Differentiating residual form F to obtain Jacobian J = F&#39;.
-Calling FFC just-in-time (JIT) compiler, this may take some time.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling FFC just-in-time (JIT) compiler, this may take some time.
@@ -336,7 +336,7 @@ Calling FFC just-in-time (JIT) compiler, this may take some time.
 <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface_high_potential&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PoissonNernstPlanckSystem</span><span class="p">(</span>
     <span class="n">c</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">delta_u</span><span class="o">=</span><span class="n">delta_u</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">,</span>
     <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;hybr&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xtol&#39;</span><span class="p">:</span><span class="mf">1e-14</span><span class="p">})</span>
-<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">useStandardInterfaceBC</span><span class="p">()</span>
+<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">use_standard_interface_bc</span><span class="p">()</span>
 <span class="n">uij</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">lamj</span> <span class="o">=</span> <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;std_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -356,7 +356,7 @@ Calling FFC just-in-time (JIT) compiler, this may take some time.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface_high_potential&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PoissonNernstPlanckSystemFEniCS</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">delta_u</span><span class="o">=</span><span class="n">delta_u</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">useStandardInterfaceBC</span><span class="p">()</span>
+<span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">use_standard_interface_bc</span><span class="p">()</span>
 <span class="n">uij</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pnp</span><span class="p">[</span><span class="s1">&#39;fenics_interface_high_potential&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>

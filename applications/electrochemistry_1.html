@@ -174,10 +174,10 @@
 </div>
 </div>
 </div>
-<p>The method <code class="docutils literal notranslate"><span class="pre">useStandardInterfaceBC</span></code> will apply boundary conditions as shown in <a hef="#figure1">Figure 1</a>, with Dirichlet boundary conditions on the potential and zero total flux boundary conditions on ion diffusion and electromigration.</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">use_standard_interface_bc</span></code> will apply boundary conditions as shown in <a hef="#figure1">Figure 1</a>, with Dirichlet boundary conditions on the potential and zero total flux boundary conditions on ion diffusion and electromigration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">useStandardInterfaceBC</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">use_standard_interface_bc</span><span class="p">()</span>
 <span class="n">ui</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pnp</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -311,7 +311,7 @@
 <p>The only difference is the application of another set of predefined boundary conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">useStandardCellBC</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">use_standard_cell_bc</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -448,7 +448,7 @@
 <p>The following applies zero flux and, particularly, Robin boundary conditions as shown in <a href="#figure2">Figure 2</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">useSternLayerCellBC</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pnp</span><span class="o">.</span><span class="n">use_stern_layer_cell_bc</span><span class="p">()</span>
 
 <span class="n">pnp</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">xij</span> <span class="o">=</span> <span class="n">pnp</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>

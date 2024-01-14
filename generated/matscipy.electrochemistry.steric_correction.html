@@ -562,7 +562,7 @@ with one point from x and the other point from y</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>(</em><em>N</em><em>,</em><em>dim</em><em>) </em><em>ndarray</em>) – particle coordinates</p></li>
 <li><p><strong>r</strong> (<em>float</em><em> or </em><em>(</em><em>N</em><em>,</em><em>) </em><em>ndarray</em><em>, </em><em>optional</em><em> (</em><em>default=1.0</em><em>)</em>) – steric radii of particles</p></li>
-<li><p><strong>constraints</strong> (<em>callable</em><em>, </em><em>returns</em><em> (</em><em>float</em><em>, </em><em>(</em><em>N</em><em>,</em><em>dim</em><em>) </em><em>ndarray</em><em>)</em>) – constraint function value and gradien</p></li>
+<li><p><strong>constraints</strong> (<em>callable</em><em>, </em><em>returns</em><em> (</em><em>float</em><em>, </em><em>(</em><em>N</em><em>,</em><em>dim</em><em>) </em><em>ndarray</em><em>)</em>) – constraint function value and gradient</p></li>
 <li><p><strong>Dij</strong> (<em>(</em><em>N</em><em>, </em><em>N</em><em>) </em><em>ndarray</em><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) – pairwise minimum allowed distance matrix, overrides r</p></li>
 </ul>
 </dd>
@@ -660,6 +660,7 @@ and k marks spatial dimension.</p>
 <li><p><strong>options</strong> (<em>dict</em><em>, </em><em>optional</em>) – Forwarded to scipy minimzer.
 <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html">https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html</a>
 (default: {‘gtol’:1.e-5,’maxiter’:10,’disp’:True,’eps’:1.e-8})</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – scipy.optimize.minimize method</p></li>
 <li><p><strong>target_function</strong> (<em>func</em><em>, </em><em>optional</em>) – One of the target functions within this submodule, or function
 of same signature. (default: neigh_list_based_target_function)</p></li>
 <li><p><strong>returns_gradient</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: True</em><em>)</em>) – If True, then ‘target_function’ is expected to return a tuple (f, df)
