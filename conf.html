@@ -174,6 +174,11 @@
 <span class="c1"># List of patterns, relative to source directory, that match files and</span>
 <span class="c1"># directories to ignore when looking for source files.</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_build&#39;</span><span class="p">]</span>
+<span class="c1"># conditionally exclude fenics-dependent jupyter notebook if fenics not available</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">fenics</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="n">exclude_patterns</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;applications/electrochemistry_2.py&quot;</span><span class="p">])</span>
 
 <span class="c1"># The reST default role (used for this markup: `text`) to use for all</span>
 <span class="c1"># documents.</span>
