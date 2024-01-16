@@ -1,4 +1,4 @@
-﻿matscipy.calculators.mcfm
+matscipy.calculators.mcfm
 =========================
 
 .. automodule:: matscipy.calculators.mcfm

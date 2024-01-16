@@ -25,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Command line interface for the electrochemistry module" href="electrochemistry.html" />
+    <link rel="next" title="Diffusion" href="diffusion.html" />
     <link rel="prev" title="Topology building for LAMMPS non-reactive MD simulations of amorphous carbon" href="../topology/topology_building_aC.html" /> 
 </head>
 
@@ -51,15 +51,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Matscipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">matscipy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Application domains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology/index.html">Structure and topology generation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Command line interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="electrochemistry.html">Command line interface for the electrochemistry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffusion.html">Diffusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electrochemistry.html">Electrochemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculators.html">Interatomic potentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Structure generation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
@@ -91,17 +95,36 @@
              
   <section id="command-line-interface">
 <h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Link to this heading"></a></h1>
-<p><cite>matscipy</cite> provides command line interfaces (CLI) for selected functionality.
-These CLI are not installed per default. Install with the <cite>[cli]</cite> extra, e.g.</p>
-<blockquote>
-<div><p>pip install matscipy[cli]</p>
-</div></blockquote>
-<p>to create all provided CLI scripts.</p>
+<p><cite>matscipy</cite> provides command line interfaces (CLIs) for selected functionality.
+These CLIs are installed per default and are prefixed with <cite>matscipy-</cite>.</p>
+<p>Many of the CLI commands use a parameter file for control. This is a Python file called <cite>params.py</cite> that resides in
+directory where the command is executed. The parameter file can be queried programmatically using the
+<a class="reference internal" href="../generated/matscipy.html#matscipy.has_parameter" title="matscipy.has_parameter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matscipy.has_parameter()</span></code></a> and <a class="reference internal" href="../generated/matscipy.html#matscipy.parameter" title="matscipy.parameter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matscipy.parameter()</span></code></a> utility functions.
+These functions automatically echo the values of the parameters, including whether it was specified by the user or
+whether a default parameter was used, to the log.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="electrochemistry.html">Command line interface for the electrochemistry module</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="diffusion.html">Diffusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diffusion.html#matscipy-rms"><code class="docutils literal notranslate"><span class="pre">matscipy-rms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="electrochemistry.html">Electrochemistry</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="electrochemistry.html#overview-of-commands">Overview of commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="electrochemistry.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fracture_mechanics.html">Fracture mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html#matscipy-quasistatic-crack"><code class="docutils literal notranslate"><span class="pre">matscipy-quasistatic-crack</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html#matscipy-sinclair-crack"><code class="docutils literal notranslate"><span class="pre">matscipy-sinclair-crack</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html#matscipy-sinclair-continuation"><code class="docutils literal notranslate"><span class="pre">matscipy-sinclair-continuation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Interatomic potentials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculators.html#matscipy-average-eam-potential"><code class="docutils literal notranslate"><span class="pre">matscipy-average-eam-potential</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">Structure generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure.html#matscipy-quench"><code class="docutils literal notranslate"><span class="pre">matscipy-quench</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -113,7 +136,7 @@ These CLI are not installed per default. Install with the <cite>[cli]</cite> ext
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../topology/topology_building_aC.html" class="btn btn-neutral float-left" title="Topology building for LAMMPS non-reactive MD simulations of amorphous carbon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="electrochemistry.html" class="btn btn-neutral float-right" title="Command line interface for the electrochemistry module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="diffusion.html" class="btn btn-neutral float-right" title="Diffusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

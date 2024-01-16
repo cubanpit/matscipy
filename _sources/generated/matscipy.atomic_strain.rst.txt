@@ -1,4 +1,4 @@
-﻿matscipy.atomic\_strain
+matscipy.atomic\_strain
 =======================
 
 .. automodule:: matscipy.atomic_strain

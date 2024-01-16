@@ -1,4 +1,4 @@
-﻿matscipy.opls
+matscipy.opls
 =============
 
 .. automodule:: matscipy.opls

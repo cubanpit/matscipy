@@ -1,4 +1,4 @@
-﻿matscipy.hydrogenate
+matscipy.hydrogenate
 ====================
 
 .. automodule:: matscipy.hydrogenate

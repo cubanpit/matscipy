@@ -1,4 +1,4 @@
-﻿matscipy.io
+matscipy.io
 ===========
 
 .. automodule:: matscipy.io

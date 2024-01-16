@@ -1,4 +1,4 @@
-﻿matscipy.calculators.eam
+matscipy.calculators.eam
 ========================
 
 .. automodule:: matscipy.calculators.eam

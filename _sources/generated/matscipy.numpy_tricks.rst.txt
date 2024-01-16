@@ -1,4 +1,4 @@
-﻿matscipy.numpy\_tricks
+matscipy.numpy\_tricks
 ======================
 
 .. automodule:: matscipy.numpy_tricks

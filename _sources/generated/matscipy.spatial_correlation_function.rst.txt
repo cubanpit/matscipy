@@ -1,4 +1,4 @@
-﻿matscipy.spatial\_correlation\_function
+matscipy.spatial\_correlation\_function
 =======================================
 
 .. automodule:: matscipy.spatial_correlation_function

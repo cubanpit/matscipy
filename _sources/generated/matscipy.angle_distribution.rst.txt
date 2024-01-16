@@ -1,4 +1,4 @@
-﻿matscipy.angle\_distribution
+matscipy.angle\_distribution
 ============================
 
 .. automodule:: matscipy.angle_distribution

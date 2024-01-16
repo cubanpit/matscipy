@@ -1,4 +1,4 @@
-﻿matscipy.neighbours
+matscipy.neighbours
 ===================
 
 .. automodule:: matscipy.neighbours

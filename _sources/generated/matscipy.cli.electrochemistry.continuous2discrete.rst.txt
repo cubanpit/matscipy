@@ -1,0 +1,29 @@
+matscipy.cli.electrochemistry.continuous2discrete
+=================================================
+
+.. automodule:: matscipy.cli.electrochemistry.continuous2discrete
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      main
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

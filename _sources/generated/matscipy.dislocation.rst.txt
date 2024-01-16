@@ -1,4 +1,4 @@
-﻿matscipy.dislocation
+matscipy.dislocation
 ====================
 
 .. automodule:: matscipy.dislocation

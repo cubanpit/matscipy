@@ -1,4 +1,4 @@
-﻿matscipy.rings
+matscipy.rings
 ==============
 
 .. automodule:: matscipy.rings

@@ -1,4 +1,4 @@
-﻿matscipy.calculators.ewald
+matscipy.calculators.ewald
 ==========================
 
 .. automodule:: matscipy.calculators.ewald

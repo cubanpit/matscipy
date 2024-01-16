@@ -1,4 +1,4 @@
-﻿matscipy.calculators.pair\_potential
+matscipy.calculators.pair\_potential
 ====================================
 
 .. automodule:: matscipy.calculators.pair_potential

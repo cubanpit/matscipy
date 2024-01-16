@@ -1,4 +1,4 @@
-﻿matscipy.pressurecoupling
+matscipy.pressurecoupling
 =========================
 
 .. automodule:: matscipy.pressurecoupling

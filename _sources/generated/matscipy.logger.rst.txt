@@ -1,4 +1,4 @@
-﻿matscipy.logger
+matscipy.logger
 ===============
 
 .. automodule:: matscipy.logger

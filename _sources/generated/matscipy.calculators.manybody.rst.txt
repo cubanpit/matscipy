@@ -1,4 +1,4 @@
-﻿matscipy.calculators.manybody
+matscipy.calculators.manybody
 =============================
 
 .. automodule:: matscipy.calculators.manybody

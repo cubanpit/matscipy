@@ -1,4 +1,4 @@
-﻿matscipy.calculators.calculator
+matscipy.calculators.calculator
 ===============================
 
 .. automodule:: matscipy.calculators.calculator

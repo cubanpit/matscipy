@@ -1,0 +1,31 @@
+matscipy.cli.calculators
+========================
+
+.. automodule:: matscipy.cli.calculators
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   matscipy.cli.calculators.average_eam_potential
+

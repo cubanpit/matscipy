@@ -1,4 +1,4 @@
-﻿matscipy.fracture\_mechanics
+matscipy.fracture\_mechanics
 ============================
 
 .. automodule:: matscipy.fracture_mechanics

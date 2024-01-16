@@ -1,0 +1,34 @@
+matscipy.cli.fracture\_mechanics
+================================
+
+.. automodule:: matscipy.cli.fracture_mechanics
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   matscipy.cli.fracture_mechanics.quasistatic_crack
+   matscipy.cli.fracture_mechanics.setup_crack
+   matscipy.cli.fracture_mechanics.sinclair_continuation
+   matscipy.cli.fracture_mechanics.sinclair_crack
+

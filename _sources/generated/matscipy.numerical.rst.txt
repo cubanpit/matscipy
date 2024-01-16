@@ -1,4 +1,4 @@
-﻿matscipy.numerical
+matscipy.numerical
 ==================
 
 .. automodule:: matscipy.numerical

@@ -1,0 +1,31 @@
+matscipy.utils
+==============
+
+.. automodule:: matscipy.utils
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      complete_basis
+      get_structure_types
+      validate_cubic_cell
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

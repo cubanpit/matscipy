@@ -1,4 +1,4 @@
-﻿matscipy.calculators.fitting
+matscipy.calculators.fitting
 ============================
 
 .. automodule:: matscipy.calculators.fitting

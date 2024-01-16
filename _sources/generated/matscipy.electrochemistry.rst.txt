@@ -1,4 +1,4 @@
-﻿matscipy.electrochemistry
+matscipy.electrochemistry
 =========================
 
 .. automodule:: matscipy.electrochemistry

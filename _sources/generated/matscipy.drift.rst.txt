@@ -1,4 +1,4 @@
-﻿matscipy.drift
+matscipy.drift
 ==============
 
 .. automodule:: matscipy.drift
