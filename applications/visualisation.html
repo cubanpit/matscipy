@@ -22,7 +22,7 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
-        <script type="application/vnd.jupyter.widget-state+json">{"state": {"81dd7bc709574cc68cee0512a60600b8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "10c25db87b5b4f3098f807cb3f7cb3f6": {"model_name": "ColormakerRegistryModel", "model_module": "nglview-js-widgets", "model_module_version": "3.0.8", "state": {"_dom_classes": [], "_model_module": "nglview-js-widgets", "_model_module_version": "3.0.8", "_model_name": "ColormakerRegistryModel", "_msg_ar": [], "_msg_q": [], "_ready": false, "_view_count": null, "_view_module": "nglview-js-widgets", "_view_module_version": "3.0.8", "_view_name": "ColormakerRegistryView", "layout": "IPY_MODEL_81dd7bc709574cc68cee0512a60600b8", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+        <script type="application/vnd.jupyter.widget-state+json">{"state": {"0b6f5edd77f44ca6b3fb94a5ef08db9b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "324c3a819c494063b854d9c12cd5c446": {"model_name": "ColormakerRegistryModel", "model_module": "nglview-js-widgets", "model_module_version": "3.0.8", "state": {"_dom_classes": [], "_model_module": "nglview-js-widgets", "_model_module_version": "3.0.8", "_model_name": "ColormakerRegistryModel", "_msg_ar": [], "_msg_q": [], "_ready": false, "_view_count": null, "_view_module": "nglview-js-widgets", "_view_module_version": "3.0.8", "_view_name": "ColormakerRegistryView", "layout": "IPY_MODEL_0b6f5edd77f44ca6b3fb94a5ef08db9b", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -96,9 +96,10 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># interactive visualisation  inside the notebook with nglview</span>
-<span class="kn">from</span> <span class="nn">nglview</span> <span class="kn">import</span> <span class="n">show_ase</span><span class="p">,</span> <span class="n">ASEStructure</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">nglview</span> <span class="kn">import</span> <span class="n">show_ase</span><span class="p">,</span> <span class="n">ASEStructure</span>
+
 <span class="k">def</span> <span class="nf">show_HTML</span><span class="p">(</span><span class="n">anim</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Convert matplotlib.animation.FuncAnimation </span>
@@ -116,155 +117,32 @@
 <span class="s1">        &lt;/div&gt;</span>
 <span class="s1">        &#39;&#39;&#39;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="n">output_html</span><span class="p">)</span>
-
-
-<span class="c1"># Get the results of Ovito Common Neighbor Analysis </span>
-<span class="c1"># https://www.ovito.org/docs/current/reference/pipelines/modifiers/common_neighbor_analysis.html</span>
-<span class="c1"># and Identify Diamond modifier</span>
-<span class="c1"># https://www.ovito.org/docs/current/reference/pipelines/modifiers/identify_diamond.html</span>
-<span class="c1"># for better visualisation of the dislocation core</span>
-<span class="c1"># it will be identified as &quot;other&quot; structure type</span>
-<span class="k">def</span> <span class="nf">get_structure_types</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the results of Common Neighbor Analysis and </span>
-<span class="sd">        Identify Diamond modifiers from Ovito</span>
-<span class="sd">    Args:</span>
-<span class="sd">        structure (ase.atoms): input structure</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        atom_labels (array of ints): per atom labels of the structure types</span>
-<span class="sd">        structure_names (list of strings): names of the structure types</span>
-<span class="sd">        colors (list of strings): colors of the structure types in hex format</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">ovito.io.ase</span> <span class="kn">import</span> <span class="n">ase_to_ovito</span>
-    <span class="kn">from</span> <span class="nn">ovito.modifiers</span> <span class="kn">import</span> <span class="n">CommonNeighborAnalysisModifier</span><span class="p">,</span> <span class="n">IdentifyDiamondModifier</span>
-    <span class="kn">from</span> <span class="nn">ovito.pipeline</span> <span class="kn">import</span> <span class="n">StaticSource</span><span class="p">,</span> <span class="n">Pipeline</span>
-    <span class="n">ovito_structure</span> <span class="o">=</span> <span class="n">structure</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="k">if</span> <span class="s2">&quot;fix_mask&quot;</span> <span class="ow">in</span> <span class="n">ovito_structure</span><span class="o">.</span><span class="n">arrays</span><span class="p">:</span>
-        <span class="k">del</span> <span class="n">ovito_structure</span><span class="o">.</span><span class="n">arrays</span><span class="p">[</span><span class="s2">&quot;fix_mask&quot;</span><span class="p">]</span>
-    
-    <span class="k">if</span> <span class="n">diamond_structure</span><span class="p">:</span>
-        <span class="n">modifier</span> <span class="o">=</span> <span class="n">IdentifyDiamondModifier</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">modifier</span> <span class="o">=</span> <span class="n">CommonNeighborAnalysisModifier</span><span class="p">()</span> 
-    
-    <span class="n">data</span> <span class="o">=</span> <span class="n">ase_to_ovito</span><span class="p">(</span><span class="n">ovito_structure</span><span class="p">)</span>
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">StaticSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">))</span>
-    <span class="n">pipeline</span><span class="o">.</span><span class="n">modifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modifier</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-
-    <span class="n">atom_labels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">particles</span><span class="p">[</span><span class="s1">&#39;Structure Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array</span>
-
-    <span class="n">structure_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">structure</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">structure</span> <span class="ow">in</span> <span class="n">modifier</span><span class="o">.</span><span class="n">structures</span><span class="p">]</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">structure</span><span class="o">.</span><span class="n">color</span> <span class="k">for</span> <span class="n">structure</span> <span class="ow">in</span> <span class="n">modifier</span><span class="o">.</span><span class="n">structures</span><span class="p">]</span>
-    <span class="n">hex_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#</span><span class="si">{:02x}{:02x}{:02x}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="o">*</span><span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="mi">255</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span> 
-
-    <span class="k">return</span> <span class="n">atom_labels</span><span class="p">,</span> <span class="n">structure_names</span><span class="p">,</span> <span class="n">hex_colors</span>
-
-<span class="c1"># custom tooltip for nglview to avoid showing molecule and residue names</span>
-<span class="c1"># that are not relevant for our type of structures</span>
-<span class="n">tooltip_js</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                this.stage.mouseControls.add(&#39;hoverPick&#39;, (stage, pickingProxy) =&gt; {</span>
-<span class="s2">                    let tooltip = this.stage.tooltip;</span>
-<span class="s2">                    if(pickingProxy &amp;&amp; pickingProxy.atom &amp;&amp; !pickingProxy.bond){</span>
-<span class="s2">                        let atom = pickingProxy.atom;</span>
-<span class="s2">                        if (atom.structure.name.length &gt; 0){</span>
-<span class="s2">                            tooltip.innerText = atom.atomname + &quot; atom: &quot; + atom.structure.name;</span>
-<span class="s2">                        } else {</span>
-<span class="s2">                            tooltip.innerText = atom.atomname + &quot; atom&quot;;</span>
-<span class="s2">                        }</span>
-<span class="s2">                    } else if (pickingProxy &amp;&amp; pickingProxy.bond){</span>
-<span class="s2">                        let bond = pickingProxy.bond;</span>
-<span class="s2">                        if (bond.structure.name.length &gt; 0){</span>
-<span class="s2">                        tooltip.innerText = bond.atom1.atomname + &quot;-&quot; + bond.atom2.atomname + &quot; bond: &quot; + bond.structure.name;</span>
-<span class="s2">                        } else {</span>
-<span class="s2">                            tooltip.innerText = bond.atom1.atomname + &quot;-&quot; + bond.atom2.atomname + &quot; bond&quot;;</span>
-<span class="s2">                        }</span>
-<span class="s2">                    } else if (pickingProxy &amp;&amp; pickingProxy.unitcell){</span>
-<span class="s2">                        tooltip.innerText = &quot;Unit cell&quot;;</span>
-<span class="s2">                    }</span>
-<span class="s2">                });</span>
-<span class="s2">                &quot;&quot;&quot;</span>
-
-<span class="k">def</span> <span class="nf">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_shift</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Add dislocation line to the view as a cylinder and two cones.</span>
-<span class="sd">    The cylinder is hollow by default so the second cylinder is needed to close it.</span>
-<span class="sd">    In case partial distance is provided, two dislocation lines are added and are shifter accordingly.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    
-    <span class="n">center</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">add_cylinder</span><span class="p">((</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> 
-                            <span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">system</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">),</span>
-                            <span class="n">color</span><span class="p">,</span>
-                            <span class="p">[</span><span class="mf">0.3</span><span class="p">],</span>
-                            <span class="n">name</span><span class="p">)</span>
-    
-    <span class="n">view</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">add_cone</span><span class="p">((</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> 
-                        <span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">),</span>
-                        <span class="n">color</span><span class="p">,</span>
-                        <span class="p">[</span><span class="mf">0.3</span><span class="p">],</span>
-                        <span class="n">name</span><span class="p">)</span>
-       
-    <span class="n">view</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">add_cone</span><span class="p">((</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">system</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">),</span> 
-                        <span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">system</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">),</span>
-                        <span class="n">color</span><span class="p">,</span>
-                        <span class="p">[</span><span class="mf">0.55</span><span class="p">],</span>
-                        <span class="n">name</span><span class="p">)</span>
-    
-
-<span class="k">def</span> <span class="nf">show_dislocation</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">CNA_color</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">diamond_structure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_bonds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                     <span class="n">d_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">partial_distance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
-    <span class="n">atom_labels</span><span class="p">,</span> <span class="n">structure_names</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">get_structure_types</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> 
-                                                               <span class="n">diamond_structure</span><span class="o">=</span><span class="n">diamond_structure</span><span class="p">)</span>
-
-    <span class="n">view</span> <span class="o">=</span> <span class="n">show_ase</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">hide</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-    
-    <span class="k">if</span> <span class="n">add_bonds</span><span class="p">:</span> <span class="c1"># add bonds between all atoms to have bonds between structures</span>
-        <span class="n">component</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">ASEStructure</span><span class="p">(</span><span class="n">system</span><span class="p">),</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;between structures&#39;</span><span class="p">)</span>
-        <span class="n">component</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">cylinderOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span> <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">aspectRatio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-    
-    <span class="k">for</span> <span class="n">structure_type</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">atom_labels</span><span class="p">):</span>
-        <span class="c1"># every structure type is a different component</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">atom_labels</span> <span class="o">==</span> <span class="n">structure_type</span>
-        <span class="n">component</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">ASEStructure</span><span class="p">(</span><span class="n">system</span><span class="p">[</span><span class="n">mask</span><span class="p">]),</span> 
-                                       <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">structure_names</span><span class="p">[</span><span class="n">structure_type</span><span class="p">]))</span>
-        <span class="k">if</span> <span class="n">CNA_color</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">add_bonds</span><span class="p">:</span>
-                <span class="n">component</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">structure_type</span><span class="p">],</span> <span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span> <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">component</span><span class="o">.</span><span class="n">add_spacefill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">structure_type</span><span class="p">],</span> <span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span> <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">add_bonds</span><span class="p">:</span>
-                <span class="n">component</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span> <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">component</span><span class="o">.</span><span class="n">add_spacefill</span><span class="p">(</span><span class="n">radiusType</span><span class="o">=</span><span class="s1">&#39;covalent&#39;</span><span class="p">,</span> <span class="n">radiusScale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-                    
-    <span class="n">component</span><span class="o">.</span><span class="n">add_unitcell</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">partial_distance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">d_name</span> <span class="o">+</span> <span class="s1">&#39; dislocation line&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">d_name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
-            <span class="n">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">d_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; dislocation line&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span> <span class="o">-</span><span class="n">partial_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
-            <span class="n">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">d_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; dislocation line&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span> <span class="n">partial_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">d_name</span> <span class="o">+</span> <span class="s1">&#39; dislocation line&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span> <span class="o">-</span><span class="n">partial_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
-            <span class="n">add_dislocation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">d_name</span> <span class="o">+</span> <span class="s1">&#39; dislocation line&#39;</span><span class="p">,</span> <span class="n">d_color</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span> <span class="n">partial_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
-
-    <span class="n">view</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="s1">&#39;orthographic&#39;</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;clipDist&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-
-    <span class="c1">#view._remote_call(&quot;setSize&quot;, target=&quot;Widget&quot;, args=[&quot;400px&quot;, &quot;300px&quot;])</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="s1">&#39;100%&#39;</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;300px&#39;</span>
-    <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-
-    <span class="n">view</span><span class="o">.</span><span class="n">_js</span><span class="p">(</span><span class="n">tooltip_js</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">view</span>
-
+    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="n">output_html</span><span class="p">)</span>    
 
 <span class="k">def</span> <span class="nf">interactive_view</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">tooltip_js</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    this.stage.mouseControls.add(&#39;hoverPick&#39;, (stage, pickingProxy) =&gt; {</span>
+<span class="s2">                        let tooltip = this.stage.tooltip;</span>
+<span class="s2">                        if(pickingProxy &amp;&amp; pickingProxy.atom &amp;&amp; !pickingProxy.bond){</span>
+<span class="s2">                            let atom = pickingProxy.atom;</span>
+<span class="s2">                            if (atom.structure.name.length &gt; 0){</span>
+<span class="s2">                                tooltip.innerText = atom.atomname + &quot; atom: &quot; + atom.structure.name;</span>
+<span class="s2">                            } else {</span>
+<span class="s2">                                tooltip.innerText = atom.atomname + &quot; atom&quot;;</span>
+<span class="s2">                            }</span>
+<span class="s2">                        } else if (pickingProxy &amp;&amp; pickingProxy.bond){</span>
+<span class="s2">                            let bond = pickingProxy.bond;</span>
+<span class="s2">                            if (bond.structure.name.length &gt; 0){</span>
+<span class="s2">                            tooltip.innerText = bond.atom1.atomname + &quot;-&quot; + bond.atom2.atomname + &quot; bond: &quot; + bond.structure.name;</span>
+<span class="s2">                            } else {</span>
+<span class="s2">                                tooltip.innerText = bond.atom1.atomname + &quot;-&quot; + bond.atom2.atomname + &quot; bond&quot;;</span>
+<span class="s2">                            }</span>
+<span class="s2">                        } else if (pickingProxy &amp;&amp; pickingProxy.unitcell){</span>
+<span class="s2">                            tooltip.innerText = &quot;Unit cell&quot;;</span>
+<span class="s2">                        }</span>
+<span class="s2">                    });</span>
+<span class="s2">                    &quot;&quot;&quot;</span>
+    
     <span class="n">view</span> <span class="o">=</span> <span class="n">show_ase</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
     <span class="n">view</span><span class="o">.</span><span class="n">_remove_representation</span><span class="p">()</span>
     <span class="n">component</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">ASEStructure</span><span class="p">(</span><span class="n">system</span><span class="p">),</span> 
@@ -287,7 +165,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "10c25db87b5b4f3098f807cb3f7cb3f6"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "324c3a819c494063b854d9c12cd5c446"}</script></div>
 </div>
 
 

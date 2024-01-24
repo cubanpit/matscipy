@@ -17,6 +17,7 @@ matscipy.elasticity
       Voigt_6_to_full_3x3_stress
       Voigt_6x6_to_cubic
       Voigt_6x6_to_full_3x3x3x3
+      coalesce_elastic_constants
       cubic_to_Voigt_6x6
       elastic_moduli
       fit_elastic_constants

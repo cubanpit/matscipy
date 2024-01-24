@@ -1192,7 +1192,7 @@ are guessed from Atoms object.</p></li>
 <li><p><strong>fix_params</strong> (<em>dict</em>) – Names and values of parameters to fix during the fit,
 e.g. <code class="docutils literal notranslate"><span class="pre">{y0:</span> <span class="pre">0.0}</span></code> to constrain the fit to the line y=0</p></li>
 <li><p><strong>sigma</strong> (<em>None</em><em> or </em><em>array with shape</em><em> (</em><em>len</em><em>(</em><em>atoms</em><em>)</em><em>, </em><em>3</em><em>, </em><em>3</em><em>)</em>) – Explicitly provide the per-atom stresses. Avoids calling Atoms’
-calculators <a class="reference internal" href="matscipy.calculators.calculator.html#matscipy.calculators.calculator.MatscipyCalculator.get_stresses" title="matscipy.calculators.calculator.MatscipyCalculator.get_stresses"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stresses()</span></code></a> method.</p></li>
+calculators <a class="reference internal" href="matscipy.calculators.pair_potential.calculator.html#matscipy.calculators.pair_potential.calculator.PairPotential.get_stresses" title="matscipy.calculators.pair_potential.calculator.PairPotential.get_stresses"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stresses()</span></code></a> method.</p></li>
 <li><p><strong>avg_sigma</strong> (<em>None</em><em> or </em><em>array with shape</em><em> (</em><em>len</em><em>(</em><em>atoms</em><em>)</em><em>, </em><em>3</em><em>, </em><em>3</em><em>)</em>) – If present, use this array to accumulate the time-averaged
 stress field. Useful when processing a trajectory.</p></li>
 <li><p><strong>avg_decay</strong> (<em>real</em>) – Factor by which average stress is attenuated at each step.

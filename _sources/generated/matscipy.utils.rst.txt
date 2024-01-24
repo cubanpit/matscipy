@@ -14,7 +14,11 @@ matscipy.utils
    .. autosummary::
    
       complete_basis
+      get_distance_from_polygon2D
       get_structure_types
+      line_intersect_2D
+      points_in_polygon2D
+      radial_mask_from_polygon2D
       validate_cubic_cell
    
    

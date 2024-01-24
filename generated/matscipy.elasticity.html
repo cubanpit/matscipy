@@ -72,6 +72,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6"><code class="docutils literal notranslate"><span class="pre">full_3x3x3x3_to_Voigt_6x6()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.Voigt_6x6_to_cubic"><code class="docutils literal notranslate"><span class="pre">Voigt_6x6_to_cubic()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.cubic_to_Voigt_6x6"><code class="docutils literal notranslate"><span class="pre">cubic_to_Voigt_6x6()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.coalesce_elastic_constants"><code class="docutils literal notranslate"><span class="pre">coalesce_elastic_constants()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.invariants"><code class="docutils literal notranslate"><span class="pre">invariants()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.rotate_cubic_elastic_constants"><code class="docutils literal notranslate"><span class="pre">rotate_cubic_elastic_constants()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.elasticity.rotate_elastic_constants"><code class="docutils literal notranslate"><span class="pre">rotate_elastic_constants()</span></code></a></li>
@@ -141,49 +142,52 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.Voigt_6x6_to_full_3x3x3x3" title="matscipy.elasticity.Voigt_6x6_to_full_3x3x3x3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Voigt_6x6_to_full_3x3x3x3</span></code></a>(C)</p></td>
 <td><p>Convert from the Voigt representation of the stiffness matrix to the full 3x3x3x3 representation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.cubic_to_Voigt_6x6" title="matscipy.elasticity.cubic_to_Voigt_6x6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubic_to_Voigt_6x6</span></code></a>(C11, C12, C44)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.coalesce_elastic_constants" title="matscipy.elasticity.coalesce_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coalesce_elastic_constants</span></code></a>([C11, C12, C44, ...])</p></td>
+<td><p>Convert either all of C11, C12, C44, or 6x6 C, or 3x3x3x3 C to the form defined by convention.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.cubic_to_Voigt_6x6" title="matscipy.elasticity.cubic_to_Voigt_6x6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubic_to_Voigt_6x6</span></code></a>(C11, C12, C44)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.elastic_moduli" title="matscipy.elasticity.elastic_moduli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elastic_moduli</span></code></a>(C[, l, R, tol])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.elastic_moduli" title="matscipy.elasticity.elastic_moduli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elastic_moduli</span></code></a>(C[, l, R, tol])</p></td>
 <td><p>Calculate elastic moduli from 6x6 elastic constant matrix C_{ij}.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.fit_elastic_constants" title="matscipy.elasticity.fit_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_elastic_constants</span></code></a>(a[, symmetry, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.fit_elastic_constants" title="matscipy.elasticity.fit_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_elastic_constants</span></code></a>(a[, symmetry, ...])</p></td>
 <td><p>Compute elastic constants by linear regression of stress vs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_index" title="matscipy.elasticity.full_3x3_to_Voigt_6_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_index</span></code></a>(i, j)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_index" title="matscipy.elasticity.full_3x3_to_Voigt_6_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_index</span></code></a>(i, j)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_strain" title="matscipy.elasticity.full_3x3_to_Voigt_6_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_strain</span></code></a>(strain_matrix)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_strain" title="matscipy.elasticity.full_3x3_to_Voigt_6_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_strain</span></code></a>(strain_matrix)</p></td>
 <td><p>Form a 6 component strain vector in Voigt notation from a 3x3 matrix</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_stress" title="matscipy.elasticity.full_3x3_to_Voigt_6_stress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_stress</span></code></a>(stress_matrix)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3_to_Voigt_6_stress" title="matscipy.elasticity.full_3x3_to_Voigt_6_stress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_stress</span></code></a>(stress_matrix)</p></td>
 <td><p>Form a 6 component stress vector in Voigt notation from a 3x3 matrix</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6" title="matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3x3x3_to_Voigt_6x6</span></code></a>(C[, tol, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6" title="matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_3x3x3x3_to_Voigt_6x6</span></code></a>(C[, tol, ...])</p></td>
 <td><p>Convert from the full 3x3x3x3 representation of the stiffness matrix to the representation in Voigt notation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.generate_strained_configs" title="matscipy.elasticity.generate_strained_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_strained_configs</span></code></a>(at0[, symmetry, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.generate_strained_configs" title="matscipy.elasticity.generate_strained_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_strained_configs</span></code></a>(at0[, symmetry, ...])</p></td>
 <td><p>Generate a sequence of strained configurations</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.invariants" title="matscipy.elasticity.invariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">invariants</span></code></a>(s[, syy, szz, syz, sxz, sxy, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.invariants" title="matscipy.elasticity.invariants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">invariants</span></code></a>(s[, syy, szz, syz, sxz, sxy, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.measure_triclinic_elastic_constants" title="matscipy.elasticity.measure_triclinic_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_triclinic_elastic_constants</span></code></a>(a[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.measure_triclinic_elastic_constants" title="matscipy.elasticity.measure_triclinic_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_triclinic_elastic_constants</span></code></a>(a[, ...])</p></td>
 <td><p>Brute-force measurement of elastic constants for a triclinic (general) unit cell.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.nonaffine_elastic_contribution" title="matscipy.elasticity.nonaffine_elastic_contribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonaffine_elastic_contribution</span></code></a>(atoms[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.nonaffine_elastic_contribution" title="matscipy.elasticity.nonaffine_elastic_contribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonaffine_elastic_contribution</span></code></a>(atoms[, ...])</p></td>
 <td><p>Compute the correction of non-affine displacements to the elasticity tensor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.poisson_ratio" title="matscipy.elasticity.poisson_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_ratio</span></code></a>(C, l, m)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.poisson_ratio" title="matscipy.elasticity.poisson_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_ratio</span></code></a>(C, l, m)</p></td>
 <td><p>Calculate approximate Poisson ratio</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.rotate_cubic_elastic_constants" title="matscipy.elasticity.rotate_cubic_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_cubic_elastic_constants</span></code></a>(C11, C12, C44, A)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.rotate_cubic_elastic_constants" title="matscipy.elasticity.rotate_cubic_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_cubic_elastic_constants</span></code></a>(C11, C12, C44, A)</p></td>
 <td><p>Return rotated elastic moduli for a cubic crystal given the elastic constant in standard C11, C12, C44 notation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.rotate_elastic_constants" title="matscipy.elasticity.rotate_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_elastic_constants</span></code></a>(C, A[, tol])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.rotate_elastic_constants" title="matscipy.elasticity.rotate_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_elastic_constants</span></code></a>(C, A[, tol])</p></td>
 <td><p>Return rotated elastic moduli for a general crystal given the elastic constant in Voigt notation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.elasticity.youngs_modulus" title="matscipy.elasticity.youngs_modulus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">youngs_modulus</span></code></a>(C, l)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.elasticity.youngs_modulus" title="matscipy.elasticity.youngs_modulus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">youngs_modulus</span></code></a>(C, l)</p></td>
 <td><p>Calculate approximate Youngs modulus E_l from 6x6 elastic constants matrix C_ij</p></td>
 </tr>
 </tbody>
@@ -262,6 +266,15 @@ C11, C12 and C44.</p>
 <dt class="sig sig-object py" id="matscipy.elasticity.cubic_to_Voigt_6x6">
 <span class="sig-prename descclassname"><span class="pre">matscipy.elasticity.</span></span><span class="sig-name descname"><span class="pre">cubic_to_Voigt_6x6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.elasticity.cubic_to_Voigt_6x6" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.elasticity.coalesce_elastic_constants">
+<span class="sig-prename descclassname"><span class="pre">matscipy.elasticity.</span></span><span class="sig-name descname"><span class="pre">coalesce_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C11</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C44</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Cij'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.elasticity.coalesce_elastic_constants" title="Link to this definition"></a></dt>
+<dd><p>Convert either all of C11, C12, C44, or 6x6 C, or 3x3x3x3 C to the form defined by convention.</p>
+<p>convention=”cubic”: returns C11, C12, C44
+convention=”Cij”: returns 6x6 C matrix
+convention=”Cijkl”: returns 3x3x3x3 C tensor</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.elasticity.invariants">

@@ -58,6 +58,7 @@ matscipy.dislocation
       BodyCenteredCubicOctahedralFactory
       BodyCenteredCubicTetrahedralFactory
       CubicCrystalDislocation
+      CubicCrystalDislocationQuadrupole
       CubicCrystalDissociatedDislocation
       DiamondGlide30degreePartial
       DiamondGlide60Degree
@@ -68,6 +69,7 @@ matscipy.dislocation
       FCCScrew110Dislocation
       FCCScrewShockleyPartial
       FixedLineAtoms
+      Quadrupole
    
    
 
