@@ -18,7 +18,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=1dba82e2"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -132,12 +132,6 @@ is not explicitly included in the simulation.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version &gt;=1.17.3 and &lt;1.25.0 is required for this version of SciPy (detected version 1.26.4
-  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="initial-pressure-equilibration">
@@ -203,6 +197,16 @@ Interatomic interactions are modelled with the Stillinger-Weber potential for si
 
 <span class="n">calc</span> <span class="o">=</span> <span class="n">Manybody</span><span class="p">(</span><span class="o">**</span><span class="n">StillingerWeber</span><span class="p">(</span><span class="n">Stillinger_Weber_PRB_31_5262_Si</span><span class="p">))</span>  <span class="c1"># specify calculator</span>
 <span class="n">atoms</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>  <span class="c1"># attach calculator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version &gt;=1.17.3 and &lt;1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10129/829096581.py:19: DeprecationWarning: Please use atoms.calc = calc
+  atoms.set_calculator(calc)  # attach calculator
 </pre></div>
 </div>
 </div>
@@ -286,6 +290,12 @@ The log file can be read using the class (<a class="reference internal" href="..
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10129/3486272778.py:35: DeprecationWarning: Please use atoms.calc = calc
+  atoms.set_calculator(calc)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next, we again initialize the integrator.</p>
 <div class="cell docutils container">
@@ -362,6 +372,12 @@ The log file can be read using the class (<a class="reference internal" href="..
 
 <span class="n">calc</span> <span class="o">=</span> <span class="n">Manybody</span><span class="p">(</span><span class="o">**</span><span class="n">StillingerWeber</span><span class="p">(</span><span class="n">Stillinger_Weber_PRB_31_5262_Si</span><span class="p">))</span>  <span class="c1"># specify calculator</span>
 <span class="n">atoms</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10129/1365514820.py:29: DeprecationWarning: Please use atoms.calc = calc
+  atoms.set_calculator(calc)
 </pre></div>
 </div>
 </div>
@@ -490,6 +506,12 @@ The log file can be read using the class (<a class="reference internal" href="..
 <span class="n">integrator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">steps_integrate</span><span class="p">)</span>
 <span class="n">log_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">trajectory</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10129/2714859955.py:40: DeprecationWarning: Please use atoms.calc = calc
+  atoms.set_calculator(calc)
 </pre></div>
 </div>
 </div>
