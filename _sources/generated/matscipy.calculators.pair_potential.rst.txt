@@ -4,28 +4,10 @@ matscipy.calculators.pair\_potential
 .. automodule:: matscipy.calculators.pair_potential
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.pair_potential.calculator
-
+   calculator

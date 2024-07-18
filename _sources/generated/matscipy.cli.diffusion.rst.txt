@@ -4,28 +4,10 @@ matscipy.cli.diffusion
 .. automodule:: matscipy.cli.diffusion
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.cli.diffusion.rms
-
+   rms

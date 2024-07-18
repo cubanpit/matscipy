@@ -4,26 +4,9 @@ matscipy.precon
 .. automodule:: matscipy.precon
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       HessianPrecon
    
-   
-
-   
-   
-   
-
-
-

@@ -4,11 +4,6 @@ matscipy.fracture\_mechanics.idealbrittlesolid
 .. automodule:: matscipy.fracture_mechanics.idealbrittlesolid
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -20,21 +15,9 @@ matscipy.fracture\_mechanics.idealbrittlesolid
       set_initial_velocities
       triangular_lattice_slab
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       IdealBrittleSolid
    
-   
-
-   
-   
-   
-
-
-

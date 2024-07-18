@@ -4,11 +4,6 @@ matscipy.cli.glasses.quench
 .. automodule:: matscipy.cli.glasses.quench
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -17,15 +12,3 @@ matscipy.cli.glasses.quench
       main
       random_solid
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

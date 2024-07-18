@@ -4,11 +4,6 @@ matscipy.fracture\_mechanics.crack
 .. automodule:: matscipy.fracture_mechanics.crack
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -34,10 +29,6 @@ matscipy.fracture\_mechanics.crack
       strain_to_G
       thin_strip_displacement_y
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -48,11 +39,3 @@ matscipy.fracture\_mechanics.crack
       RectilinearAnisotropicCrack
       SinclairCrack
    
-   
-
-   
-   
-   
-
-
-

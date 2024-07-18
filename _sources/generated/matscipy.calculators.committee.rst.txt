@@ -4,30 +4,12 @@ matscipy.calculators.committee
 .. automodule:: matscipy.calculators.committee
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.committee.committee
-   matscipy.calculators.committee.log
-   matscipy.calculators.committee.utils
-
+   committee
+   log
+   utils

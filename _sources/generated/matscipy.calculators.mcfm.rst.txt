@@ -4,33 +4,15 @@ matscipy.calculators.mcfm
 .. automodule:: matscipy.calculators.mcfm
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.mcfm.calculator
-   matscipy.calculators.mcfm.cluster_data
-   matscipy.calculators.mcfm.mcfm_parallel
-   matscipy.calculators.mcfm.neighbour_list_mcfm
-   matscipy.calculators.mcfm.qm_cluster
-   matscipy.calculators.mcfm.qm_cluster_tools
-
+   calculator
+   cluster_data
+   mcfm_parallel
+   neighbour_list_mcfm
+   qm_cluster
+   qm_cluster_tools

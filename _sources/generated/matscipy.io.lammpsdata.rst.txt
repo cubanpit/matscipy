@@ -4,11 +4,6 @@ matscipy.io.lammpsdata
 .. automodule:: matscipy.io.lammpsdata
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -17,21 +12,9 @@ matscipy.io.lammpsdata
       column_size
       read_molecules_from_lammps_data
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       LAMMPSData
    
-   
-
-   
-   
-   
-
-
-

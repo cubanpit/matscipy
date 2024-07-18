@@ -4,11 +4,6 @@ matscipy.electrochemistry.poisson\_boltzmann\_distribution
 .. automodule:: matscipy.electrochemistry.poisson_boltzmann_distribution
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -22,15 +17,3 @@ matscipy.electrochemistry.poisson\_boltzmann\_distribution
       potential
       test
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

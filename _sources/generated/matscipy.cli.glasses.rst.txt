@@ -4,28 +4,10 @@ matscipy.cli.glasses
 .. automodule:: matscipy.cli.glasses
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.cli.glasses.quench
-
+   quench

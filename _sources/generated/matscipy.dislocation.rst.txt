@@ -4,11 +4,6 @@ matscipy.dislocation
 .. automodule:: matscipy.dislocation
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -40,10 +35,6 @@ matscipy.dislocation
       show_configuration
       slice_long_dislo
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -71,11 +62,3 @@ matscipy.dislocation
       FixedLineAtoms
       Quadrupole
    
-   
-
-   
-   
-   
-
-
-

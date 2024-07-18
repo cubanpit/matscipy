@@ -4,26 +4,9 @@ matscipy.calculators.mcfm.qm\_cluster
 .. automodule:: matscipy.calculators.mcfm.qm_cluster
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       QMCluster
    
-   
-
-   
-   
-   
-
-
-

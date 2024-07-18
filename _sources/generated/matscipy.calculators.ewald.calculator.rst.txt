@@ -4,15 +4,6 @@ matscipy.calculators.ewald.calculator
 .. automodule:: matscipy.calculators.ewald.calculator
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -20,11 +11,3 @@ matscipy.calculators.ewald.calculator
       Ewald
       EwaldShortRange
    
-   
-
-   
-   
-   
-
-
-

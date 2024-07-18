@@ -4,11 +4,6 @@ matscipy.atomic\_strain
 .. automodule:: matscipy.atomic_strain
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -21,15 +16,3 @@ matscipy.atomic\_strain
       get_delta_plus_epsilon
       get_delta_plus_epsilon_dgesv
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

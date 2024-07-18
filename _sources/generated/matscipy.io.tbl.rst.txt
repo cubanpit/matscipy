@@ -4,11 +4,6 @@ matscipy.io.tbl
 .. automodule:: matscipy.io.tbl
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -16,15 +11,3 @@ matscipy.io.tbl
       loadtbl
       savetbl
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

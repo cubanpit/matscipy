@@ -4,11 +4,6 @@ matscipy.calculators.manybody.explicit\_forms.tersoff\_brenner
 .. automodule:: matscipy.calculators.manybody.explicit_forms.tersoff_brenner
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -20,15 +15,3 @@ matscipy.calculators.manybody.explicit\_forms.tersoff\_brenner
       pair_index
       triplet_index
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

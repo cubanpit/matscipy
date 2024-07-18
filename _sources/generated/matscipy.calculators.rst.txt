@@ -4,37 +4,19 @@ matscipy.calculators
 .. automodule:: matscipy.calculators
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.calculator
-   matscipy.calculators.committee
-   matscipy.calculators.eam
-   matscipy.calculators.ewald
-   matscipy.calculators.fitting
-   matscipy.calculators.manybody
-   matscipy.calculators.mcfm
-   matscipy.calculators.pair_potential
-   matscipy.calculators.polydisperse
-   matscipy.calculators.supercell_calculator
-
+   calculator
+   committee
+   eam
+   ewald
+   fitting
+   manybody
+   mcfm
+   pair_potential
+   polydisperse
+   supercell_calculator

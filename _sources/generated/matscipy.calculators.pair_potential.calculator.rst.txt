@@ -4,15 +4,6 @@ matscipy.calculators.pair\_potential.calculator
 .. automodule:: matscipy.calculators.pair_potential.calculator
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -26,11 +17,3 @@ matscipy.calculators.pair\_potential.calculator
       LennardJonesQuadratic
       PairPotential
    
-   
-
-   
-   
-   
-
-
-

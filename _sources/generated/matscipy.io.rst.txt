@@ -4,31 +4,13 @@ matscipy.io
 .. automodule:: matscipy.io
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.io.lammpsdata
-   matscipy.io.metis
-   matscipy.io.opls
-   matscipy.io.tbl
-
+   lammpsdata
+   metis
+   opls
+   tbl

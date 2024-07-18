@@ -4,26 +4,9 @@ matscipy.optimize
 .. automodule:: matscipy.optimize
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       ode12r
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

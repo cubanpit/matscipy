@@ -4,29 +4,11 @@ matscipy.calculators.mcfm.neighbour\_list\_mcfm
 .. automodule:: matscipy.calculators.mcfm.neighbour_list_mcfm
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.mcfm.neighbour_list_mcfm.neighbour_list_base
-   matscipy.calculators.mcfm.neighbour_list_mcfm.neighbour_list_mcfm
-
+   neighbour_list_base
+   neighbour_list_mcfm

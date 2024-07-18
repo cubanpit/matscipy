@@ -4,21 +4,12 @@ matscipy.calculators.manybody.potentials
 .. automodule:: matscipy.calculators.manybody.potentials
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       angle_distance_defined
       distance_defined
-   
-   
-
-   
    
    .. rubric:: Classes
 
@@ -39,11 +30,3 @@ matscipy.calculators.manybody.potentials
       ZeroAngle
       ZeroPair
    
-   
-
-   
-   
-   
-
-
-

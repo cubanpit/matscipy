@@ -4,15 +4,6 @@ matscipy.calculators.committee.committee
 .. automodule:: matscipy.calculators.committee.committee
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -21,11 +12,3 @@ matscipy.calculators.committee.committee
       CommitteeMember
       CommitteeUncertainty
    
-   
-
-   
-   
-   
-
-
-

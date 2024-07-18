@@ -4,20 +4,3 @@ matscipy.fracture\_mechanics.crackpathsel
 .. automodule:: matscipy.fracture_mechanics.crackpathsel
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

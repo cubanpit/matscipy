@@ -4,28 +4,10 @@ matscipy.calculators.ewald
 .. automodule:: matscipy.calculators.ewald
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.calculators.ewald.calculator
-
+   calculator

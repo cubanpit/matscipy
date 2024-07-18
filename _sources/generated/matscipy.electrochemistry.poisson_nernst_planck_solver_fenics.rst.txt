@@ -4,15 +4,6 @@ matscipy.electrochemistry.poisson\_nernst\_planck\_solver\_fenics
 .. automodule:: matscipy.electrochemistry.poisson_nernst_planck_solver_fenics
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -20,11 +11,3 @@ matscipy.electrochemistry.poisson\_nernst\_planck\_solver\_fenics
       Boundary
       PoissonNernstPlanckSystemFEniCS
    
-   
-
-   
-   
-   
-
-
-

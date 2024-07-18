@@ -4,20 +4,11 @@ matscipy.opls
 .. automodule:: matscipy.opls
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       twochar
-   
-   
-
-   
    
    .. rubric:: Classes
 
@@ -30,11 +21,3 @@ matscipy.opls
       LJQData
       OPLSStructure
    
-   
-
-   
-   
-   
-
-
-

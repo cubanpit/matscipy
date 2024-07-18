@@ -4,11 +4,6 @@
 .. automodule:: matscipy
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -16,54 +11,41 @@
       has_parameter
       parameter
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.angle_distribution
-   matscipy.atomic_strain
-   matscipy.calculators
-   matscipy.cauchy_born
-   matscipy.cli
-   matscipy.deformation
-   matscipy.dislocation
-   matscipy.drift
-   matscipy.elasticity
-   matscipy.electrochemistry
-   matscipy.ffi
-   matscipy.fracture_mechanics
-   matscipy.gamma_surface
-   matscipy.hessian_finite_differences
-   matscipy.hydrogenate
-   matscipy.io
-   matscipy.logger
-   matscipy.molecules
-   matscipy.neighbours
-   matscipy.numerical
-   matscipy.numpy_tricks
-   matscipy.opls
-   matscipy.optimize
-   matscipy.precon
-   matscipy.pressurecoupling
-   matscipy.rings
-   matscipy.socketcalc
-   matscipy.spatial_correlation_function
-   matscipy.surface
-   matscipy.surface_reconstruction
-   matscipy.utils
-   matscipy.visualise
-
+   angle_distribution
+   atomic_strain
+   calculators
+   cauchy_born
+   cli
+   compat
+   deformation
+   dislocation
+   drift
+   elasticity
+   electrochemistry
+   ffi
+   fracture_mechanics
+   gamma_surface
+   hydrogenate
+   io
+   logger
+   molecules
+   neighbours
+   numerical
+   numpy_tricks
+   opls
+   optimize
+   precon
+   pressurecoupling
+   rings
+   socketcalc
+   spatial_correlation_function
+   surface
+   surface_reconstruction
+   utils
+   visualise

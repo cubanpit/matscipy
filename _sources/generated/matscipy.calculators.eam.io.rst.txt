@@ -4,11 +4,6 @@ matscipy.calculators.eam.io
 .. automodule:: matscipy.calculators.eam.io
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -17,21 +12,9 @@ matscipy.calculators.eam.io
       read_eam
       write_eam
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       EAMParameters
    
-   
-
-   
-   
-   
-
-
-

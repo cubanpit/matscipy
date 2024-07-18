@@ -4,26 +4,9 @@ matscipy.cli.diffusion.rms
 .. automodule:: matscipy.cli.diffusion.rms
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       main
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

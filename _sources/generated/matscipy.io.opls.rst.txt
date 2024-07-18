@@ -4,11 +4,6 @@ matscipy.io.opls
 .. automodule:: matscipy.io.opls
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -25,15 +20,3 @@ matscipy.io.opls
       write_lammps_definitions
       write_lammps_in
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

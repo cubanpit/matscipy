@@ -4,32 +4,14 @@ matscipy.electrochemistry
 .. automodule:: matscipy.electrochemistry
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.electrochemistry.continuous2discrete
-   matscipy.electrochemistry.poisson_boltzmann_distribution
-   matscipy.electrochemistry.poisson_nernst_planck_solver
-   matscipy.electrochemistry.poisson_nernst_planck_solver_fenics
-   matscipy.electrochemistry.steric_correction
-
+   continuous2discrete
+   poisson_boltzmann_distribution
+   poisson_nernst_planck_solver
+   poisson_nernst_planck_solver_fenics
+   steric_correction

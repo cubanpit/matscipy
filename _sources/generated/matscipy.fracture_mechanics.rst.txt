@@ -4,32 +4,14 @@ matscipy.fracture\_mechanics
 .. automodule:: matscipy.fracture_mechanics
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
 .. rubric:: Modules
 
 .. autosummary::
    :toctree:
    :recursive:
 
-   matscipy.fracture_mechanics.clusters
-   matscipy.fracture_mechanics.crack
-   matscipy.fracture_mechanics.crackpathsel
-   matscipy.fracture_mechanics.energy_release
-   matscipy.fracture_mechanics.idealbrittlesolid
-
+   clusters
+   crack
+   crackpathsel
+   energy_release
+   idealbrittlesolid

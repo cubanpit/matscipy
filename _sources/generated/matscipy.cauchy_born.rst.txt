@@ -4,15 +4,6 @@ matscipy.cauchy\_born
 .. automodule:: matscipy.cauchy_born
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -20,11 +11,3 @@ matscipy.cauchy\_born
       CubicCauchyBorn
       RegressionModel
    
-   
-
-   
-   
-   
-
-
-

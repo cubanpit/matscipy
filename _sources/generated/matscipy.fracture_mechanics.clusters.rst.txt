@@ -4,11 +4,6 @@ matscipy.fracture\_mechanics.clusters
 .. automodule:: matscipy.fracture_mechanics.clusters
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -24,15 +19,3 @@ matscipy.fracture\_mechanics.clusters
       set_groups
       set_regions
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

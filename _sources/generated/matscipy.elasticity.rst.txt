@@ -4,11 +4,6 @@ matscipy.elasticity
 .. automodule:: matscipy.elasticity
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -34,21 +29,9 @@ matscipy.elasticity
       rotate_elastic_constants
       youngs_modulus
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       CubicElasticModuli
    
-   
-
-   
-   
-   
-
-
-

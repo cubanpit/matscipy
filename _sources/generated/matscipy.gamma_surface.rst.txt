@@ -4,15 +4,6 @@ matscipy.gamma\_surface
 .. automodule:: matscipy.gamma_surface
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -20,11 +11,3 @@ matscipy.gamma\_surface
       GammaSurface
       StackingFault
    
-   
-
-   
-   
-   
-
-
-

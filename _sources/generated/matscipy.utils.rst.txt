@@ -4,11 +4,6 @@ matscipy.utils
 .. automodule:: matscipy.utils
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -21,15 +16,3 @@ matscipy.utils
       radial_mask_from_polygon2D
       validate_cubic_cell
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

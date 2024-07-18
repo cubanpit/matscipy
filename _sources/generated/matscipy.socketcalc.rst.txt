@@ -4,11 +4,6 @@ matscipy.socketcalc
 .. automodule:: matscipy.socketcalc
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -19,10 +14,6 @@ matscipy.socketcalc
       unpack_reftraj_output_str_to_results
       unpack_reftraj_str_to_atoms
       unpack_xyz_str_to_results
-   
-   
-
-   
    
    .. rubric:: Classes
 
@@ -39,11 +30,3 @@ matscipy.socketcalc
       SocketCalculator
       VaspClient
    
-   
-
-   
-   
-   
-
-
-

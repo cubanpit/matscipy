@@ -4,11 +4,6 @@ matscipy.numerical
 .. automodule:: matscipy.numerical
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -21,15 +16,3 @@ matscipy.numerical
       numerical_nonaffine_forces_reference
       numerical_stress
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

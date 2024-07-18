@@ -4,15 +4,6 @@ matscipy.calculators.fitting
 .. automodule:: matscipy.calculators.fitting
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -41,11 +32,3 @@ matscipy.calculators.fitting
       Penalty
       RotatingFit
    
-   
-
-   
-   
-   
-
-
-

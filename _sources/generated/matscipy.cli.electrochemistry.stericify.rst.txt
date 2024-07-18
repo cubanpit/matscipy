@@ -4,26 +4,9 @@ matscipy.cli.electrochemistry.stericify
 .. automodule:: matscipy.cli.electrochemistry.stericify
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       main
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-

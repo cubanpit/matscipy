@@ -4,11 +4,6 @@ matscipy.surface
 .. automodule:: matscipy.surface
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -20,21 +15,9 @@ matscipy.surface
       gcd
       make_unit_slab
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       MillerIndex
    
-   
-
-   
-   
-   
-
-
-

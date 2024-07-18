@@ -266,54 +266,51 @@
 <td><p>Calculate magnetic moments projected onto atoms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_non_affine_contribution_to_elastic_constants" title="matscipy.calculators.ewald.calculator.Ewald.get_non_affine_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
-<td><p><cite>get_non_affine_contribution_to_elastic_constants</cite> is deprecated, use <cite>elasticity.nonaffine_elastic_contribution</cite> instead!</p></td>
+<td><p>Compute the correction of non-affine displacements to the elasticity tensor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_nonaffine_forces" title="matscipy.calculators.ewald.calculator.Ewald.get_nonaffine_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nonaffine_forces</span></code></a>(atoms)</p></td>
 <td><p>Compute the non-affine forces which result from an affine deformation of atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_numerical_non_affine_forces" title="matscipy.calculators.ewald.calculator.Ewald.get_numerical_non_affine_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_numerical_non_affine_forces</span></code></a>(atoms[, d])</p></td>
-<td><p><cite>get_numerical_non_affine_forces</cite> is deprecated, use <cite>numerical.numerical_nonaffine_forces</cite> instead!</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_property" title="matscipy.calculators.ewald.calculator.Ewald.get_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_property</span></code></a>(name[, atoms, allow_calculation])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_property" title="matscipy.calculators.ewald.calculator.Ewald.get_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_property</span></code></a>(name[, atoms, allow_calculation])</p></td>
 <td><p>Get the named property.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_stress_contribution_to_elastic_constants" title="matscipy.calculators.ewald.calculator.Ewald.get_stress_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_stress_contribution_to_elastic_constants" title="matscipy.calculators.ewald.calculator.Ewald.get_stress_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
 <td><p>Compute the correction to the elastic constants due to non-zero stress in the configuration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_stresses" title="matscipy.calculators.ewald.calculator.Ewald.get_stresses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stresses</span></code></a>([atoms])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.get_stresses" title="matscipy.calculators.ewald.calculator.Ewald.get_stresses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stresses</span></code></a>([atoms])</p></td>
 <td><p>the calculator should return intensive stresses, i.e., such that stresses.sum(axis=0) == stress</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.kspace_energy" title="matscipy.calculators.ewald.calculator.Ewald.kspace_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kspace_energy</span></code></a>(charge, pos, vol, I, k)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.kspace_energy" title="matscipy.calculators.ewald.calculator.Ewald.kspace_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kspace_energy</span></code></a>(charge, pos, vol, I, k)</p></td>
 <td><p>Return the energy from the reciprocal space contribution</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.kspace_properties" title="matscipy.calculators.ewald.calculator.Ewald.kspace_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kspace_properties</span></code></a>(atoms[, prop, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.kspace_properties" title="matscipy.calculators.ewald.calculator.Ewald.kspace_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kspace_properties</span></code></a>(atoms[, prop, ...])</p></td>
 <td><p>Calculate the recirprocal contributiom to the Hessian, the non-affine forces and the Born elastic constants</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.read" title="matscipy.calculators.ewald.calculator.Ewald.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(label)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.read" title="matscipy.calculators.ewald.calculator.Ewald.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(label)</p></td>
 <td><p>Read atoms, parameters and calculated properties from output file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.reset" title="matscipy.calculators.ewald.calculator.Ewald.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.reset" title="matscipy.calculators.ewald.calculator.Ewald.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p>Clear all information from old calculation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.reset_kspace" title="matscipy.calculators.ewald.calculator.Ewald.reset_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_kspace</span></code></a>(atoms)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.reset_kspace" title="matscipy.calculators.ewald.calculator.Ewald.reset_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_kspace</span></code></a>(atoms)</p></td>
 <td><p>Reset kspace setup.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.rms_kspace" title="matscipy.calculators.ewald.calculator.Ewald.rms_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms_kspace</span></code></a>(km, l, n, a, q2)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.rms_kspace" title="matscipy.calculators.ewald.calculator.Ewald.rms_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms_kspace</span></code></a>(km, l, n, a, q2)</p></td>
 <td><p>Compute the root mean square error of the force in reciprocal space</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.rms_rspace" title="matscipy.calculators.ewald.calculator.Ewald.rms_rspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms_rspace</span></code></a>(charge, cell, a, rc)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.rms_rspace" title="matscipy.calculators.ewald.calculator.Ewald.rms_rspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms_rspace</span></code></a>(charge, cell, a, rc)</p></td>
 <td><p>Compute the root mean square error of the force in real space</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.self_energy" title="matscipy.calculators.ewald.calculator.Ewald.self_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_energy</span></code></a>(charge, a)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.self_energy" title="matscipy.calculators.ewald.calculator.Ewald.self_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_energy</span></code></a>(charge, a)</p></td>
 <td><p>Return the self energy</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.set" title="matscipy.calculators.ewald.calculator.Ewald.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.set" title="matscipy.calculators.ewald.calculator.Ewald.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**kwargs)</p></td>
 <td><p>Set parameters like set(key1=value1, key2=value2, ...).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.set_label" title="matscipy.calculators.ewald.calculator.Ewald.set_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_label</span></code></a>(label)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.set_label" title="matscipy.calculators.ewald.calculator.Ewald.set_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_label</span></code></a>(label)</p></td>
 <td><p>Set label and convert label to directory and prefix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.stress_kspace" title="matscipy.calculators.ewald.calculator.Ewald.stress_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stress_kspace</span></code></a>(charge, pos, vol, a, I, k)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.ewald.calculator.Ewald.stress_kspace" title="matscipy.calculators.ewald.calculator.Ewald.stress_kspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stress_kspace</span></code></a>(charge, pos, vol, a, I, k)</p></td>
 <td><p>Return the stress contribution of the long-range Coulomb part.</p></td>
 </tr>
 </tbody>
@@ -622,7 +619,7 @@ or the non-affine forces.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.calculators.ewald.calculator.Ewald.get_elastic_constants">
-<span class="sig-name descname"><span class="pre">get_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.ewald.calculator.Ewald.get_elastic_constants" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'rtol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.ewald.calculator.Ewald.get_elastic_constants" title="Link to this definition"></a></dt>
 <dd><p>Compute the elastic constants at zero temperature.
 These are sum of the born, the non-affine and the stress contribution.</p>
 <dl class="field-list simple">
@@ -633,7 +630,7 @@ These are sum of the born, the non-affine and the stress contribution.</p>
 <dl class="simple">
 <dt>x0: {array, matrix}</dt><dd><p>Starting guess for the solution.</p>
 </dd>
-<dt>tol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(tol*norm(b), atol).</p>
+<dt>rtol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(rtol*norm(b), atol).</p>
 </dd>
 <dt>maxiter: int</dt><dd><p>Maximum number of iterations. Iteration will stop after maxiter steps even if the specified tolerance has not been achieved.</p>
 </dd>
@@ -666,9 +663,8 @@ These are sum of the born, the non-affine and the stress contribution.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.calculators.ewald.calculator.Ewald.get_non_affine_contribution_to_elastic_constants">
-<span class="sig-name descname"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvalues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.ewald.calculator.Ewald.get_non_affine_contribution_to_elastic_constants" title="Link to this definition"></a></dt>
-<dd><p><cite>get_non_affine_contribution_to_elastic_constants</cite> is deprecated, use <cite>elasticity.nonaffine_elastic_contribution</cite> instead!</p>
-<p>Compute the correction of non-affine displacements to the elasticity tensor.
+<span class="sig-name descname"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvalues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'rtol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.ewald.calculator.Ewald.get_non_affine_contribution_to_elastic_constants" title="Link to this definition"></a></dt>
+<dd><p>Compute the correction of non-affine displacements to the elasticity tensor.
 The computation of the occuring inverse of the Hessian matrix is bypassed by using a cg solver.</p>
 <p>If eigenvalues and and eigenvectors are given the inverse of the Hessian can be easily computed.</p>
 <dl class="field-list simple">
@@ -682,7 +678,8 @@ If given, use eigenvalues and eigenvectors to compute non-affine contribution.</
 <dl class="simple">
 <dt>x0: {array, matrix}</dt><dd><p>Starting guess for the solution.</p>
 </dd>
-<dt>tol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(tol*norm(b), atol).</p>
+<dt>rtol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(
+rtol*norm(b), atol).</p>
 </dd>
 <dt>maxiter: int</dt><dd><p>Maximum number of iterations. Iteration will stop after maxiter steps even if the specified tolerance has not been achieved.</p>
 </dd>
@@ -715,19 +712,6 @@ If given, use eigenvalues and eigenvectors to compute non-affine contribution.</
 </dl>
 </p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="matscipy.calculators.ewald.calculator.Ewald.get_numerical_non_affine_forces">
-<span class="sig-name descname"><span class="pre">get_numerical_non_affine_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.ewald.calculator.Ewald.get_numerical_non_affine_forces" title="Link to this definition"></a></dt>
-<dd><p><cite>get_numerical_non_affine_forces</cite> is deprecated, use <cite>numerical.numerical_nonaffine_forces</cite> instead!</p>
-<p>Calculate numerical non-affine forces using central finite differences.
-This is done by deforming the box, rescaling atoms and measure the force.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>atoms</strong> (<em>ase.Atoms</em>) – Atomic configuration in a local or global minima.</p>
 </dd>
 </dl>
 </dd></dl>

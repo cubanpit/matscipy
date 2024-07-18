@@ -4,26 +4,9 @@ matscipy.calculators.calculator
 .. automodule:: matscipy.calculators.calculator
 
    
-   
-   
-
-   
-   
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       MatscipyCalculator
    
-   
-
-   
-   
-   
-
-
-

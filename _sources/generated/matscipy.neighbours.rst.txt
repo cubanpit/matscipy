@@ -4,11 +4,6 @@ matscipy.neighbours
 .. automodule:: matscipy.neighbours
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -19,10 +14,6 @@ matscipy.neighbours
       neighbour_list
       triplet_list
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
@@ -31,11 +22,3 @@ matscipy.neighbours
       MolecularNeighbourhood
       Neighbourhood
    
-   
-
-   
-   
-   
-
-
-

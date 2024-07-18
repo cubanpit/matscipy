@@ -194,39 +194,36 @@
 <td><p>Calculate magnetic moments projected onto atoms.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_non_affine_contribution_to_elastic_constants" title="matscipy.calculators.manybody.newmb.Manybody.get_non_affine_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
-<td><p><cite>get_non_affine_contribution_to_elastic_constants</cite> is deprecated, use <cite>elasticity.nonaffine_elastic_contribution</cite> instead!</p></td>
+<td><p>Compute the correction of non-affine displacements to the elasticity tensor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_nonaffine_forces" title="matscipy.calculators.manybody.newmb.Manybody.get_nonaffine_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nonaffine_forces</span></code></a>(atoms)</p></td>
 <td><p>Compute non-affine forces (derivatives w/r reference positions).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_numerical_non_affine_forces" title="matscipy.calculators.manybody.newmb.Manybody.get_numerical_non_affine_forces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_numerical_non_affine_forces</span></code></a>(atoms[, d])</p></td>
-<td><p><cite>get_numerical_non_affine_forces</cite> is deprecated, use <cite>numerical.numerical_nonaffine_forces</cite> instead!</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_property" title="matscipy.calculators.manybody.newmb.Manybody.get_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_property</span></code></a>(name[, atoms, allow_calculation])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_property" title="matscipy.calculators.manybody.newmb.Manybody.get_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_property</span></code></a>(name[, atoms, allow_calculation])</p></td>
 <td><p>Get the named property.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_stress_contribution_to_elastic_constants" title="matscipy.calculators.manybody.newmb.Manybody.get_stress_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_stress_contribution_to_elastic_constants" title="matscipy.calculators.manybody.newmb.Manybody.get_stress_contribution_to_elastic_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stress_contribution_to_elastic_constants</span></code></a>(atoms)</p></td>
 <td><p>Compute the correction to the elastic constants due to non-zero stress in the configuration.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_stresses" title="matscipy.calculators.manybody.newmb.Manybody.get_stresses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stresses</span></code></a>([atoms])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.get_stresses" title="matscipy.calculators.manybody.newmb.Manybody.get_stresses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stresses</span></code></a>([atoms])</p></td>
 <td><p>the calculator should return intensive stresses, i.e., such that stresses.sum(axis=0) == stress</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.read" title="matscipy.calculators.manybody.newmb.Manybody.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(label)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.read" title="matscipy.calculators.manybody.newmb.Manybody.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(label)</p></td>
 <td><p>Read atoms, parameters and calculated properties from output file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.reset" title="matscipy.calculators.manybody.newmb.Manybody.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.reset" title="matscipy.calculators.manybody.newmb.Manybody.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p>Clear all information from old calculation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.set" title="matscipy.calculators.manybody.newmb.Manybody.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.set" title="matscipy.calculators.manybody.newmb.Manybody.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**kwargs)</p></td>
 <td><p>Set parameters like set(key1=value1, key2=value2, ...).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.set_label" title="matscipy.calculators.manybody.newmb.Manybody.set_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_label</span></code></a>(label)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.set_label" title="matscipy.calculators.manybody.newmb.Manybody.set_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_label</span></code></a>(label)</p></td>
 <td><p>Set label and convert label to directory and prefix.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.sum_ij_pi_ij_n" title="matscipy.calculators.manybody.newmb.Manybody.sum_ij_pi_ij_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_ij_pi_ij_n</span></code></a>(n, pairs, values_p)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.sum_ij_pi_ij_n" title="matscipy.calculators.manybody.newmb.Manybody.sum_ij_pi_ij_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_ij_pi_ij_n</span></code></a>(n, pairs, values_p)</p></td>
 <td><p>Compute <span class="math notranslate nohighlight">\(\sum_{ij}\pi_{ij|n}\Chi_{ij}\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.sum_ij_sum_X_pi_X_n" title="matscipy.calculators.manybody.newmb.Manybody.sum_ij_sum_X_pi_X_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_ij_sum_X_pi_X_n</span></code></a>(n, pairs, triplets, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.calculators.manybody.newmb.Manybody.sum_ij_sum_X_pi_X_n" title="matscipy.calculators.manybody.newmb.Manybody.sum_ij_sum_X_pi_X_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum_ij_sum_X_pi_X_n</span></code></a>(n, pairs, triplets, ...)</p></td>
 <td><p>Compute <span class="math notranslate nohighlight">\(\sum_{ij}\sum_{k\neq i,j}\sum_{X}\pi_{X|n}\Chi_X\)</span>.</p></td>
 </tr>
 </tbody>
@@ -530,7 +527,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.calculators.manybody.newmb.Manybody.get_elastic_constants">
-<span class="sig-name descname"><span class="pre">get_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.newmb.Manybody.get_elastic_constants" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'rtol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.newmb.Manybody.get_elastic_constants" title="Link to this definition"></a></dt>
 <dd><p>Compute the elastic constants at zero temperature.
 These are sum of the born, the non-affine and the stress contribution.</p>
 <dl class="field-list simple">
@@ -541,7 +538,7 @@ These are sum of the born, the non-affine and the stress contribution.</p>
 <dl class="simple">
 <dt>x0: {array, matrix}</dt><dd><p>Starting guess for the solution.</p>
 </dd>
-<dt>tol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(tol*norm(b), atol).</p>
+<dt>rtol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(rtol*norm(b), atol).</p>
 </dd>
 <dt>maxiter: int</dt><dd><p>Maximum number of iterations. Iteration will stop after maxiter steps even if the specified tolerance has not been achieved.</p>
 </dd>
@@ -580,9 +577,8 @@ These are sum of the born, the non-affine and the stress contribution.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="matscipy.calculators.manybody.newmb.Manybody.get_non_affine_contribution_to_elastic_constants">
-<span class="sig-name descname"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvalues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.newmb.Manybody.get_non_affine_contribution_to_elastic_constants" title="Link to this definition"></a></dt>
-<dd><p><cite>get_non_affine_contribution_to_elastic_constants</cite> is deprecated, use <cite>elasticity.nonaffine_elastic_contribution</cite> instead!</p>
-<p>Compute the correction of non-affine displacements to the elasticity tensor.
+<span class="sig-name descname"><span class="pre">get_non_affine_contribution_to_elastic_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvalues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cg_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'M':</span> <span class="pre">None,</span> <span class="pre">'atol':</span> <span class="pre">1e-05,</span> <span class="pre">'callback':</span> <span class="pre">None,</span> <span class="pre">'maxiter':</span> <span class="pre">None,</span> <span class="pre">'rtol':</span> <span class="pre">1e-05,</span> <span class="pre">'x0':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.newmb.Manybody.get_non_affine_contribution_to_elastic_constants" title="Link to this definition"></a></dt>
+<dd><p>Compute the correction of non-affine displacements to the elasticity tensor.
 The computation of the occuring inverse of the Hessian matrix is bypassed by using a cg solver.</p>
 <p>If eigenvalues and and eigenvectors are given the inverse of the Hessian can be easily computed.</p>
 <dl class="field-list simple">
@@ -596,7 +592,8 @@ If given, use eigenvalues and eigenvectors to compute non-affine contribution.</
 <dl class="simple">
 <dt>x0: {array, matrix}</dt><dd><p>Starting guess for the solution.</p>
 </dd>
-<dt>tol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(tol*norm(b), atol).</p>
+<dt>rtol/atol: float, optional</dt><dd><p>Tolerances for convergence, norm(residual) &lt;= max(
+rtol*norm(b), atol).</p>
 </dd>
 <dt>maxiter: int</dt><dd><p>Maximum number of iterations. Iteration will stop after maxiter steps even if the specified tolerance has not been achieved.</p>
 </dd>
@@ -629,19 +626,6 @@ If given, use eigenvalues and eigenvectors to compute non-affine contribution.</
 </dl>
 </p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="matscipy.calculators.manybody.newmb.Manybody.get_numerical_non_affine_forces">
-<span class="sig-name descname"><span class="pre">get_numerical_non_affine_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.newmb.Manybody.get_numerical_non_affine_forces" title="Link to this definition"></a></dt>
-<dd><p><cite>get_numerical_non_affine_forces</cite> is deprecated, use <cite>numerical.numerical_nonaffine_forces</cite> instead!</p>
-<p>Calculate numerical non-affine forces using central finite differences.
-This is done by deforming the box, rescaling atoms and measure the force.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>atoms</strong> (<em>ase.Atoms</em>) – Atomic configuration in a local or global minima.</p>
 </dd>
 </dl>
 </dd></dl>

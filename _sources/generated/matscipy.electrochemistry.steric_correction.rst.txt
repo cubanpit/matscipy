@@ -4,11 +4,6 @@ matscipy.electrochemistry.steric\_correction
 .. automodule:: matscipy.electrochemistry.steric_correction
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -25,21 +20,9 @@ matscipy.electrochemistry.steric\_correction
       scipy_distance_based_closest_pair
       scipy_distance_based_target_function
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       DeferredMessage
    
-   
-
-   
-   
-   
-
-
-

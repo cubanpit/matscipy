@@ -4,11 +4,6 @@ matscipy.calculators.committee.log
 .. automodule:: matscipy.calculators.committee.log
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -16,15 +11,3 @@ matscipy.calculators.committee.log
       create_logger
       set_logging
    
-   
-
-   
-   
-   
-
-   
-   
-   
-
-
-
