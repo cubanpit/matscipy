@@ -76,6 +76,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.triplet_list"><code class="docutils literal notranslate"><span class="pre">triplet_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.find_indices_of_reversed_pairs"><code class="docutils literal notranslate"><span class="pre">find_indices_of_reversed_pairs()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.find_common_neighbours"><code class="docutils literal notranslate"><span class="pre">find_common_neighbours()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.coordination"><code class="docutils literal notranslate"><span class="pre">coordination()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="matscipy.numerical.html">matscipy.numerical</a></li>
@@ -120,19 +121,22 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.find_common_neighbours" title="matscipy.neighbours.find_common_neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_common_neighbours</span></code></a>(i_n, j_n, nat)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.coordination" title="matscipy.neighbours.coordination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coordination</span></code></a>(structure, cutoff)</p></td>
+<td><p>Get coordination number of each atom in structure based on the number of neighbours within cutoff</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.neighbours.find_common_neighbours" title="matscipy.neighbours.find_common_neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_common_neighbours</span></code></a>(i_n, j_n, nat)</p></td>
 <td><p>Find common neighbors of pairs of atoms</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.neighbours.find_indices_of_reversed_pairs" title="matscipy.neighbours.find_indices_of_reversed_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_indices_of_reversed_pairs</span></code></a>(i_n, j_n, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.find_indices_of_reversed_pairs" title="matscipy.neighbours.find_indices_of_reversed_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_indices_of_reversed_pairs</span></code></a>(i_n, j_n, ...)</p></td>
 <td><p>Find neighbor list indices where reversed pairs are stored</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.mic" title="matscipy.neighbours.mic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mic</span></code></a>(dr, cell[, pbc])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.neighbours.mic" title="matscipy.neighbours.mic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mic</span></code></a>(dr, cell[, pbc])</p></td>
 <td><p>Apply minimum image convention to an array of distance vectors.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.neighbours.neighbour_list" title="matscipy.neighbours.neighbour_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbour_list</span></code></a>(quantities[, atoms, cutoff, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.neighbour_list" title="matscipy.neighbours.neighbour_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbour_list</span></code></a>(quantities[, atoms, cutoff, ...])</p></td>
 <td><p>Compute a neighbor list for an atomic configuration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.neighbours.triplet_list" title="matscipy.neighbours.triplet_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplet_list</span></code></a>(first_neighbours[, abs_dr_p, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.neighbours.triplet_list" title="matscipy.neighbours.triplet_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplet_list</span></code></a>(first_neighbours[, abs_dr_p, ...])</p></td>
 <td><p>Compute a triplet list for an atomic configuration.</p></td>
 </tr>
 </tbody>
@@ -840,6 +844,19 @@ of rows in the block is equal to the total number of neighbors of <code class="d
 <span class="go">(65536,)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.coordination">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">coordination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.coordination" title="Link to this definition"></a></dt>
+<dd><p>Get coordination number of each atom in structure
+based on the number of neighbours within cutoff</p>
+<dl class="simple">
+<dt>structure: ase Atoms object</dt><dd><p>Structure to take coordination of</p>
+</dd>
+<dt>cutoff: float</dt><dd><p>Radial cutoff used to determine neighbours</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

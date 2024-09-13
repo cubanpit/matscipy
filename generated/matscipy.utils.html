@@ -143,6 +143,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.utils.complete_basis" title="matscipy.utils.complete_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">complete_basis</span></code></a>(v1[, v2, normalise, nmax, tol])</p></td>
 <td><p>Generate a complete (v1, v2, v3) orthogonal basis in 3D from v1 and an optional v2</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.utils.find_condensed_repr" title="matscipy.utils.find_condensed_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_condensed_repr</span></code></a>(atoms[, precision])</p></td>
+<td><p>Search for a condensed representation of atoms Equivalent to attempting to undo a supercell</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.utils.find_condensed_repr_along_axis" title="matscipy.utils.find_condensed_repr_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_condensed_repr_along_axis</span></code></a>(atoms[, ...])</p></td>
+<td><p>Search for a condensed representation of atoms about axis.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matscipy.utils.get_distance_from_polygon2D" title="matscipy.utils.get_distance_from_polygon2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_distance_from_polygon2D</span></code></a>(test_points, ...)</p></td>
 <td><p>Get shortest distance between a test point and a polygon defined by polygon_points</p></td>
 </tr>
@@ -163,12 +169,33 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.utils.classproperty" title="matscipy.utils.classproperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classproperty</span></code></a>(method)</p></td>
+<td><p>Decorator class to replace classmethod property decorators</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.utils.classproperty">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.utils.</span></span><span class="sig-name descname"><span class="pre">classproperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.utils.classproperty" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Decorator class to replace classmethod property decorators</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.utils.classproperty.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.utils.classproperty.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.utils.validate_cubic_cell">
 <span class="sig-prename descclassname"><span class="pre">matscipy.utils.</span></span><span class="sig-name descname"><span class="pre">validate_cubic_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystalstructure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.utils.validate_cubic_cell" title="Link to this definition"></a></dt>
 <dd><p>Provide uniform interface for generating rotated atoms objects through two main methods:</p>
 <p>For lattice constant + symbol + crystalstructure, build a valid cubic bulk rotated into the frame defined by axes
-For cubic bulk atoms object + crystalstructure, validate structure matches expected cubic bulk geometry, and rotate to frame defined by axes</p>
+For cubic bulk atoms object + crystalstructure, validate structure matches expected cubic bulk geometry, and rotate to frame defined by axes
+Also, if cubic atoms object is supplied, search for a more condensed representation than is provided by ase.build.cut</p>
 <dl class="simple">
 <dt>a: float or ase.atoms</dt><dd><p>EITHER lattice constant (in A), or the cubic bulk structure</p>
 </dd>
@@ -181,6 +208,37 @@ For cubic bulk atoms object + crystalstructure, validate structure matches expec
 <dt>pbc: list of bool</dt><dd><p>Periodic Boundary Conditions in x, y, z</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.utils.find_condensed_repr">
+<span class="sig-prename descclassname"><span class="pre">matscipy.utils.</span></span><span class="sig-name descname"><span class="pre">find_condensed_repr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.utils.find_condensed_repr" title="Link to this definition"></a></dt>
+<dd><p>Search for a condensed representation of atoms
+Equivalent to attempting to undo a supercell</p>
+<dl class="simple">
+<dt>atoms: ase Atoms object</dt><dd><p>structure to condense</p>
+</dd>
+<dt>precision: int</dt><dd><p>Number of decimal places to use in determining whether scaled positions are equal</p>
+</dd>
+</dl>
+<p>returns a condensed copy of atoms, if such a condensed representation is found. Else returns a copy of atoms</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.utils.find_condensed_repr_along_axis">
+<span class="sig-prename descclassname"><span class="pre">matscipy.utils.</span></span><span class="sig-name descname"><span class="pre">find_condensed_repr_along_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.utils.find_condensed_repr_along_axis" title="Link to this definition"></a></dt>
+<dd><p>Search for a condensed representation of atoms about axis.
+Essentially an inverse to taking a supercell.</p>
+<dl class="simple">
+<dt>atoms: ase Atoms object</dt><dd><p>structure to condense</p>
+</dd>
+<dt>axis: int</dt><dd><p>axis about which to find a condensed repr
+axis=-1 essentially will invert a (1, 1, x) supercell</p>
+</dd>
+<dt>precision: int</dt><dd><p>Number of decimal places to use in determining whether scaled positions are equal</p>
+</dd>
+</dl>
+<p>returns a condensed copy of atoms, if such a condensed representation is found. Else returns a copy of atoms</p>
 </dd></dl>
 
 <dl class="py function">
